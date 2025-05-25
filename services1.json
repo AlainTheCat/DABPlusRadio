@@ -1,0 +1,262 @@
+{
+    "1": {
+        "serviceName": "ADO dab+        ",
+        "serviceID": "0x0000F21B",
+        "componentID": "0x01FE000B",
+        "tuneIndex": "3",
+        "tuneFrequency": "180064",
+        "EID": "0x49F0",
+        "componentLabel": "Grenoble-Etendu ",
+        "": ""
+    },
+    "2": {
+        "serviceName": "ALPES 1 GRENOBLE",
+        "serviceID": "0x0000F431",
+        "componentID": "0x01FE000D",
+        "tuneIndex": "18",
+        "tuneFrequency": "206352",
+        "EID": "0x4AF0 ",
+        "componentLabel": "Grenoble-Local  ",
+        "": ""
+    },
+    "3": {
+        "serviceName": "BEUR FM         ",
+        "serviceID": "0x0000F229",
+        "componentID": "0x01FE0001",
+        "tuneIndex": "18",
+        "tuneFrequency": "206352",
+        "EID": "0x4AF0",
+        "componentLabel": "Grenoble-Local  ",
+        "": ""
+    },
+    "4": {
+        "serviceName": "BLEU ISERE      ",
+        "serviceID": "0x0000F209",
+        "componentID": "0x01FE0001",
+        "tuneIndex": "3",
+        "tuneFrequency": "180064",
+        "EID": "0x49F0",
+        "componentLabel": "Grenoble-Etendu ",
+        "": ""
+    },
+    "5": {
+        "serviceName": "Campus Grenoble ",
+        "serviceID": "0x0000F891",
+        "componentID": "0x01FE0009",
+        "tuneIndex": "18",
+        "tuneFrequency": "206352",
+        "EID": "0x4AF0",
+        "componentLabel": "Grenoble-Local  ",
+        "": ""
+    },
+    "6": {
+        "serviceName": "CAPSAO          ",
+        "serviceID": "0x0000F9F1",
+        "componentID": "0x01FE0003",
+        "tuneIndex": "3",
+        "tuneFrequency": "180064",
+        "EID": "0x49F0",
+        "componentLabel": "Grenoble-Etendu ",
+        "": ""
+    },
+    "7": {
+        "serviceName": "CHERIEFMGRENOBLE",
+        "serviceID": "0x0000F224",
+        "componentID": "0x01FE0006",
+        "tuneIndex": "18",
+        "tuneFrequency": "206352",
+        "EID": "0x4AF0",
+        "componentLabel": "Grenoble-Local  ",
+        "": ""
+    },
+    "8": {
+        "serviceName": "FG. DJ Radio    ",
+        "serviceID": "0x0000F22C",
+        "componentID": "0x01FE0002",
+        "tuneIndex": "18",
+        "tuneFrequency": "206352",
+        "EID": "0x4AF0",
+        "componentLabel": "Grenoble-Local  ",
+        "": ""
+    },
+    "9": {
+        "serviceName": "HOT RADIO       ",
+        "serviceID": "0x0000F880",
+        "componentID": "0x01FE000C",
+        "tuneIndex": "18",
+        "tuneFrequency": "206352",
+        "EID": "0x4AF0",
+        "componentLabel": "Grenoble-Local  ",
+        "": ""
+    },
+    "10": {
+        "serviceName": "I S A           ",
+        "serviceID": "0x0000F882",
+        "componentID": "0x01FE0007",
+        "tuneIndex": "18",
+        "tuneFrequency": "206352",
+        "EID": "0x4AF0",
+        "componentLabel": "Grenoble-Local  ",
+        "": ""
+    },
+    "11": {
+        "serviceName": "J A Z Z RADIO   ",
+        "serviceID": "0x0000F22F",
+        "componentID": "0x01FE0008",
+        "tuneIndex": "3",
+        "tuneFrequency": "180064",
+        "EID": "0x49F0",
+        "componentLabel": "Grenoble-Etendu ",
+        "": ""
+    },
+    "12": {
+        "serviceName": "MAX RADIO       ",
+        "serviceID": "0x0000F8A1",
+        "componentID": "0x01FE000A",
+        "tuneIndex": "18",
+        "tuneFrequency": "206352",
+        "EID": "0x4AF0",
+        "componentLabel": "Grenoble-Local  ",
+        "": ""
+    },
+    "13": {
+        "serviceName": "Melody          ",
+        "serviceID": "0x0000F9F5",
+        "componentID": "0x01FE0005",
+        "tuneIndex": "3",
+        "tuneFrequency": "180064",
+        "EID": "0x49F0",
+        "componentLabel": "Grenoble-Etendu ",
+        "": ""
+    },
+    "14": {
+        "serviceName": "New's FM        ",
+        "serviceID": "0x0000F895",
+        "componentID": "0x01FE000B",
+        "tuneIndex": "18",
+        "tuneFrequency": "206352",
+        "EID": "0x4AF0",
+        "componentLabel": "Grenoble-Local  ",
+        "": ""
+    },
+    "15": {
+        "serviceName": "NOSTALGIGRENOBLE",
+        "serviceID": "0x0000F218",
+        "componentID": "0x01FE0005",
+        "tuneIndex": "18",
+        "tuneFrequency": "206352",
+        "EID": "0x4AF0",
+        "componentLabel": "Grenoble-Local  ",
+        "": ""
+    },
+    "16": {
+        "serviceName": "NRJ GRENOBLE    ",
+        "serviceID": "0x0000F220",
+        "componentID": "0x01FE0004",
+        "tuneIndex": "18",
+        "tuneFrequency": "206352",
+        "EID": "0x4AF0",
+        "componentLabel": "Grenoble-Local  ",
+        "": ""
+    },
+    "17": {
+        "serviceName": "OUI FM dab+     ",
+        "serviceID": "0x0000F21D",
+        "componentID": "0x01FE000A",
+        "tuneIndex": "3",
+        "tuneFrequency": "180064",
+        "EID": "0x49F0",
+        "componentLabel": "Grenoble-Etendu ",
+        "": ""
+    },
+    "18": {
+        "serviceName": "R K S           ",
+        "serviceID": "0x0000F8A7",
+        "componentID": "0x01FE0008",
+        "tuneIndex": "18",
+        "tuneFrequency": "206352",
+        "EID": "0x4AF0",
+        "componentLabel": "Grenoble-Local  ",
+        "": ""
+    },
+    "19": {
+        "serviceName": "Radio ORIENT    ",
+        "serviceID": "0x0000F22B",
+        "componentID": "0x01FE0006",
+        "tuneIndex": "3",
+        "tuneFrequency": "180064",
+        "EID": "0x49F0",
+        "componentLabel": "Grenoble-Etendu ",
+        "": ""
+    },
+    "20": {
+        "serviceName": "RADIO PITCHOUN  ",
+        "serviceID": "0x0000F8FE",
+        "componentID": "0x01FE0003",
+        "tuneIndex": "18",
+        "tuneFrequency": "206352",
+        "EID": "0x4AF0",
+        "componentLabel": "Grenoble-Local  ",
+        "": ""
+    },
+    "21": {
+        "serviceName": "RADIO SCOOP     ",
+        "serviceID": "0x0000F865",
+        "componentID": "0x01FE0002",
+        "tuneIndex": "3",
+        "tuneFrequency": "180064",
+        "EID": "0x49F0",
+        "componentLabel": "Grenoble-Etendu ",
+        "": ""
+    },
+    "22": {
+        "serviceName": "RCF ISERE       ",
+        "serviceID": "0x0000F20C",
+        "componentID": "0x01FE000C",
+        "tuneIndex": "3",
+        "tuneFrequency": "180064",
+        "EID": "0x49F0",
+        "componentLabel": "Grenoble-Etendu ",
+        "": ""
+    },
+    "23": {
+        "serviceName": "SUD RADIO       ",
+        "serviceID": "0x0000F650",
+        "componentID": "0x01FE0007",
+        "tuneIndex": "3",
+        "tuneFrequency": "180064",
+        "EID": "0x49F0",
+        "componentLabel": "Grenoble-Etendu ",
+        "": ""
+    },
+    "24": {
+        "serviceName": "TONIC RADIO     ",
+        "serviceID": "0x0000F887",
+        "componentID": "0x01FE000D",
+        "tuneIndex": "3",
+        "tuneFrequency": "180064",
+        "EID": "0x49F0",
+        "componentLabel": "Grenoble-Etendu ",
+        "": ""
+    },
+    "25": {
+        "serviceName": "TSF JAZZ        ",
+        "serviceID": "0x0000F223",
+        "componentID": "0x01FE0004",
+        "tuneIndex": "3",
+        "tuneFrequency": "180064",
+        "EID": "0x49F0",
+        "componentLabel": "Grenoble-Etendu ",
+        "": ""
+    },
+    "26": {
+        "serviceName": "VIRAGE RADIO    ",
+        "serviceID": "0x0000F835",
+        "componentID": "0x01FE0009",
+        "tuneIndex": "3",
+        "tuneFrequency": "180064",
+        "EID": "0x49F0",
+        "componentLabel": "Grenoble-Etendu ",
+        "": ""
+    }
+}

@@ -1,0 +1,893 @@
+
+Imports System.IO
+
+Public Class Form1
+    ' vendor and product IDs
+    Private Const VendorID As Integer = &H1234      'Replace with your device's
+    Private Const ProductID As Integer = &H4684     'product and vendor IDs
+
+    ' read and write buffers
+    Private Const BufferInSize As Integer = 40      'Size of the data buffer coming IN to the PC
+    Private Const BufferOutSize As Integer = 16     'Size of the data buffer going OUT from the PC
+    Dim BufferIn(BufferInSize) As Byte              'Received data will be stored here - the first byte in the array is unused
+    Dim BufferOut(BufferOutSize) As Byte            'Transmitted data is stored here - the first item in the array must be 0
+
+    Public Command As Integer
+    Public Argument1 As Integer
+    Public Argument2 As Integer
+    Public Argument3 As Integer
+    Public Argument4 As Integer
+    Public Argument5 As Integer
+    Public Argument6 As Integer
+    Public Argument7 As Integer
+    Public Argument8 As Integer
+    Public Argument9 As Integer
+    Public Argument10 As Integer
+    Public Argument11 As Integer
+    Public Argument12 As Integer
+    Public Argument13 As Integer
+    Public Argument14 As Integer
+    Public Argument15 As Integer
+    Public HID_to_Send As Boolean
+    Public Skyworks_Part_Number As Integer
+    Public Microchip_Part_Number As String
+    Public Image_System As Integer
+    Public SI_First_Rev As Integer
+    Public SI_Second_Rev As Integer
+    Public SI_Third_Rev As Integer
+    Public PIC_First_Rev As Integer
+    Public PIC_Second_Rev As Integer
+    Public PIC_Third_Rev As Integer
+    Public Service_Name As String = ""
+    Public Service_ID As String
+    Public Component_ID As String
+    Public Tune_Index As String
+    Public Tune_Frequency As String
+    Public RSSI As Integer
+    Public SNR As Integer
+    Public CNR As Integer
+    Public FIC_Quality As Integer
+    Public Valid As Integer
+    Public Nb_Services As Integer
+    Public Total_Services As Integer
+    Public Row_Index As Integer
+    Public EID As String
+    Public Component_Label As String
+    Public Dynamic_Label As String
+    Public Artist As String
+    Public Title As String
+    Public Picture_Hex As String
+    Public Image_Start As Boolean
+    Public Path_Picture As String
+    Public DLS_Ascii As Integer() = {32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32,
+        32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63,
+        64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95,
+        96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 32,
+        225, 224, 233, 232, 237, 236, 243, 242, 250, 249, 209, 199, 32, 223, 161, 32, 226, 228, 234, 235, 238, 239, 244, 246, 251, 252, 241, 231, 32, 32, 32, 32,
+        170, 32, 169, 137, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 186, 185, 178, 179, 177, 32, 32, 32, 181, 191, 247, 176, 188, 189, 190, 167,
+        193, 192, 201, 200, 205, 204, 211, 210, 218, 217, 32, 32, 154, 142, 208, 32, 194, 196, 202, 203, 206, 207, 212, 214, 219, 220, 32, 32, 32, 158, 32, 32,
+        32, 197, 198, 140, 32, 253, 213, 216, 254, 32, 32, 32, 32, 32, 32, 32, 227, 229, 230, 156, 32, 253, 245, 248, 32, 32, 32, 32, 32, 32, 32, 32}
+    Public Input_Data As String
+    Public Output_Data As String
+    Public Packet_Index As Integer
+    Public PAD_Data_Type As Integer
+    Public DLS_Type As Integer
+    Public MOT_SLS_Type As Integer
+    Public DLS_Length As Integer
+    Public SLS_Length As Integer
+    Public Payload_length As Integer
+
+    ' ****************************************************************
+    ' when the form loads, connect to the HID controller - pass
+    ' the form window handle so that you can receive notification
+    ' events...
+    '*****************************************************************
+    Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        ' do not remove!
+        ConnectToHID(Me)
+        If System.IO.Directory.Exists("C:\SI4684") = False Then
+            System.IO.Directory.CreateDirectory("C:\SI4684")
+        End If
+        ButtonScan.Enabled = False
+        CheckBoxMute.Enabled = False
+        CheckBoxMono.Enabled = False
+        CheckBoxArtistTitle.Enabled = False
+        DataGridViewServices.Enabled = False
+        HScrollBarVolume.Enabled = False
+        Image_Start = False
+        HID_to_Send = False
+        Timer1.Enabled = False
+        Timer1.Interval = 300
+        Timer2.Enabled = False
+        'PictureBox1.Image = Image.FromFile("C:\SI4684\DAB_Shield.jpg")  ' Default Image ( 320x240 ) can find in DAB Tuner Si4684 folder
+        Timer3.Enabled = False
+        Timer3.Interval = 50
+        ToolStripStatusLabel1.Text = "DAB Tuner not connected"
+        ToolStripStatusLabel2.Text = ""
+        ToolStripStatusLabel3.Text = ""
+        ToolStripStatusLabel4.Text = ""
+    End Sub
+
+    '*****************************************************************
+    ' disconnect from the HID controller...
+    '*****************************************************************
+    Private Sub Form1_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
+        Command = &H0                       ' Stand by the device ( stop the HID coming IN to the PC )
+        HID_Send()
+        DisconnectFromHID()
+    End Sub
+
+    '*****************************************************************
+    ' a HID device has been plugged in...
+    '*****************************************************************
+    Public Sub OnPlugged(ByVal pHandle As Integer)
+        If hidGetVendorID(pHandle) = VendorID And hidGetProductID(pHandle) = ProductID Then
+            ' ** YOUR CODE HERE **
+            Load_Services()
+            ToolStripStatusLabel1.Text = "DAB Tuner Connected"
+            ToolStripStatusLabel2.Text = ""
+            ToolStripStatusLabel3.Text = ""
+            ToolStripStatusLabel4.Text = ""
+            Timer2.Interval = 100           ' Waitting for 100mSec to power_up the device ( time to init the HID ? )
+            Timer2.Enabled = True
+        End If
+    End Sub
+
+    '*****************************************************************
+    ' a HID device has been unplugged...
+    '*****************************************************************
+    Public Sub OnUnplugged(ByVal pHandle As Integer)
+        If hidGetVendorID(pHandle) = VendorID And hidGetProductID(pHandle) = ProductID Then
+            hidSetReadNotify(hidGetHandle(VendorID, ProductID), False)
+            ' ** YOUR CODE HERE **
+            ToolStripStatusLabel1.Text = "DAB Tuner Disconnected"
+            ToolStripStatusLabel2.Text = ""
+            ToolStripStatusLabel3.Text = ""
+            ToolStripStatusLabel4.Text = ""
+            ButtonScan.Enabled = False
+            CheckBoxMute.Enabled = False
+            CheckBoxMono.Enabled = False
+            CheckBoxArtistTitle.Enabled = False
+            DataGridViewServices.Enabled = False
+            DataGridViewServices.Rows.Clear()
+            HScrollBarVolume.Enabled = False
+            Image_Start = False
+            ProgressBarRSSI.Value = 0
+            ProgressBarSNR.Value = 0
+            ProgressBarCNR.Value = 0
+            ProgressBarFIC.Value = 0
+            LabelRSSI.Text = "dB�V"
+            LabelSNR.Text = "dB"
+            LabelCNR.Text = "dB"
+            LabelFIC.Text = "000"
+            LabelBitRate.Text = "Bit Rate"
+            LabelSampleRate.Text = "Sample Rate"
+            TextBoxCurrentService.Clear()
+            TextBoxPacket.Clear()
+            TextBoxPictureName.Clear()
+            TextBoxArtistDLS.Clear()
+            TextBoxTitle.Clear()
+            TextBoxTimeDate.Clear()
+        End If
+    End Sub
+
+    '*****************************************************************
+    ' controller changed notification - called
+    ' after ALL HID devices are plugged or unplugged
+    '*****************************************************************
+    Public Sub OnChanged()
+        ' get the handle of the device we are interested in, then set
+        ' its read notify flag to true - this ensures you get a read
+        ' notification message when there is some data to read...
+        Dim pHandle As Integer
+        pHandle = hidGetHandle(VendorID, ProductID)
+        hidSetReadNotify(hidGetHandle(VendorID, ProductID), True)
+    End Sub
+
+    '*****************************************************************
+    ' on read event...
+    '*****************************************************************
+    Public Sub OnRead(ByVal pHandle As Integer)
+        ' read the data (don't forget, pass the whole array)...
+        If hidRead(pHandle, BufferIn(0)) Then
+            ' ** YOUR CODE HERE **
+            ' first byte is the report ID, e.g. BufferIn(0)
+            ' the other bytes are the data from the microcontroller...
+
+            Timer3.Enabled = False                  ' Desable HID_Send for 50 mSec
+            Timer3.Interval = 50
+            Timer3.Enabled = True
+            Select Case BufferIn(1)
+                Case Is = &H8                       ' Response 0x08 GET_PART_INFO ( See AN649 )
+                    Part_info()
+                Case Is = &H9                       ' Response 0x09 GET_SYS_STATE ( See AN649 )
+                    System_State()
+                Case Is = &H12                      ' Response 0x12 GET_FUNC_INFO ( See AN649 )
+                    Firmware_Revision()
+                Case Is = &H80                      ' Response 0x80 GET_DIGITAL_SERVICE_LIST ( See AN649 )
+                    Digital_Service_List()
+                Case Is = &H84                      ' Response 0x84. GET_DIGITAL_SERVICE_DATA ( See AN649 )
+                    Get_Digital_Service_Data()
+                Case Is = &HB2                      ' Response 0xB2 DAB_DIGRAD_STATUS ( See AN649 )
+                    DAB_Digrad_Status()
+                Case Is = &HB4                      ' Response 0xB4 DAB_GET_ENSEMBLE_INFO ( See AN649 )
+                    Ensemble_Info()
+                Case Is = &HBC                      ' Response 0xBC DAB_GET_TIME ( See AN649 )
+                    DAB_Get_Time()
+                Case Is = &HBD                      ' Response 0xBD DAB_GET_AUDIO_INFO ( See AN649 )
+                    DAB_Get_Audio_Info()
+                Case Is = &HC0                      ' Response 0xC0 DAB_GET_SERVICE_INFO ( See AN649 )
+                    DAB_Get_Service_Info()
+                Case Is = &HF0                      ' Tuning for a new ensemble
+                    Tuning_For_New_Ensemble()
+                Case Is = &HFF                      ' Service List not available
+                    Service_List_Not_Available()
+            End Select
+        End If
+    End Sub
+
+    Private Sub Part_info()
+        Skyworks_Part_Number = (BufferIn(14) * 256 + BufferIn(13))
+        Microchip_Part_Number = Chr(BufferIn(28)) & Chr(BufferIn(29)) & Chr(BufferIn(30)) & Chr(BufferIn(31)) &
+            Chr(BufferIn(32)) & Chr(BufferIn(33)) & Chr(BufferIn(34)) & Chr(BufferIn(35)) & Chr(BufferIn(36)) &
+            Chr(BufferIn(37)) & Chr(BufferIn(38)) & Chr(BufferIn(39))
+        ToolStripStatusLabel2.Text = Microchip_Part_Number & " / Si" & Skyworks_Part_Number.ToString
+    End Sub
+
+    Private Sub System_State()
+        Image_System = BufferIn(9)
+        Select Case Image_System
+            Case Is = 0
+                ToolStripStatusLabel3.Text = "Bootloader is active"
+            Case Is = 1
+                ToolStripStatusLabel3.Text = "FMHD is active"
+            Case Is = 2
+                ToolStripStatusLabel3.Text = "DAB is active"
+                ButtonScan.Enabled = True
+                CheckBoxMute.Enabled = True
+                CheckBoxMono.Enabled = True
+                CheckBoxArtistTitle.Enabled = True
+                DataGridViewServices.Enabled = True
+                HScrollBarVolume.Enabled = True
+                TextBoxArtistDLS.Text = "Select a Service from the list"
+                'Command = &H13                      ' Modify this propertie here to enable another PAD
+                'Argument1 = &H0
+                'Argument2 = &H0
+                'Argument3 = &HB4
+                'Argument4 = &H5                     ' Property 0xB400. DAB_XPAD_ENABLE ( See AN649 )
+                'Argument5 = &H0                     ' 0x0005 : DLS and MOT SLS are enabled by default
+                'Argument6 = &H0
+                'Argument7 = &H0
+                'Argument8 = &H0
+                'Argument9 = &H0
+                'Argument10 = &H0
+                'Argument11 = &H0
+                'Argument12 = &H0
+                'Argument13 = &H0
+                'Argument14 = &H0
+                'Argument15 = &H0
+                'HID_to_Send = True
+            Case Is = 3
+                ToolStripStatusLabel3.Text = "TDMB or data only DAB image is active"
+            Case Is = 4
+                ToolStripStatusLabel3.Text = "FMHD Demod is active"
+            Case Is = 5
+                ToolStripStatusLabel3.Text = "AMHD is active"
+            Case Is = 6
+                ToolStripStatusLabel3.Text = "AMHD Demod is active"
+            Case Is = 7
+                ToolStripStatusLabel3.Text = "DAB Demod is active"
+        End Select
+    End Sub
+
+    Private Sub Firmware_Revision()
+        SI_First_Rev = BufferIn(9)
+        SI_Second_Rev = BufferIn(10)
+        SI_Third_Rev = BufferIn(11)
+        PIC_First_Rev = BufferIn(17)
+        PIC_Second_Rev = BufferIn(18)
+        PIC_Third_Rev = BufferIn(19)
+        ToolStripStatusLabel4.Text = " PIC Firmware revision : " & PIC_First_Rev.ToString & "." & PIC_Second_Rev.ToString & "." & PIC_Third_Rev.ToString &
+            " / Si Firmware revision : " & SI_First_Rev.ToString & "." & SI_Second_Rev.ToString & "." & SI_Third_Rev.ToString
+    End Sub
+
+    Private Sub Digital_Service_List()
+        Service_ID = String.Format("{0:X2} ", BufferIn(16)) & " " & String.Format("{0:X2} ", BufferIn(15)) & " " _
+                        & String.Format("{0:X2} ", BufferIn(14)) & " " & String.Format("{0:X2} ", BufferIn(13))
+        Service_Name = Chr(BufferIn(21)) & Chr(BufferIn(22)) & Chr(BufferIn(23)) & Chr(BufferIn(24)) &
+                    Chr(BufferIn(25)) & Chr(BufferIn(26)) & Chr(BufferIn(27)) & Chr(BufferIn(28)) &
+                    Chr(BufferIn(29)) & Chr(BufferIn(30)) & Chr(BufferIn(31)) & Chr(BufferIn(32)) &
+                    Chr(BufferIn(33)) & Chr(BufferIn(34)) & Chr(BufferIn(35)) & Chr(BufferIn(36))
+        Component_ID = String.Format("{0:X2} ", BufferIn(40)) & " " & String.Format("{0:X2} ", BufferIn(39)) & " " _
+                    & String.Format("{0:X2} ", BufferIn(38)) & " " & String.Format("{0:X2} ", BufferIn(37))
+
+        Me.DataGridViewServices.Rows.Add(Service_Name, Service_ID, Component_ID, Tune_Index, Tune_Frequency, EID, Component_Label)
+        Me.DataGridViewServices.Sort(Me.DataGridViewServices.Columns(0), System.ComponentModel.ListSortDirection.Ascending) ' alphabetical order
+        If Command = &H40 Then
+            Nb_Services = Nb_Services + 1
+            Total_Services = Total_Services + 1
+            Form2.DataGridView1.Rows(Row_Index).Cells(4).Value = Nb_Services
+            Form2.Label1.Text = "Total number of services : " & Total_Services.ToString
+        End If
+        Dim writer As TextWriter = New StreamWriter("C:\SI4684\services.txt")
+        For i As Integer = 0 To DataGridViewServices.Rows.Count - 1 Step +1
+            For j As Integer = 0 To DataGridViewServices.Columns.Count - 1 Step +1
+                writer.Write(DataGridViewServices.Rows(i).Cells(j).Value.ToString & ",")
+            Next
+            writer.WriteLine()
+        Next
+        writer.Close()
+    End Sub
+
+    Private Sub DAB_Digrad_Status()
+        Tune_Frequency = ((BufferIn(20) * &H1000000) + (BufferIn(19) * &H10000) + (BufferIn(18) * &H100) + BufferIn(17)).ToString
+        Tune_Index = BufferIn(21).ToString
+        If BufferIn(11) < 128 Then
+            RSSI = BufferIn(11) And &H3F    ' maxi 63
+        Else
+            RSSI = BufferIn(11) - 256
+        End If
+        Valid = BufferIn(10) And &H1
+        SNR = BufferIn(12)
+        CNR = BufferIn(14)
+        FIC_Quality = BufferIn(13)
+        Nb_Services = 0
+        LabelRSSI.Text = RSSI.ToString & " dB�V"
+        ProgressBarRSSI.Value = RSSI + 128
+        If Command <> &H40 Then
+            LabelSNR.Text = SNR.ToString & " dB"
+            If SNR > 20 Then
+                ProgressBarSNR.Value = 20
+            Else
+                ProgressBarSNR.Value = SNR
+            End If
+            LabelCNR.Text = CNR.ToString & " dB"
+            If CNR > 54 Then
+                ProgressBarCNR.Value = 54
+            Else
+                ProgressBarCNR.Value = CNR
+            End If
+            LabelFIC.Text = FIC_Quality.ToString
+            If FIC_Quality > 100 Then
+                ProgressBarFIC.Value = 100
+            Else
+                ProgressBarFIC.Value = FIC_Quality
+            End If
+        End If
+        If Command = &H40 Then
+            Form2.DataGridView1.Rows.Add(Tune_Index, Tune_Frequency, RSSI, Valid, Nb_Services)
+            Row_Index = Row_Index + 1
+            Form2.ProgressBar1.Value = Tune_Index
+            Form2.Label2.Text = "Scanning : " & Tune_Frequency.ToString & " MHz"
+            If Form2.ProgressBar1.Value = 40 Then
+                Form2.Label2.Text = "Scanning complete"
+                Form2.ButtonCloseScan.Enabled = True
+            End If
+        End If
+    End Sub
+
+    Private Sub Ensemble_Info()
+        EID = String.Format("{0:X2} ", BufferIn(9)) & String.Format("{0:X2} ", BufferIn(10))
+        Component_Label = Chr(BufferIn(11)) & Chr(BufferIn(12)) & Chr(BufferIn(13)) & Chr(BufferIn(14)) &
+                    Chr(BufferIn(15)) & Chr(BufferIn(16)) & Chr(BufferIn(17)) & Chr(BufferIn(18)) &
+                    Chr(BufferIn(19)) & Chr(BufferIn(20)) & Chr(BufferIn(21)) & Chr(BufferIn(22)) &
+                    Chr(BufferIn(23)) & Chr(BufferIn(24)) & Chr(BufferIn(25)) & Chr(BufferIn(26))
+    End Sub
+
+    Private Sub Get_Digital_Service_Data()
+        Packet_Index = BufferIn(7)
+        If Packet_Index = &H0 Then
+            PAD_Data_Type = BufferIn(12)
+            Select Case PAD_Data_Type
+                Case Is = &H80                          ' DLS
+                    DLS_Type = BufferIn(29)
+                    DLS_Length = BufferIn(23) - 3
+                    Select Case DLS_Type
+                        Case Is = &H0
+                            TextBoxArtistDLS.Clear()    ' New DLS
+                            TextBoxTitle.Clear()
+                            Dynamic_Label = ""
+                            If DLS_Length > 9 Then
+                                For Var As Integer = 31 To 40
+                                    'Dynamic_Label = Dynamic_Label & Chr(BufferIn(Var))
+                                    Dynamic_Label = Dynamic_Label & Chr(DLS_Ascii(BufferIn(Var))) ' Char �,�,�,�,�,...OK ( &H7F to &HFF )
+                                Next Var
+                                DLS_Length = DLS_Length - 10
+                            Else
+                                For Var As Integer = 31 To DLS_Length + 30
+                                    'Dynamic_Label = Dynamic_Label & Chr(BufferIn(Var))
+                                    Dynamic_Label = Dynamic_Label & Chr(DLS_Ascii(BufferIn(Var))) ' Char �,�,�,�,�,...OK ( &H7F to &HFF )
+                                Next Var
+                            End If
+                            Timer4.Interval = 100
+                            Timer4.Enabled = True
+                        Case Is = &H80
+                            TextBoxArtistDLS.Clear()    ' New DLS
+                            TextBoxTitle.Clear()
+                            Dynamic_Label = ""
+                            If DLS_Length > 9 Then
+                                For Var As Integer = 31 To 40
+                                    'Dynamic_Label = Dynamic_Label & Chr(BufferIn(Var))
+                                    Dynamic_Label = Dynamic_Label & Chr(DLS_Ascii(BufferIn(Var))) ' Char �,�,�,�,�,...OK ( &H7F to &HFF )
+                                Next Var
+                                DLS_Length = DLS_Length - 10
+                            Else
+                                For Var As Integer = 31 To DLS_Length + 30
+                                    'Dynamic_Label = Dynamic_Label & Chr(BufferIn(Var))
+                                    Dynamic_Label = Dynamic_Label & Chr(DLS_Ascii(BufferIn(Var))) ' Char �,�,�,�,�,...OK ( &H7F to &HFF )
+                                Next Var
+                            End If
+                            Timer4.Interval = 100
+                            Timer4.Enabled = True
+                        Case Is = &H12
+                            Dim Title_Len As Integer
+                            Dim Artist_Len As Integer
+                            Dim Artist_Index As Integer
+                            Timer4.Enabled = False
+                            If BufferIn(34) <> 0 And BufferIn(36) <> 0 And BufferIn(37) <> 0 Then
+                                Title_Len = BufferIn(34) + 1
+                                Artist_Len = BufferIn(37) + 1
+                                Artist_Index = BufferIn(36)
+                                Title = Dynamic_Label.Substring(0, Title_Len)
+                                Artist = Dynamic_Label.Substring(Artist_Index, Artist_Len)
+                                TextBoxTitle.Text = "Title: " & Title
+                                TextBoxArtistDLS.Text = "Artist: " & Artist
+                            Else
+                                If CheckBoxArtistTitle.Checked = True Then
+                                    Soft_Labels_Artist_Title()
+                                Else
+                                    TextBoxArtistDLS.Text = Dynamic_Label
+                                End If
+                            End If
+                        Case Is = &H92
+                            Dim Title_Len As Integer
+                            Dim Artist_Len As Integer
+                            Dim Artist_Index As Integer
+                            Timer4.Enabled = False
+                            If BufferIn(34) <> 0 And BufferIn(36) <> 0 And BufferIn(37) <> 0 Then
+                                Title_Len = BufferIn(34) + 1
+                                Artist_Len = BufferIn(37) + 1
+                                Artist_Index = BufferIn(36)
+                                Title = Dynamic_Label.Substring(0, Title_Len)
+                                Artist = Dynamic_Label.Substring(Artist_Index, Artist_Len)
+                                TextBoxTitle.Text = "Title: " & Title
+                                TextBoxArtistDLS.Text = "Artist: " & Artist
+                            Else
+                                If CheckBoxArtistTitle.Checked = True Then
+                                    Soft_Labels_Artist_Title()
+                                Else
+                                    TextBoxArtistDLS.Text = Dynamic_Label
+                                End If
+                            End If
+                    End Select
+                Case Is = &H7C                          ' MOT SLS
+                    MOT_SLS_Type = BufferIn(29)
+                    SLS_Length = BufferIn(36) * 256 + BufferIn(37)
+                    Select Case MOT_SLS_Type
+                        Case Is = &H73                  ' Image Name
+                            TextBoxPictureName.Clear()
+                        Case Is = &H74                  ' Image
+                            Dim result As String = ""
+                            Dim Index_Image As Integer
+                            If Image_Start = True Then
+                                Index_Image = BufferIn(32) + 1
+                                TextBoxPacket.Text = Index_Image.ToString
+                                For k As Integer = 38 To 40
+                                    result = result & BufferIn(k).ToString("X02")
+                                Next
+                                Picture_Hex = Picture_Hex & result
+                                SLS_Length = SLS_Length - 3
+                            End If
+                    End Select
+            End Select
+
+        Else
+            Payload_length = BufferIn(8)
+            Select Case PAD_Data_Type
+                Case Is = &H80
+                    If Payload_length > 1 Then
+                        Select Case DLS_Type
+                            Case Is = &H0
+                                If DLS_Length > 32 Then
+                                    For Var As Integer = 9 To 40
+                                        'Dynamic_Label = Dynamic_Label & Chr(BufferIn(Var))
+                                        Dynamic_Label = Dynamic_Label & Chr(DLS_Ascii(BufferIn(Var))) ' Char �,�,�,�,�,...OK ( &H7F to &HFF )
+                                    Next Var
+                                    DLS_Length = DLS_Length - 32
+                                Else
+                                    For Var As Integer = 9 To DLS_Length + 8
+                                        'Dynamic_Label = Dynamic_Label & Chr(BufferIn(Var))
+                                        Dynamic_Label = Dynamic_Label & Chr(DLS_Ascii(BufferIn(Var))) ' Char �,�,�,�,�,...OK ( &H7F to &HFF )
+                                    Next Var
+                                End If
+                            Case Is = &H80
+                                If DLS_Length > 32 Then
+                                    For Var As Integer = 9 To 40
+                                        'Dynamic_Label = Dynamic_Label & Chr(BufferIn(Var))
+                                        Dynamic_Label = Dynamic_Label & Chr(DLS_Ascii(BufferIn(Var))) ' Char �,�,�,�,�,...OK ( &H7F to &HFF )
+                                    Next Var
+                                    DLS_Length = DLS_Length - 32
+                                Else
+                                    For Var As Integer = 9 To DLS_Length + 8
+                                        'Dynamic_Label = Dynamic_Label & Chr(BufferIn(Var))
+                                        Dynamic_Label = Dynamic_Label & Chr(DLS_Ascii(BufferIn(Var))) ' Char �,�,�,�,�,...OK ( &H7F to &HFF )
+                                    Next Var
+                                End If
+                        End Select
+                    End If
+
+                Case Is = &H7C
+                    If Payload_length > 2 Then
+                        Select Case MOT_SLS_Type
+                            Case Is = &H73
+                                For Var As Integer = 21 To 28
+                                    TextBoxPictureName.Text = TextBoxPictureName.Text & Chr(BufferIn(Var))
+                                Next Var
+                                Loading_Picture()
+                                Image_Start = True
+                            Case Is = &H74
+                                If Image_Start = True Then
+                                    Dim result As String = ""
+                                    If SLS_Length > 32 Then
+                                        For k As Integer = 9 To 40
+                                            result = result & BufferIn(k).ToString("X02")
+                                        Next
+                                        Picture_Hex = Picture_Hex & result
+                                        SLS_Length = SLS_Length - 32
+                                    Else
+                                        For k As Integer = 9 To SLS_Length + 8
+                                            result = result & BufferIn(k).ToString("X02")
+                                        Next
+                                        Picture_Hex = Picture_Hex & result
+                                    End If
+                                End If
+                        End Select
+                    End If
+            End Select
+        End If
+    End Sub
+
+    Private Sub Timer4_Tick(sender As Object, e As EventArgs) Handles Timer4.Tick
+        Timer4.Enabled = False
+        If CheckBoxArtistTitle.Checked = True Then
+            Soft_Labels_Artist_Title()
+        Else
+            TextBoxArtistDLS.Text = Dynamic_Label
+        End If
+    End Sub
+
+    Private Sub Soft_Labels_Artist_Title()
+        Dim CharPosition As Integer
+        Dim DLS_Len As Integer
+        Dim SearchChar As String = " - "
+        DLS_Len = Len(Dynamic_Label)
+        CharPosition = InStr(1, Dynamic_Label, SearchChar, CompareMethod.Text)
+        If CharPosition > 0 Then
+            Title = Dynamic_Label.Substring(0, CharPosition - 1)
+            Artist = Dynamic_Label.Substring(CharPosition + 2, DLS_Len - CharPosition - 2)
+            TextBoxArtistDLS.Text = Artist
+            TextBoxTitle.Text = Title
+        Else
+            TextBoxArtistDLS.Text = Dynamic_Label
+        End If
+    End Sub
+
+    Private Sub Loading_Picture()
+        If Picture_Hex <> "" Then
+            Image_Start = False
+            Path_Picture = "C:\SI4684\picture.jpg"
+            Dim bytes As Byte() = New Byte(Picture_Hex.Length \ 2 - 1) {}
+            For i As Integer = 0 To bytes.Length - 1
+                bytes(i) = Convert.ToByte(Picture_Hex.Substring(i * 2, 2), 16)
+            Next
+            Dim fs As New FileStream(Path_Picture, FileMode.OpenOrCreate)
+            fs.Write(bytes, 0, bytes.Length)
+            fs.Close()
+            Using my_stream As New IO.FileStream(Path_Picture, IO.FileMode.Open)
+                Try
+                    PictureBox1.Image = Image.FromStream(my_stream)
+                Catch ex As Exception
+                End Try
+            End Using
+            Picture_Hex = ""
+        End If
+    End Sub
+
+    Private Sub DAB_Get_Time()
+        Dim Year As Integer
+        Dim Months As Integer
+        Dim Days As Integer
+        Dim Hours As Integer
+        Dim Minutes As Integer
+        'Dim Seconds As Integer
+        Year = (BufferIn(10) * 256) + BufferIn(9)
+        Months = BufferIn(11)
+        Days = BufferIn(12)
+        Hours = BufferIn(13)
+        Minutes = BufferIn(14)
+        'Seconds = BufferIn(15)
+        TextBoxTimeDate.Text = "Date: " & Days.ToString("00") & "/" & Months.ToString("00") & "/" & Year.ToString("0000") _
+            & "   Time : " & Hours.ToString("00") & " : " & Minutes.ToString("00") ' & " : " & Seconds.ToString("00")
+    End Sub
+
+    Private Sub DAB_Get_Audio_Info()
+        Dim Bit_Rate As Integer
+        Dim Sample_Rate As Integer
+        Bit_Rate = (BufferIn(10) * 256) + BufferIn(9)
+        LabelBitRate.Text = "Bit Rate : " & Bit_Rate.ToString & " kbps"
+        'Sample_Rate = (BufferIn(12) * 256) + BufferIn(11)
+        Sample_Rate = ((BufferIn(12) * 256) + BufferIn(11)) / 1000
+        'LabelSampleRate.Text = "Sample Rate : " & Sample_Rate.ToString & " Hz"
+        LabelSampleRate.Text = "Sample Rate : " & Sample_Rate.ToString & " KHz"
+        'LabelSampleRate.Text = "Sample Rate : " & Sample_Rate.ToString("00.000") & " KHz"
+    End Sub
+
+    Private Sub DAB_Get_Service_Info()
+        Dim Current_Service As String
+        Current_Service = Chr(BufferIn(13)) & Chr(BufferIn(14)) & Chr(BufferIn(15)) & Chr(BufferIn(16)) _
+            & Chr(BufferIn(17)) & Chr(BufferIn(18)) & Chr(BufferIn(19)) & Chr(BufferIn(20)) _
+            & Chr(BufferIn(21)) & Chr(BufferIn(22)) & Chr(BufferIn(23)) & Chr(BufferIn(24)) _
+            & Chr(BufferIn(25)) & Chr(BufferIn(26)) & Chr(BufferIn(27)) & Chr(BufferIn(28))
+        TextBoxCurrentService.Text = Current_Service
+    End Sub
+
+    Private Sub Service_List_Not_Available()
+        MessageBox.Show("Service List not available!!! check your antenna or start a new scan")
+    End Sub
+
+    Private Sub Tuning_For_New_Ensemble()
+        ProgressBarRSSI.Value = 0
+        ProgressBarSNR.Value = 0
+        ProgressBarCNR.Value = 0
+        ProgressBarFIC.Value = 0
+        LabelRSSI.Text = "00 dB�V"
+        LabelSNR.Text = "00 dB"
+        LabelCNR.Text = "00 dB"
+        LabelFIC.Text = "000"
+        LabelBitRate.Text = "Bit Rate : "
+        LabelSampleRate.Text = "Sample Rate : "
+        Form3.Show()
+        Form3.Label1.Text = "Tuning for a new ensemble"
+        Form3.ProgressBar1.Value = 0
+        Timer1.Enabled = True
+    End Sub
+
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+        If Form3.ProgressBar1.Value = 100 Then
+            Timer1.Enabled = False
+            Form3.Close()
+        Else
+            Form3.ProgressBar1.Value = Form3.ProgressBar1.Value + 10
+        End If
+    End Sub
+
+    Private Sub Load_Services()
+        Dim fName As String = "C:\SI4684\services.txt"
+        Dim TextLine As String = ""
+        Dim SplitLine() As String
+        If System.IO.File.Exists(fName) = True Then
+            Using objReader As New System.IO.StreamReader(fName)
+                Do While objReader.Peek() <> -1
+                    TextLine = objReader.ReadLine()
+                    SplitLine = Split(TextLine, ",")
+                    Me.DataGridViewServices.Rows.Add(SplitLine)
+                Loop
+            End Using
+        Else
+            MessageBox.Show("Services list is empty : scan for services")
+        End If
+    End Sub
+
+    Private Sub DataGridViewServices_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridViewServices.CellClick
+        Dim index As Integer
+        index = e.RowIndex
+        Dim var As String
+        Dim TuneIndex As Integer
+        Dim ServiceID As Integer
+        Dim ComponentID As Integer
+        Dim selectedRow As DataGridViewRow
+        selectedRow = DataGridViewServices.Rows(index)
+        var = selectedRow.Cells(3).Value.ToString
+        var = var.Replace(" ", "")
+        TuneIndex = Convert.ToInt32(var, 16)
+        Argument2 = var
+        var = selectedRow.Cells(1).Value.ToString
+        var = var.Replace(" ", "")
+        ServiceID = Convert.ToInt32(var, 16)
+        Argument7 = ((ServiceID And 4278190080) / 16777216)
+        Argument6 = ((ServiceID And 16711680) / 65536)
+        Argument5 = ((ServiceID And 65280) / 256)
+        Argument4 = (ServiceID And 255)
+        var = selectedRow.Cells(2).Value.ToString
+        var = var.Replace(" ", "")
+        ComponentID = Convert.ToInt32(var, 16)
+        Argument11 = ((ComponentID And 4278190080) / 16777216)
+        Argument10 = ((ComponentID And 16711680) / 65536)
+        Argument9 = ((ComponentID And 65280) / 256)
+        Argument8 = (ComponentID And 255)
+        Command = &H81
+        Argument1 = &H0
+        Argument3 = &H0
+        HID_to_Send = True
+    End Sub
+
+    Private Sub ButtonScan_Click(sender As Object, e As EventArgs) Handles ButtonScan.Click
+        If MessageBox.Show("Are you sure", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
+            DataGridViewServices.Rows.Clear()
+            Form2.Show()
+            Form2.DataGridView1.Rows.Clear()
+            Form2.ButtonCloseScan.Enabled = False
+            Nb_Services = 0
+            Total_Services = 0
+            Row_Index = -1
+            ProgressBarRSSI.Value = 0
+            ProgressBarSNR.Value = 0
+            ProgressBarCNR.Value = 0
+            ProgressBarFIC.Value = 0
+            LabelRSSI.Text = "00 dB�V"
+            LabelSNR.Text = "00 dB"
+            LabelCNR.Text = "00 dB"
+            LabelFIC.Text = "000"
+            LabelBitRate.Text = "Bit Rate : "
+            LabelSampleRate.Text = "Sample Rate : "
+            Command = &H40
+            Argument1 = &H0
+            Argument2 = &H0
+            Argument3 = &H0
+            Argument4 = &H0
+            Argument5 = &H0
+            Argument6 = &H0
+            Argument7 = &H0
+            Argument8 = &H0
+            Argument9 = &H0
+            Argument10 = &H0
+            Argument11 = &H0
+            Argument12 = &H0
+            Argument13 = &H0
+            Argument14 = &H0
+            Argument15 = &H0
+            HID_to_Send = True
+        End If
+    End Sub
+
+    Private Sub CheckBoxArtistTitle_Click(sender As Object, e As EventArgs) Handles CheckBoxArtistTitle.Click
+        If CheckBoxArtistTitle.Checked = True Then
+            Soft_Labels_Artist_Title()
+        Else
+            TextBoxTitle.Clear()
+            TextBoxArtistDLS.Text = Dynamic_Label
+        End If
+    End Sub
+
+    Private Sub CheckBoxMute_Click(sender As Object, e As EventArgs) Handles CheckBoxMute.Click
+        Command = &H13
+        Argument1 = &H0
+        Argument2 = &H1
+        Argument3 = &H3                     ' Property 0x0301. AUDIO_MUTE
+        If CheckBoxMute.Checked = True Then
+            Argument4 = &H3
+        Else
+            Argument4 = &H0
+        End If
+        Argument5 = &H0
+        Argument6 = &H0
+        Argument7 = &H0
+        Argument8 = &H0
+        Argument9 = &H0
+        Argument10 = &H0
+        Argument11 = &H0
+        Argument12 = &H0
+        Argument13 = &H0
+        Argument14 = &H0
+        Argument15 = &H0
+        HID_to_Send = True
+    End Sub
+
+    Private Sub CheckBoxMono_Click(sender As Object, e As EventArgs) Handles CheckBoxMono.Click
+        Command = &H13
+        Argument1 = &H0
+        Argument2 = &H2
+        Argument3 = &H3                     ' Property 0x0302. AUDIO_OUTPUT_CONFIG
+        If CheckBoxMono.Checked = True Then
+            Argument4 = &H1
+        Else
+            Argument4 = &H0
+        End If
+        Argument5 = &H0
+        Argument6 = &H0
+        Argument7 = &H0
+        Argument8 = &H0
+        Argument9 = &H0
+        Argument10 = &H0
+        Argument11 = &H0
+        Argument12 = &H0
+        Argument13 = &H0
+        Argument14 = &H0
+        Argument15 = &H0
+        HID_to_Send = True
+    End Sub
+
+    Private Sub HScrollBarVolume_ValueChanged(sender As Object, e As EventArgs) Handles HScrollBarVolume.ValueChanged
+        LabelVolume.Text = HScrollBarVolume.Value.ToString
+        Command = &H13
+        Argument1 = &H0
+        Argument2 = &H0
+        Argument3 = &H3                     ' Property 0x0300. AUDIO_ANALOG_VOLUME
+        Argument4 = HScrollBarVolume.Value
+        Argument5 = &H0
+        Argument6 = &H0
+        Argument7 = &H0
+        Argument8 = &H0
+        Argument9 = &H0
+        Argument10 = &H0
+        Argument11 = &H0
+        Argument12 = &H0
+        Argument13 = &H0
+        Argument14 = &H0
+        Argument15 = &H0
+        HID_to_Send = True
+    End Sub
+
+    Private Sub Timer2_Tick(sender As Object, e As EventArgs) Handles Timer2.Tick
+        Timer2.Enabled = False  ' Waitting for 100mSec to power_up the device ( time to init the HID ? )
+        Command = &H1           ' Power ON
+        Argument1 = &H2         ' &H2 = DAB mode
+        Argument2 = &H0
+        Argument3 = &H0
+        Argument4 = &H0
+        Argument5 = &H0
+        Argument6 = &H0
+        Argument7 = &H0
+        Argument8 = &H0
+        Argument9 = &H0
+        Argument10 = &H0
+        Argument11 = &H0
+        Argument12 = &H0
+        Argument13 = &H0
+        Argument14 = &H0
+        Argument15 = &H0
+        HID_Send()
+    End Sub
+
+    Private Sub Timer3_Tick(sender As Object, e As EventArgs) Handles Timer3.Tick
+        If HID_to_Send = True Then
+            HID_Send()
+            If Command = &H81 Then
+                PictureBox1.Image = Nothing
+                TextBoxArtistDLS.Clear()
+                TextBoxTitle.Clear()
+                TextBoxPictureName.Clear()
+                TextBoxPacket.Clear()
+                TextBoxCurrentService.Clear()
+                TextBoxTimeDate.Clear()
+                LabelBitRate.Text = "Bit Rate : "
+                LabelSampleRate.Text = "Sample Rate : "
+                Image_Start = False
+                Picture_Hex = ""
+            End If
+        End If
+        HID_to_Send = False
+    End Sub
+
+    Private Sub HID_Send()
+        BufferOut(0) = &H0
+        BufferOut(1) = Command
+        BufferOut(2) = Argument1
+        BufferOut(3) = Argument2
+        BufferOut(4) = Argument3
+        BufferOut(5) = Argument4
+        BufferOut(6) = Argument5
+        BufferOut(7) = Argument6
+        BufferOut(8) = Argument7
+        BufferOut(9) = Argument8
+        BufferOut(10) = Argument9
+        BufferOut(11) = Argument10
+        BufferOut(12) = Argument11
+        BufferOut(13) = Argument12
+        BufferOut(14) = Argument13
+        BufferOut(15) = Argument14
+        BufferOut(16) = Argument15
+        hidWriteEx(VendorID, ProductID, BufferOut(0))
+    End Sub
+
+End Class

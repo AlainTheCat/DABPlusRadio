@@ -1,0 +1,598 @@
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
+Partial Class Form1
+    Inherits System.Windows.Forms.Form
+
+    'Form overrides dispose to clean up the component list.
+    <System.Diagnostics.DebuggerNonUserCode()>
+    Protected Overrides Sub Dispose(ByVal disposing As Boolean)
+        Try
+            If disposing AndAlso components IsNot Nothing Then
+                components.Dispose()
+            End If
+        Finally
+            MyBase.Dispose(disposing)
+        End Try
+    End Sub
+
+    'Required by the Windows Form Designer
+    Private components As System.ComponentModel.IContainer
+
+    'NOTE: The following procedure is required by the Windows Form Designer
+    'It can be modified using the Windows Form Designer.  
+    'Do not modify it using the code editor.
+    <System.Diagnostics.DebuggerStepThrough()>
+    Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
+        Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
+        Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.ToolStripStatusLabel2 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.ToolStripStatusLabel3 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.ToolStripStatusLabel4 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.DataGridViewServices = New System.Windows.Forms.DataGridView()
+        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.TextBoxPacket = New System.Windows.Forms.TextBox()
+        Me.TextBoxPictureName = New System.Windows.Forms.TextBox()
+        Me.TextBoxTimeDate = New System.Windows.Forms.TextBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.TextBoxCurrentService = New System.Windows.Forms.TextBox()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.LabelFIC = New System.Windows.Forms.Label()
+        Me.ProgressBarRSSI = New System.Windows.Forms.ProgressBar()
+        Me.LabelCNR = New System.Windows.Forms.Label()
+        Me.ProgressBarSNR = New System.Windows.Forms.ProgressBar()
+        Me.LabelSNR = New System.Windows.Forms.Label()
+        Me.ProgressBarFIC = New System.Windows.Forms.ProgressBar()
+        Me.LabelRSSI = New System.Windows.Forms.Label()
+        Me.ProgressBarCNR = New System.Windows.Forms.ProgressBar()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.LabelSampleRate = New System.Windows.Forms.Label()
+        Me.LabelBitRate = New System.Windows.Forms.Label()
+        Me.TextBoxArtistDLS = New System.Windows.Forms.TextBox()
+        Me.ButtonScan = New System.Windows.Forms.Button()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.GroupBox8 = New System.Windows.Forms.GroupBox()
+        Me.CheckBoxArtistTitle = New System.Windows.Forms.CheckBox()
+        Me.TextBoxTitle = New System.Windows.Forms.TextBox()
+        Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
+        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.CheckBoxMono = New System.Windows.Forms.CheckBox()
+        Me.LabelVolume = New System.Windows.Forms.Label()
+        Me.CheckBoxMute = New System.Windows.Forms.CheckBox()
+        Me.HScrollBarVolume = New System.Windows.Forms.HScrollBar()
+        Me.GroupBox5 = New System.Windows.Forms.GroupBox()
+        Me.Timer3 = New System.Windows.Forms.Timer(Me.components)
+        Me.Timer4 = New System.Windows.Forms.Timer(Me.components)
+        Me.StatusStrip1.SuspendLayout()
+        CType(Me.DataGridViewServices, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox1.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox2.SuspendLayout()
+        Me.GroupBox3.SuspendLayout()
+        Me.GroupBox8.SuspendLayout()
+        Me.GroupBox4.SuspendLayout()
+        Me.GroupBox5.SuspendLayout()
+        Me.SuspendLayout()
+        '
+        'StatusStrip1
+        '
+        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.ToolStripStatusLabel2, Me.ToolStripStatusLabel3, Me.ToolStripStatusLabel4})
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 395)
+        Me.StatusStrip1.Name = "StatusStrip1"
+        Me.StatusStrip1.Size = New System.Drawing.Size(698, 22)
+        Me.StatusStrip1.TabIndex = 0
+        Me.StatusStrip1.Text = "StatusStrip1"
+        '
+        'ToolStripStatusLabel1
+        '
+        Me.ToolStripStatusLabel1.Name = "ToolStripStatusLabel1"
+        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(119, 17)
+        Me.ToolStripStatusLabel1.Text = "ToolStripStatusLabel1"
+        '
+        'ToolStripStatusLabel2
+        '
+        Me.ToolStripStatusLabel2.Name = "ToolStripStatusLabel2"
+        Me.ToolStripStatusLabel2.Size = New System.Drawing.Size(119, 17)
+        Me.ToolStripStatusLabel2.Text = "ToolStripStatusLabel2"
+        '
+        'ToolStripStatusLabel3
+        '
+        Me.ToolStripStatusLabel3.Name = "ToolStripStatusLabel3"
+        Me.ToolStripStatusLabel3.Size = New System.Drawing.Size(119, 17)
+        Me.ToolStripStatusLabel3.Text = "ToolStripStatusLabel3"
+        '
+        'ToolStripStatusLabel4
+        '
+        Me.ToolStripStatusLabel4.Name = "ToolStripStatusLabel4"
+        Me.ToolStripStatusLabel4.Size = New System.Drawing.Size(119, 17)
+        Me.ToolStripStatusLabel4.Text = "ToolStripStatusLabel4"
+        '
+        'DataGridViewServices
+        '
+        Me.DataGridViewServices.AllowUserToAddRows = False
+        Me.DataGridViewServices.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridViewServices.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6, Me.Column7})
+        Me.DataGridViewServices.Location = New System.Drawing.Point(12, 12)
+        Me.DataGridViewServices.Name = "DataGridViewServices"
+        Me.DataGridViewServices.RowHeadersVisible = False
+        Me.DataGridViewServices.Size = New System.Drawing.Size(117, 292)
+        Me.DataGridViewServices.TabIndex = 1
+        '
+        'Column1
+        '
+        Me.Column1.HeaderText = "Service Name"
+        Me.Column1.Name = "Column1"
+        '
+        'Column2
+        '
+        Me.Column2.HeaderText = "Service ID"
+        Me.Column2.Name = "Column2"
+        '
+        'Column3
+        '
+        Me.Column3.HeaderText = "Component ID"
+        Me.Column3.Name = "Column3"
+        '
+        'Column4
+        '
+        Me.Column4.HeaderText = "Tune Index"
+        Me.Column4.Name = "Column4"
+        '
+        'Column5
+        '
+        Me.Column5.HeaderText = "Tune Frequency KHz"
+        Me.Column5.Name = "Column5"
+        '
+        'Column6
+        '
+        Me.Column6.HeaderText = "EID"
+        Me.Column6.Name = "Column6"
+        '
+        'Column7
+        '
+        Me.Column7.HeaderText = "Component Label"
+        Me.Column7.Name = "Column7"
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.TextBoxPacket)
+        Me.GroupBox1.Controls.Add(Me.TextBoxPictureName)
+        Me.GroupBox1.Controls.Add(Me.TextBoxTimeDate)
+        Me.GroupBox1.Controls.Add(Me.PictureBox1)
+        Me.GroupBox1.Location = New System.Drawing.Point(135, 12)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(334, 292)
+        Me.GroupBox1.TabIndex = 2
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Slideshow"
+        '
+        'TextBoxPacket
+        '
+        Me.TextBoxPacket.Location = New System.Drawing.Point(6, 266)
+        Me.TextBoxPacket.MaxLength = 10
+        Me.TextBoxPacket.Name = "TextBoxPacket"
+        Me.TextBoxPacket.ReadOnly = True
+        Me.TextBoxPacket.Size = New System.Drawing.Size(28, 20)
+        Me.TextBoxPacket.TabIndex = 9
+        Me.TextBoxPacket.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'TextBoxPictureName
+        '
+        Me.TextBoxPictureName.Location = New System.Drawing.Point(40, 266)
+        Me.TextBoxPictureName.MaxLength = 100
+        Me.TextBoxPictureName.Name = "TextBoxPictureName"
+        Me.TextBoxPictureName.ReadOnly = True
+        Me.TextBoxPictureName.Size = New System.Drawing.Size(57, 20)
+        Me.TextBoxPictureName.TabIndex = 8
+        Me.TextBoxPictureName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'TextBoxTimeDate
+        '
+        Me.TextBoxTimeDate.Location = New System.Drawing.Point(143, 266)
+        Me.TextBoxTimeDate.MaxLength = 100
+        Me.TextBoxTimeDate.Name = "TextBoxTimeDate"
+        Me.TextBoxTimeDate.ReadOnly = True
+        Me.TextBoxTimeDate.Size = New System.Drawing.Size(184, 20)
+        Me.TextBoxTimeDate.TabIndex = 7
+        Me.TextBoxTimeDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Location = New System.Drawing.Point(6, 19)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(321, 242)
+        Me.PictureBox1.TabIndex = 0
+        Me.PictureBox1.TabStop = False
+        '
+        'TextBoxCurrentService
+        '
+        Me.TextBoxCurrentService.Location = New System.Drawing.Point(6, 19)
+        Me.TextBoxCurrentService.MaxLength = 16
+        Me.TextBoxCurrentService.Name = "TextBoxCurrentService"
+        Me.TextBoxCurrentService.ReadOnly = True
+        Me.TextBoxCurrentService.Size = New System.Drawing.Size(151, 20)
+        Me.TextBoxCurrentService.TabIndex = 3
+        Me.TextBoxCurrentService.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.Label4)
+        Me.GroupBox2.Controls.Add(Me.Label3)
+        Me.GroupBox2.Controls.Add(Me.Label2)
+        Me.GroupBox2.Controls.Add(Me.Label1)
+        Me.GroupBox2.Controls.Add(Me.LabelFIC)
+        Me.GroupBox2.Controls.Add(Me.ProgressBarRSSI)
+        Me.GroupBox2.Controls.Add(Me.LabelCNR)
+        Me.GroupBox2.Controls.Add(Me.ProgressBarSNR)
+        Me.GroupBox2.Controls.Add(Me.LabelSNR)
+        Me.GroupBox2.Controls.Add(Me.ProgressBarFIC)
+        Me.GroupBox2.Controls.Add(Me.LabelRSSI)
+        Me.GroupBox2.Controls.Add(Me.ProgressBarCNR)
+        Me.GroupBox2.Location = New System.Drawing.Point(475, 12)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(211, 105)
+        Me.GroupBox2.TabIndex = 3
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Status"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(6, 76)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(23, 13)
+        Me.Label4.TabIndex = 11
+        Me.Label4.Text = "FIC"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(6, 57)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(30, 13)
+        Me.Label3.TabIndex = 10
+        Me.Label3.Text = "CNR"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(6, 38)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(30, 13)
+        Me.Label2.TabIndex = 9
+        Me.Label2.Text = "SNR"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(6, 19)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(32, 13)
+        Me.Label1.TabIndex = 8
+        Me.Label1.Text = "RSSI"
+        '
+        'LabelFIC
+        '
+        Me.LabelFIC.AutoSize = True
+        Me.LabelFIC.Location = New System.Drawing.Point(150, 76)
+        Me.LabelFIC.Name = "LabelFIC"
+        Me.LabelFIC.Size = New System.Drawing.Size(25, 13)
+        Me.LabelFIC.TabIndex = 7
+        Me.LabelFIC.Text = "000"
+        '
+        'ProgressBarRSSI
+        '
+        Me.ProgressBarRSSI.Location = New System.Drawing.Point(44, 19)
+        Me.ProgressBarRSSI.Maximum = 191
+        Me.ProgressBarRSSI.Name = "ProgressBarRSSI"
+        Me.ProgressBarRSSI.Size = New System.Drawing.Size(100, 13)
+        Me.ProgressBarRSSI.Style = System.Windows.Forms.ProgressBarStyle.Continuous
+        Me.ProgressBarRSSI.TabIndex = 0
+        '
+        'LabelCNR
+        '
+        Me.LabelCNR.AutoSize = True
+        Me.LabelCNR.Location = New System.Drawing.Point(150, 57)
+        Me.LabelCNR.Name = "LabelCNR"
+        Me.LabelCNR.Size = New System.Drawing.Size(20, 13)
+        Me.LabelCNR.TabIndex = 5
+        Me.LabelCNR.Text = "dB"
+        '
+        'ProgressBarSNR
+        '
+        Me.ProgressBarSNR.Location = New System.Drawing.Point(44, 38)
+        Me.ProgressBarSNR.Maximum = 20
+        Me.ProgressBarSNR.Name = "ProgressBarSNR"
+        Me.ProgressBarSNR.Size = New System.Drawing.Size(100, 13)
+        Me.ProgressBarSNR.Style = System.Windows.Forms.ProgressBarStyle.Continuous
+        Me.ProgressBarSNR.TabIndex = 1
+        '
+        'LabelSNR
+        '
+        Me.LabelSNR.AutoSize = True
+        Me.LabelSNR.Location = New System.Drawing.Point(150, 38)
+        Me.LabelSNR.Name = "LabelSNR"
+        Me.LabelSNR.Size = New System.Drawing.Size(20, 13)
+        Me.LabelSNR.TabIndex = 3
+        Me.LabelSNR.Text = "dB"
+        '
+        'ProgressBarFIC
+        '
+        Me.ProgressBarFIC.Location = New System.Drawing.Point(44, 76)
+        Me.ProgressBarFIC.Name = "ProgressBarFIC"
+        Me.ProgressBarFIC.Size = New System.Drawing.Size(100, 13)
+        Me.ProgressBarFIC.Style = System.Windows.Forms.ProgressBarStyle.Continuous
+        Me.ProgressBarFIC.TabIndex = 6
+        '
+        'LabelRSSI
+        '
+        Me.LabelRSSI.AutoSize = True
+        Me.LabelRSSI.Location = New System.Drawing.Point(150, 19)
+        Me.LabelRSSI.Name = "LabelRSSI"
+        Me.LabelRSSI.Size = New System.Drawing.Size(33, 13)
+        Me.LabelRSSI.TabIndex = 2
+        Me.LabelRSSI.Text = "dBµV"
+        '
+        'ProgressBarCNR
+        '
+        Me.ProgressBarCNR.Location = New System.Drawing.Point(44, 57)
+        Me.ProgressBarCNR.Maximum = 54
+        Me.ProgressBarCNR.Name = "ProgressBarCNR"
+        Me.ProgressBarCNR.Size = New System.Drawing.Size(100, 13)
+        Me.ProgressBarCNR.Style = System.Windows.Forms.ProgressBarStyle.Continuous
+        Me.ProgressBarCNR.TabIndex = 4
+        '
+        'GroupBox3
+        '
+        Me.GroupBox3.Controls.Add(Me.LabelSampleRate)
+        Me.GroupBox3.Controls.Add(Me.LabelBitRate)
+        Me.GroupBox3.Location = New System.Drawing.Point(475, 191)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Size = New System.Drawing.Size(211, 51)
+        Me.GroupBox3.TabIndex = 4
+        Me.GroupBox3.TabStop = False
+        Me.GroupBox3.Text = "Audio Info"
+        '
+        'LabelSampleRate
+        '
+        Me.LabelSampleRate.AutoSize = True
+        Me.LabelSampleRate.Location = New System.Drawing.Point(9, 29)
+        Me.LabelSampleRate.Name = "LabelSampleRate"
+        Me.LabelSampleRate.Size = New System.Drawing.Size(68, 13)
+        Me.LabelSampleRate.TabIndex = 1
+        Me.LabelSampleRate.Text = "Sample Rate"
+        '
+        'LabelBitRate
+        '
+        Me.LabelBitRate.AutoSize = True
+        Me.LabelBitRate.Location = New System.Drawing.Point(9, 16)
+        Me.LabelBitRate.Name = "LabelBitRate"
+        Me.LabelBitRate.Size = New System.Drawing.Size(45, 13)
+        Me.LabelBitRate.TabIndex = 0
+        Me.LabelBitRate.Text = "Bit Rate"
+        '
+        'TextBoxArtistDLS
+        '
+        Me.TextBoxArtistDLS.Location = New System.Drawing.Point(163, 19)
+        Me.TextBoxArtistDLS.MaxLength = 128
+        Me.TextBoxArtistDLS.Name = "TextBoxArtistDLS"
+        Me.TextBoxArtistDLS.ReadOnly = True
+        Me.TextBoxArtistDLS.Size = New System.Drawing.Size(504, 20)
+        Me.TextBoxArtistDLS.TabIndex = 5
+        '
+        'ButtonScan
+        '
+        Me.ButtonScan.Location = New System.Drawing.Point(6, 19)
+        Me.ButtonScan.Name = "ButtonScan"
+        Me.ButtonScan.Size = New System.Drawing.Size(198, 23)
+        Me.ButtonScan.TabIndex = 6
+        Me.ButtonScan.Text = "Scan"
+        Me.ButtonScan.UseVisualStyleBackColor = True
+        '
+        'Timer1
+        '
+        '
+        'GroupBox8
+        '
+        Me.GroupBox8.Controls.Add(Me.CheckBoxArtistTitle)
+        Me.GroupBox8.Controls.Add(Me.TextBoxTitle)
+        Me.GroupBox8.Controls.Add(Me.TextBoxCurrentService)
+        Me.GroupBox8.Controls.Add(Me.TextBoxArtistDLS)
+        Me.GroupBox8.Location = New System.Drawing.Point(12, 310)
+        Me.GroupBox8.Name = "GroupBox8"
+        Me.GroupBox8.Size = New System.Drawing.Size(674, 73)
+        Me.GroupBox8.TabIndex = 8
+        Me.GroupBox8.TabStop = False
+        Me.GroupBox8.Text = "Current Service"
+        '
+        'CheckBoxArtistTitle
+        '
+        Me.CheckBoxArtistTitle.AutoSize = True
+        Me.CheckBoxArtistTitle.Checked = True
+        Me.CheckBoxArtistTitle.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.CheckBoxArtistTitle.Location = New System.Drawing.Point(6, 48)
+        Me.CheckBoxArtistTitle.Name = "CheckBoxArtistTitle"
+        Me.CheckBoxArtistTitle.Size = New System.Drawing.Size(112, 17)
+        Me.CheckBoxArtistTitle.TabIndex = 7
+        Me.CheckBoxArtistTitle.Text = "Artist - Title Labels"
+        Me.CheckBoxArtistTitle.UseVisualStyleBackColor = True
+        '
+        'TextBoxTitle
+        '
+        Me.TextBoxTitle.Location = New System.Drawing.Point(163, 45)
+        Me.TextBoxTitle.MaxLength = 256
+        Me.TextBoxTitle.Name = "TextBoxTitle"
+        Me.TextBoxTitle.ReadOnly = True
+        Me.TextBoxTitle.Size = New System.Drawing.Size(504, 20)
+        Me.TextBoxTitle.TabIndex = 6
+        '
+        'Timer2
+        '
+        '
+        'GroupBox4
+        '
+        Me.GroupBox4.Controls.Add(Me.CheckBoxMono)
+        Me.GroupBox4.Controls.Add(Me.LabelVolume)
+        Me.GroupBox4.Controls.Add(Me.CheckBoxMute)
+        Me.GroupBox4.Controls.Add(Me.HScrollBarVolume)
+        Me.GroupBox4.Location = New System.Drawing.Point(475, 123)
+        Me.GroupBox4.Name = "GroupBox4"
+        Me.GroupBox4.Size = New System.Drawing.Size(211, 62)
+        Me.GroupBox4.TabIndex = 9
+        Me.GroupBox4.TabStop = False
+        Me.GroupBox4.Text = "Volume"
+        '
+        'CheckBoxMono
+        '
+        Me.CheckBoxMono.AutoSize = True
+        Me.CheckBoxMono.Location = New System.Drawing.Point(82, 39)
+        Me.CheckBoxMono.Name = "CheckBoxMono"
+        Me.CheckBoxMono.Size = New System.Drawing.Size(53, 17)
+        Me.CheckBoxMono.TabIndex = 3
+        Me.CheckBoxMono.Text = "Mono"
+        Me.CheckBoxMono.UseVisualStyleBackColor = True
+        '
+        'LabelVolume
+        '
+        Me.LabelVolume.AutoSize = True
+        Me.LabelVolume.Location = New System.Drawing.Point(165, 40)
+        Me.LabelVolume.Name = "LabelVolume"
+        Me.LabelVolume.Size = New System.Drawing.Size(19, 13)
+        Me.LabelVolume.TabIndex = 2
+        Me.LabelVolume.Text = "63"
+        '
+        'CheckBoxMute
+        '
+        Me.CheckBoxMute.AutoSize = True
+        Me.CheckBoxMute.Location = New System.Drawing.Point(12, 39)
+        Me.CheckBoxMute.Name = "CheckBoxMute"
+        Me.CheckBoxMute.Size = New System.Drawing.Size(50, 17)
+        Me.CheckBoxMute.TabIndex = 1
+        Me.CheckBoxMute.Text = "Mute"
+        Me.CheckBoxMute.UseVisualStyleBackColor = True
+        '
+        'HScrollBarVolume
+        '
+        Me.HScrollBarVolume.LargeChange = 1
+        Me.HScrollBarVolume.Location = New System.Drawing.Point(3, 16)
+        Me.HScrollBarVolume.Maximum = 63
+        Me.HScrollBarVolume.Name = "HScrollBarVolume"
+        Me.HScrollBarVolume.Size = New System.Drawing.Size(201, 17)
+        Me.HScrollBarVolume.TabIndex = 0
+        Me.HScrollBarVolume.Value = 63
+        '
+        'GroupBox5
+        '
+        Me.GroupBox5.Controls.Add(Me.ButtonScan)
+        Me.GroupBox5.Location = New System.Drawing.Point(475, 248)
+        Me.GroupBox5.Name = "GroupBox5"
+        Me.GroupBox5.Size = New System.Drawing.Size(211, 56)
+        Me.GroupBox5.TabIndex = 10
+        Me.GroupBox5.TabStop = False
+        Me.GroupBox5.Text = "Scan services"
+        '
+        'Timer3
+        '
+        '
+        'Timer4
+        '
+        '
+        'Form1
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.ClientSize = New System.Drawing.Size(698, 417)
+        Me.Controls.Add(Me.GroupBox5)
+        Me.Controls.Add(Me.GroupBox4)
+        Me.Controls.Add(Me.GroupBox8)
+        Me.Controls.Add(Me.GroupBox3)
+        Me.Controls.Add(Me.GroupBox2)
+        Me.Controls.Add(Me.GroupBox1)
+        Me.Controls.Add(Me.DataGridViewServices)
+        Me.Controls.Add(Me.StatusStrip1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Name = "Form1"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "DAB Tuner Si4684"
+        Me.StatusStrip1.ResumeLayout(False)
+        Me.StatusStrip1.PerformLayout()
+        CType(Me.DataGridViewServices, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
+        Me.GroupBox3.ResumeLayout(False)
+        Me.GroupBox3.PerformLayout()
+        Me.GroupBox8.ResumeLayout(False)
+        Me.GroupBox8.PerformLayout()
+        Me.GroupBox4.ResumeLayout(False)
+        Me.GroupBox4.PerformLayout()
+        Me.GroupBox5.ResumeLayout(False)
+        Me.ResumeLayout(False)
+        Me.PerformLayout()
+
+    End Sub
+
+    Friend WithEvents StatusStrip1 As StatusStrip
+    Friend WithEvents ToolStripStatusLabel1 As ToolStripStatusLabel
+    Friend WithEvents DataGridViewServices As DataGridView
+    Friend WithEvents Column1 As DataGridViewTextBoxColumn
+    Friend WithEvents Column2 As DataGridViewTextBoxColumn
+    Friend WithEvents Column3 As DataGridViewTextBoxColumn
+    Friend WithEvents Column4 As DataGridViewTextBoxColumn
+    Friend WithEvents Column5 As DataGridViewTextBoxColumn
+    Friend WithEvents Column6 As DataGridViewTextBoxColumn
+    Friend WithEvents Column7 As DataGridViewTextBoxColumn
+    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents LabelFIC As Label
+    Friend WithEvents ProgressBarFIC As ProgressBar
+    Friend WithEvents LabelCNR As Label
+    Friend WithEvents ProgressBarCNR As ProgressBar
+    Friend WithEvents LabelSNR As Label
+    Friend WithEvents LabelRSSI As Label
+    Friend WithEvents ProgressBarSNR As ProgressBar
+    Friend WithEvents ProgressBarRSSI As ProgressBar
+    Friend WithEvents GroupBox3 As GroupBox
+    Friend WithEvents LabelSampleRate As Label
+    Friend WithEvents LabelBitRate As Label
+    Friend WithEvents TextBoxArtistDLS As TextBox
+    Friend WithEvents TextBoxCurrentService As TextBox
+    Friend WithEvents ButtonScan As Button
+    Friend WithEvents Timer1 As Timer
+    Friend WithEvents TextBoxTimeDate As TextBox
+    Friend WithEvents GroupBox8 As GroupBox
+    Friend WithEvents ToolStripStatusLabel2 As ToolStripStatusLabel
+    Friend WithEvents Timer2 As Timer
+    Friend WithEvents ToolStripStatusLabel3 As ToolStripStatusLabel
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Label2 As Label
+    Friend WithEvents Label1 As Label
+    Friend WithEvents GroupBox4 As GroupBox
+    Friend WithEvents CheckBoxMute As CheckBox
+    Friend WithEvents HScrollBarVolume As HScrollBar
+    Friend WithEvents GroupBox5 As GroupBox
+    Friend WithEvents LabelVolume As Label
+    Friend WithEvents Timer3 As Timer
+    Friend WithEvents TextBoxPictureName As TextBox
+    Friend WithEvents TextBoxPacket As TextBox
+    Friend WithEvents CheckBoxMono As CheckBox
+    Friend WithEvents ToolStripStatusLabel4 As ToolStripStatusLabel
+    Friend WithEvents TextBoxTitle As TextBox
+    Friend WithEvents CheckBoxArtistTitle As CheckBox
+    Friend WithEvents Timer4 As Timer
+End Class

@@ -1,0 +1,20 @@
+{
+    "service0": {
+        "serviceName": "RADIO 1",
+        "serviceID": 1,
+        "componentID": 2,
+        "tuneIndex": 1,
+        "tuneFrequency": 1000,
+        "EID": 0,
+        "componentLabel": "Component label 1"
+    },
+    "service1": {
+        "serviceName": "RADIO 2",
+        "serviceID": 1,
+        "componentID": 2,
+        "tuneIndex": 2,
+        "tuneFrequency": 2000,
+        "EID": 0,
+        "componentLabel": "Component label 2"
+    }
+}

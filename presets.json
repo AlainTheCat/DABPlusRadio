@@ -1,0 +1,122 @@
+{
+       "preset0": {
+              "serviceName": "ALPES 1 GRENOBLE",
+              "serviceID": "0x0000F431",
+              "componentID": "0x01FE000D",
+              "tuneIndex": "18",
+              "tuneFrequency": "206352",
+              "EID": "0x4AF0",
+              "componentLabel": "Grenoble-Local  ,",
+              "enable": false
+       },
+       "preset1": {
+              "serviceName": "EUROPE 1        ",
+              "serviceID": "0x0000F213",
+              "componentID": "0x01FE0004",
+              "tuneIndex": "9",
+              "tuneFrequency": "190640",
+              "EID": "0x44F0",
+              "componentLabel": "M\u00c3\u00a9tropolitain 2 ,",
+              "enable": true
+       },
+       "preset2": {
+              "serviceName": "EUROPE 2        ",
+              "serviceID": "0x0000F20E",
+              "componentID": "0x01FE0006",
+              "tuneIndex": "9",
+              "tuneFrequency": "190640",
+              "EID": "0x44F0",
+              "componentLabel": "M\u00c3\u00a9tropolitain 2 ,",
+              "enable": true
+       },
+       "preset3": {
+              "serviceName": "FIP             ",
+              "serviceID": "0x0000F204",
+              "componentID": "0x01FE0009",
+              "tuneIndex": "9",
+              "tuneFrequency": "190640",
+              "EID": "0x44F0",
+              "componentLabel": "M\u00c3\u00a9tropolitain 2 ,",
+              "enable": true
+       },
+       "preset4": {
+              "serviceName": "FRANCE CULTURE  ",
+              "serviceID": "0x0000F202",
+              "componentID": "0x01FE000A",
+              "tuneIndex": "9",
+              "tuneFrequency": "190640",
+              "EID": "0x44F0",
+              "componentLabel": "M\u00c3\u00a9tropolitain 2 ,",
+              "enable": true
+       },
+       "preset5": {
+              "serviceName": "FRANCE INFO     ",
+              "serviceID": "0x0000F206",
+              "componentID": "0x01FE0007",
+              "tuneIndex": "9",
+              "tuneFrequency": "190640",
+              "EID": "0x44F0",
+              "componentLabel": "M\u00c3\u00a9tropolitain 2 ,",
+              "enable": true
+       },
+       "preset6": {
+              "serviceName": "FRANCE INTER    ",
+              "serviceID": "0x0000F201",
+              "componentID": "0x01FE0008",
+              "tuneIndex": "9",
+              "tuneFrequency": "190640",
+              "EID": "0x44F0",
+              "componentLabel": "M\u00c3\u00a9tropolitain 2 ,",
+              "enable": true
+       },
+       "preset7": {
+              "serviceName": "FRANCE MUSIQUE  ",
+              "serviceID": "0x0000F203",
+              "componentID": "0x01FE000B",
+              "tuneIndex": "9",
+              "tuneFrequency": "190640",
+              "EID": "0x44F0",
+              "componentLabel": "M\u00c3\u00a9tropolitain 2 ,",
+              "enable": true
+       },
+       "preset8": {
+              "serviceName": "ICI ISERE       ",
+              "serviceID": "0x0000F209",
+              "componentID": "0x01FE0001",
+              "tuneIndex": "3",
+              "tuneFrequency": "180064",
+              "EID": "0x49F0",
+              "componentLabel": "Grenoble-Etendu ,",
+              "enable": true
+       },
+       "preset9": {
+              "serviceName": "JAZZ RADIO      ",
+              "serviceID": "0x0000F22F",
+              "componentID": "0x01FE0008",
+              "tuneIndex": "3",
+              "tuneFrequency": "180064",
+              "EID": "0x49F0",
+              "componentLabel": "Grenoble-Etendu ,",
+              "enable": true
+       },
+       "preset10": {
+              "serviceName": "",
+              "serviceID": "",
+              "componentID": "",
+              "tuneIndex": "",
+              "tuneFrequency": "",
+              "EID": "",
+              "componentLabel": "",
+              "enable": false
+       },
+       "preset11": {
+              "serviceName": "",
+              "serviceID": "",
+              "componentID": "",
+              "tuneIndex": "",
+              "tuneFrequency": "",
+              "EID": "",
+              "componentLabel": "",
+              "enable": false
+       }
+}
