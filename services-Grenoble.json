@@ -6,7 +6,8 @@
               "tuneIndex": "3",
               "tuneFrequency": "180064",
               "EID": "0x49F0",
-              "componentLabel": "Grenoble-Etendu ,"
+              "componentLabel": "Grenoble-Etendu ,",
+              "preset": "0"
        },
        "service2": {
               "serviceName": "AIRZEN RADIO    ",
@@ -15,7 +16,8 @@
               "tuneIndex": "8",
               "tuneFrequency": "188928",
               "EID": "0x43F0",
-              "componentLabel": "M\u00c3\u00a9tropolitain 1 ,"
+              "componentLabel": "M\u00c3\u00a9tropolitain 1 ,",
+              "preset": "0"
        },
        "service3": {
               "serviceName": "ALPES 1 GRENOBLE",
@@ -24,7 +26,8 @@
               "tuneIndex": "18",
               "tuneFrequency": "206352",
               "EID": "0x4AF0",
-              "componentLabel": "Grenoble-Local  ,"
+              "componentLabel": "Grenoble-Local  ,",
+              "preset": "0"
        },
        "service4": {
               "serviceName": "BEUR FM         ",
@@ -33,7 +36,8 @@
               "tuneIndex": "18",
               "tuneFrequency": "206352",
               "EID": "0x4AF0",
-              "componentLabel": "Grenoble-Local  ,"
+              "componentLabel": "Grenoble-Local  ,",
+              "preset": "0"
        },
        "service5": {
               "serviceName": "BFM BUSINESS    ",
@@ -42,7 +46,8 @@
               "tuneIndex": "9",
               "tuneFrequency": "190640",
               "EID": "0x44F0",
-              "componentLabel": "M\u00c3\u00a9tropolitain 2 ,"
+              "componentLabel": "M\u00c3\u00a9tropolitain 2 ,",
+              "preset": "0"
        },
        "service6": {
               "serviceName": "BFM RADIO       ",
@@ -51,7 +56,8 @@
               "tuneIndex": "9",
               "tuneFrequency": "190640",
               "EID": "0x44F0",
-              "componentLabel": "M\u00c3\u00a9tropolitain 2 ,"
+              "componentLabel": "M\u00c3\u00a9tropolitain 2 ,",
+              "preset": "0"
        },
        "service7": {
               "serviceName": "Campus Grenoble ",
@@ -60,7 +66,8 @@
               "tuneIndex": "18",
               "tuneFrequency": "206352",
               "EID": "0x4AF0",
-              "componentLabel": "Grenoble-Local  ,"
+              "componentLabel": "Grenoble-Local  ,",
+              "preset": "0"
        },
        "service8": {
               "serviceName": "CAPSAO          ",
@@ -69,7 +76,8 @@
               "tuneIndex": "3",
               "tuneFrequency": "180064",
               "EID": "0x49F0",
-              "componentLabel": "Grenoble-Etendu ,"
+              "componentLabel": "Grenoble-Etendu ,",
+              "preset": "0"
        },
        "service9": {
               "serviceName": "CHERIE FM       ",
@@ -78,7 +86,8 @@
               "tuneIndex": "8",
               "tuneFrequency": "188928",
               "EID": "0x43F0",
-              "componentLabel": "M\u00c3\u00a9tropolitain 1 ,"
+              "componentLabel": "M\u00c3\u00a9tropolitain 1 ,",
+              "preset": "0"
        },
        "service10": {
               "serviceName": "CHERIEFMGRENOBLE",
@@ -87,7 +96,8 @@
               "tuneIndex": "18",
               "tuneFrequency": "206352",
               "EID": "0x4AF0",
-              "componentLabel": "Grenoble-Local  ,"
+              "componentLabel": "Grenoble-Local  ,",
+              "preset": "0"
        },
        "service11": {
               "serviceName": "EUROPE 1        ",
@@ -96,7 +106,8 @@
               "tuneIndex": "9",
               "tuneFrequency": "190640",
               "EID": "0x44F0",
-              "componentLabel": "M\u00c3\u00a9tropolitain 2 ,"
+              "componentLabel": "M\u00c3\u00a9tropolitain 2 ,",
+              "preset": "1"
        },
        "service12": {
               "serviceName": "EUROPE 2        ",
@@ -105,7 +116,8 @@
               "tuneIndex": "9",
               "tuneFrequency": "190640",
               "EID": "0x44F0",
-              "componentLabel": "M\u00c3\u00a9tropolitain 2 ,"
+              "componentLabel": "M\u00c3\u00a9tropolitain 2 ,",
+              "preset": "2"
        },
        "service13": {
               "serviceName": "FG. DJ RADIO    ",
@@ -114,7 +126,8 @@
               "tuneIndex": "18",
               "tuneFrequency": "206352",
               "EID": "0x4AF0",
-              "componentLabel": "Grenoble-Local  ,"
+              "componentLabel": "Grenoble-Local  ,",
+              "preset": "0"
        },
        "service14": {
               "serviceName": "FIP             ",
@@ -123,7 +136,8 @@
               "tuneIndex": "9",
               "tuneFrequency": "190640",
               "EID": "0x44F0",
-              "componentLabel": "M\u00c3\u00a9tropolitain 2 ,"
+              "componentLabel": "M\u00c3\u00a9tropolitain 2 ,",
+              "preset": "0"
        },
        "service15": {
               "serviceName": "FRANCE CULTURE  ",
@@ -132,7 +146,8 @@
               "tuneIndex": "9",
               "tuneFrequency": "190640",
               "EID": "0x44F0",
-              "componentLabel": "M\u00c3\u00a9tropolitain 2 ,"
+              "componentLabel": "M\u00c3\u00a9tropolitain 2 ,",
+              "preset": "3"
        },
        "service16": {
               "serviceName": "FRANCE INFO     ",
@@ -141,7 +156,8 @@
               "tuneIndex": "9",
               "tuneFrequency": "190640",
               "EID": "0x44F0",
-              "componentLabel": "M\u00c3\u00a9tropolitain 2 ,"
+              "componentLabel": "M\u00c3\u00a9tropolitain 2 ,",
+              "preset": "4"
        },
        "service17": {
               "serviceName": "FRANCE INTER    ",
@@ -150,7 +166,8 @@
               "tuneIndex": "9",
               "tuneFrequency": "190640",
               "EID": "0x44F0",
-              "componentLabel": "M\u00c3\u00a9tropolitain 2 ,"
+              "componentLabel": "M\u00c3\u00a9tropolitain 2 ,",
+              "preset": "5"
        },
        "service18": {
               "serviceName": "FRANCE MUSIQUE  ",
@@ -159,7 +176,8 @@
               "tuneIndex": "9",
               "tuneFrequency": "190640",
               "EID": "0x44F0",
-              "componentLabel": "M\u00c3\u00a9tropolitain 2 ,"
+              "componentLabel": "M\u00c3\u00a9tropolitain 2 ,",
+              "preset": "6"
        },
        "service19": {
               "serviceName": "FUN RADIO DAB+  ",
@@ -168,7 +186,8 @@
               "tuneIndex": "8",
               "tuneFrequency": "188928",
               "EID": "0x43F0",
-              "componentLabel": "M\u00c3\u00a9tropolitain 1 ,"
+              "componentLabel": "M\u00c3\u00a9tropolitain 1 ,",
+              "preset": "0"
        },
        "service20": {
               "serviceName": "HOT RADIO       ",
@@ -177,7 +196,8 @@
               "tuneIndex": "18",
               "tuneFrequency": "206352",
               "EID": "0x4AF0",
-              "componentLabel": "Grenoble-Local  ,"
+              "componentLabel": "Grenoble-Local  ,",
+              "preset": "0"
        },
        "service21": {
               "serviceName": "I S A           ",
@@ -186,7 +206,8 @@
               "tuneIndex": "18",
               "tuneFrequency": "206352",
               "EID": "0x4AF0",
-              "componentLabel": "Grenoble-Local  ,"
+              "componentLabel": "Grenoble-Local  ,",
+              "preset": "0"
        },
        "service22": {
               "serviceName": "ICI ISERE       ",
@@ -195,7 +216,8 @@
               "tuneIndex": "3",
               "tuneFrequency": "180064",
               "EID": "0x49F0",
-              "componentLabel": "Grenoble-Etendu ,"
+              "componentLabel": "Grenoble-Etendu ,",
+              "preset": "7"
        },
        "service23": {
               "serviceName": "JAZZ RADIO      ",
@@ -204,7 +226,8 @@
               "tuneIndex": "3",
               "tuneFrequency": "180064",
               "EID": "0x49F0",
-              "componentLabel": "Grenoble-Etendu ,"
+              "componentLabel": "Grenoble-Etendu ,",
+              "preset": "8"
        },
        "service24": {
               "serviceName": "KTO Radio       ",
@@ -213,7 +236,8 @@
               "tuneIndex": "9",
               "tuneFrequency": "190640",
               "EID": "0x44F0",
-              "componentLabel": "M\u00c3\u00a9tropolitain 2 ,"
+              "componentLabel": "M\u00c3\u00a9tropolitain 2 ,",
+              "preset": "0"
        },
        "service25": {
               "serviceName": "LATINA dab+     ",
@@ -222,7 +246,8 @@
               "tuneIndex": "8",
               "tuneFrequency": "188928",
               "EID": "0x43F0",
-              "componentLabel": "M\u00c3\u00a9tropolitain 1 ,"
+              "componentLabel": "M\u00c3\u00a9tropolitain 1 ,",
+              "preset": "0"
        },
        "service26": {
               "serviceName": "M RADIO         ",
@@ -231,7 +256,8 @@
               "tuneIndex": "8",
               "tuneFrequency": "188928",
               "EID": "0x43F0",
-              "componentLabel": "M\u00c3\u00a9tropolitain 1 ,"
+              "componentLabel": "M\u00c3\u00a9tropolitain 1 ,",
+              "preset": "0"
        },
        "service27": {
               "serviceName": "MAX RADIO       ",
@@ -240,7 +266,8 @@
               "tuneIndex": "18",
               "tuneFrequency": "206352",
               "EID": "0x4AF0",
-              "componentLabel": "Grenoble-Local  ,"
+              "componentLabel": "Grenoble-Local  ,",
+              "preset": "0"
        },
        "service28": {
               "serviceName": "MELODY          ",
@@ -249,7 +276,8 @@
               "tuneIndex": "3",
               "tuneFrequency": "180064",
               "EID": "0x49F0",
-              "componentLabel": "Grenoble-Etendu ,"
+              "componentLabel": "Grenoble-Etendu ,",
+              "preset": "0"
        },
        "service29": {
               "serviceName": "MOUV'           ",
@@ -258,7 +286,8 @@
               "tuneIndex": "9",
               "tuneFrequency": "190640",
               "EID": "0x44F0",
-              "componentLabel": "M\u00c3\u00a9tropolitain 2 ,"
+              "componentLabel": "M\u00c3\u00a9tropolitain 2 ,",
+              "preset": "0"
        },
        "service30": {
               "serviceName": "New's FM        ",
@@ -267,7 +296,8 @@
               "tuneIndex": "18",
               "tuneFrequency": "206352",
               "EID": "0x4AF0",
-              "componentLabel": "Grenoble-Local  ,"
+              "componentLabel": "Grenoble-Local  ,",
+              "preset": "0"
        },
        "service31": {
               "serviceName": "NOSTALGIE       ",
@@ -276,7 +306,8 @@
               "tuneIndex": "8",
               "tuneFrequency": "188928",
               "EID": "0x43F0",
-              "componentLabel": "M\u00c3\u00a9tropolitain 1 ,"
+              "componentLabel": "M\u00c3\u00a9tropolitain 1 ,",
+              "preset": "9"
        },
        "service32": {
               "serviceName": "NOSTALGIGRENOBLE",
@@ -285,7 +316,8 @@
               "tuneIndex": "18",
               "tuneFrequency": "206352",
               "EID": "0x4AF0",
-              "componentLabel": "Grenoble-Local  ,"
+              "componentLabel": "Grenoble-Local  ,",
+              "preset": "0"
        },
        "service33": {
               "serviceName": "NRJ             ",
@@ -294,7 +326,8 @@
               "tuneIndex": "8",
               "tuneFrequency": "188928",
               "EID": "0x43F0",
-              "componentLabel": "M\u00c3\u00a9tropolitain 1 ,"
+              "componentLabel": "M\u00c3\u00a9tropolitain 1 ,",
+              "preset": "10"
        },
        "service34": {
               "serviceName": "NRJ GRENOBLE    ",
@@ -303,7 +336,8 @@
               "tuneIndex": "18",
               "tuneFrequency": "206352",
               "EID": "0x4AF0",
-              "componentLabel": "Grenoble-Local  ,"
+              "componentLabel": "Grenoble-Local  ,",
+              "preset": "0"
        },
        "service35": {
               "serviceName": "OUI FM dab+     ",
@@ -312,7 +346,8 @@
               "tuneIndex": "3",
               "tuneFrequency": "180064",
               "EID": "0x49F0",
-              "componentLabel": "Grenoble-Etendu ,"
+              "componentLabel": "Grenoble-Etendu ,",
+              "preset": "0"
        },
        "service36": {
               "serviceName": "R K S           ",
@@ -321,7 +356,8 @@
               "tuneIndex": "18",
               "tuneFrequency": "206352",
               "EID": "0x4AF0",
-              "componentLabel": "Grenoble-Local  ,"
+              "componentLabel": "Grenoble-Local  ,",
+              "preset": "0"
        },
        "service37": {
               "serviceName": "RADIO CLASSIQUE ",
@@ -330,7 +366,8 @@
               "tuneIndex": "8",
               "tuneFrequency": "188928",
               "EID": "0x43F0",
-              "componentLabel": "M\u00c3\u00a9tropolitain 1 ,"
+              "componentLabel": "M\u00c3\u00a9tropolitain 1 ,",
+              "preset": "0"
        },
        "service38": {
               "serviceName": "Radio ORIENT    ",
@@ -339,7 +376,8 @@
               "tuneIndex": "3",
               "tuneFrequency": "180064",
               "EID": "0x49F0",
-              "componentLabel": "Grenoble-Etendu ,"
+              "componentLabel": "Grenoble-Etendu ,",
+              "preset": "0"
        },
        "service39": {
               "serviceName": "RADIO PITCHOUN  ",
@@ -348,7 +386,8 @@
               "tuneIndex": "18",
               "tuneFrequency": "206352",
               "EID": "0x4AF0",
-              "componentLabel": "Grenoble-Local  ,"
+              "componentLabel": "Grenoble-Local  ,",
+              "preset": "0"
        },
        "service40": {
               "serviceName": "RCF ISERE       ",
@@ -357,7 +396,8 @@
               "tuneIndex": "3",
               "tuneFrequency": "180064",
               "EID": "0x49F0",
-              "componentLabel": "Grenoble-Etendu ,"
+              "componentLabel": "Grenoble-Etendu ,",
+              "preset": "0"
        },
        "service41": {
               "serviceName": "RFM             ",
@@ -366,7 +406,8 @@
               "tuneIndex": "9",
               "tuneFrequency": "190640",
               "EID": "0x44F0",
-              "componentLabel": "M\u00c3\u00a9tropolitain 2 ,"
+              "componentLabel": "M\u00c3\u00a9tropolitain 2 ,",
+              "preset": "0"
        },
        "service42": {
               "serviceName": "RIRE ET CHANSONS",
@@ -375,7 +416,8 @@
               "tuneIndex": "8",
               "tuneFrequency": "188928",
               "EID": "0x43F0",
-              "componentLabel": "M\u00c3\u00a9tropolitain 1 ,"
+              "componentLabel": "M\u00c3\u00a9tropolitain 1 ,",
+              "preset": "11"
        },
        "service43": {
               "serviceName": "RMC             ",
@@ -384,7 +426,8 @@
               "tuneIndex": "9",
               "tuneFrequency": "190640",
               "EID": "0x44F0",
-              "componentLabel": "M\u00c3\u00a9tropolitain 2 ,"
+              "componentLabel": "M\u00c3\u00a9tropolitain 2 ,",
+              "preset": "0"
        },
        "service44": {
               "serviceName": "RTL DAB+        ",
@@ -393,7 +436,8 @@
               "tuneIndex": "8",
               "tuneFrequency": "188928",
               "EID": "0x43F0",
-              "componentLabel": "M\u00c3\u00a9tropolitain 1 ,"
+              "componentLabel": "M\u00c3\u00a9tropolitain 1 ,",
+              "preset": "12"
        },
        "service45": {
               "serviceName": "RTL2 DAB+       ",
@@ -402,7 +446,8 @@
               "tuneIndex": "8",
               "tuneFrequency": "188928",
               "EID": "0x43F0",
-              "componentLabel": "M\u00c3\u00a9tropolitain 1 ,"
+              "componentLabel": "M\u00c3\u00a9tropolitain 1 ,",
+              "preset": "0"
        },
        "service46": {
               "serviceName": "SCOOP Is\u00c3\u00a8re     ",
@@ -411,7 +456,8 @@
               "tuneIndex": "3",
               "tuneFrequency": "180064",
               "EID": "0x49F0",
-              "componentLabel": "Grenoble-Etendu ,"
+              "componentLabel": "Grenoble-Etendu ,",
+              "preset": "0"
        },
        "service47": {
               "serviceName": "SKYROCK         ",
@@ -420,7 +466,8 @@
               "tuneIndex": "8",
               "tuneFrequency": "188928",
               "EID": "0x43F0",
-              "componentLabel": "M\u00c3\u00a9tropolitain 1 ,"
+              "componentLabel": "M\u00c3\u00a9tropolitain 1 ,",
+              "preset": "0"
        },
        "service48": {
               "serviceName": "SKYROCK KLASSIKS",
@@ -429,7 +476,8 @@
               "tuneIndex": "8",
               "tuneFrequency": "188928",
               "EID": "0x43F0",
-              "componentLabel": "M\u00c3\u00a9tropolitain 1 ,"
+              "componentLabel": "M\u00c3\u00a9tropolitain 1 ,",
+              "preset": "0"
        },
        "service49": {
               "serviceName": "SUD RADIO       ",
@@ -438,7 +486,8 @@
               "tuneIndex": "3",
               "tuneFrequency": "180064",
               "EID": "0x49F0",
-              "componentLabel": "Grenoble-Etendu ,"
+              "componentLabel": "Grenoble-Etendu ,",
+              "preset": "0"
        },
        "service50": {
               "serviceName": "TONIC RADIO     ",
@@ -447,7 +496,8 @@
               "tuneIndex": "3",
               "tuneFrequency": "180064",
               "EID": "0x49F0",
-              "componentLabel": "Grenoble-Etendu ,"
+              "componentLabel": "Grenoble-Etendu ,",
+              "preset": "0"
        },
        "service51": {
               "serviceName": "TSF JAZZ        ",
@@ -456,7 +506,8 @@
               "tuneIndex": "3",
               "tuneFrequency": "180064",
               "EID": "0x49F0",
-              "componentLabel": "Grenoble-Etendu ,"
+              "componentLabel": "Grenoble-Etendu ,",
+              "preset": "0"
        },
        "service52": {
               "serviceName": "VIRGIN RADIO    ",
@@ -465,6 +516,7 @@
               "tuneIndex": "3",
               "tuneFrequency": "180064",
               "EID": "0x49F0",
-              "componentLabel": "Grenoble-Etendu ,"
+              "componentLabel": "Grenoble-Etendu ,",
+              "preset": "0"
        }
 }

@@ -1,0 +1,52 @@
+{
+  "service1": {
+    "Service Name": "1 RADIO ONE 1   ",
+    "Service ID": "0x0000F36A",
+    "Component ID": "0x01FE000B",
+    "Tune Index": "18",
+    "Tune Frequency kHz": "206352",
+    "EID": "0x73F0",
+    "Component Label": "MONTPELLIER 9C  ",
+    "Preset": "1"
+  },
+  "service2": {
+    "Service Name": "100/100         ",
+    "Service ID": "0x0000F692",
+    "Component ID": "0x01FE0003",
+    "Tune Index": "28",
+    "Tune Frequency kHz": "220352",
+    "EID": "0x72F0",
+    "Component Label": "MONTPELLIER 11C ",
+    "Preset": "2"
+  },
+  "service3": {
+    "Service Name": "ADO dab+        ",
+    "Service ID": "0x0000F21B",
+    "Component ID": "0x01FE0002",
+    "Tune Index": "28",
+    "Tune Frequency kHz": "220352",
+    "EID": "0x72F0",
+    "Component Label": "MONTPELLIER 11C ",
+    "Preset": "0"
+  },
+  "service4": {
+    "Service Name": "AIRZEN RADIO    ",
+    "Service ID": "0x0000F2FE",
+    "Component ID": "0x01FE000A",
+    "Tune Index": "22",
+    "Tune Frequency kHz": "211648",
+    "EID": "0x43F0",
+    "Component Label": "Métropolitain 1 ",
+    "Preset": "0"
+  },
+  "service5": {
+    "Service Name": "Beur FM         ",
+    "Service ID": "0x0000F229",
+    "Component ID": "0x01FE0006",
+    "Tune Index": "18",
+    "Tune Frequency kHz": "206352",
+    "EID": "0x73F0",
+    "Component Label": "MONTPELLIER 9C  ",
+    "Preset": "3"
+  }
+}

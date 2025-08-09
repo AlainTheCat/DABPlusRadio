@@ -1,4 +1,6 @@
+#!/usr/bin/python3
 # This Python file uses the following encoding: utf-8
+# -*- coding: utf-8 -*-
 from colorsys import rgb_to_hls, hls_to_rgb
 from PySide6.QtWidgets import QWidget, QStyleOption
 from PySide6.QtGui import QPainter

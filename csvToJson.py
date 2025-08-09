@@ -1,9 +1,8 @@
 import csv
 import json
 
+def csv_to_json(csv_File_Path, json_File_Path):
 
-def csv_to_json(csv_file_path, json_file_path):
-    # create a dictionary
     data_dict = {}
 
     # Step 2

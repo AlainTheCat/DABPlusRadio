@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1487</width>
-    <height>801</height>
+    <width>1482</width>
+    <height>847</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,112 +17,6 @@
    <iconset>
     <normaloff>radio.png</normaloff>radio.png</iconset>
   </property>
-  <widget class="QScrollArea" name="scrollArea">
-   <property name="geometry">
-    <rect>
-     <x>19</x>
-     <y>180</y>
-     <width>401</width>
-     <height>411</height>
-    </rect>
-   </property>
-   <property name="widgetResizable">
-    <bool>true</bool>
-   </property>
-   <widget class="QWidget" name="scrollAreaWidgetContents">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>399</width>
-      <height>409</height>
-     </rect>
-    </property>
-    <widget class="QTableWidget" name="tableWidgetViewServices">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>10</y>
-       <width>381</width>
-       <height>391</height>
-      </rect>
-     </property>
-     <property name="rowCount">
-      <number>60</number>
-     </property>
-     <property name="columnCount">
-      <number>7</number>
-     </property>
-     <row/>
-     <row/>
-     <row/>
-     <row/>
-     <row/>
-     <row/>
-     <row/>
-     <row/>
-     <row/>
-     <row/>
-     <row/>
-     <row/>
-     <row/>
-     <row/>
-     <row/>
-     <row/>
-     <row/>
-     <row/>
-     <row/>
-     <row/>
-     <row/>
-     <row/>
-     <row/>
-     <row/>
-     <row/>
-     <row/>
-     <row/>
-     <row/>
-     <row/>
-     <row/>
-     <row/>
-     <row/>
-     <row/>
-     <row/>
-     <row/>
-     <row/>
-     <row/>
-     <row/>
-     <row/>
-     <row/>
-     <row/>
-     <row/>
-     <row/>
-     <row/>
-     <row/>
-     <row/>
-     <row/>
-     <row/>
-     <row/>
-     <row/>
-     <row/>
-     <row/>
-     <row/>
-     <row/>
-     <row/>
-     <row/>
-     <row/>
-     <row/>
-     <row/>
-     <row/>
-     <column/>
-     <column/>
-     <column/>
-     <column/>
-     <column/>
-     <column/>
-     <column/>
-    </widget>
-   </widget>
-  </widget>
   <widget class="QGroupBox" name="groupBoxSlideshow">
    <property name="geometry">
     <rect>
@@ -213,7 +107,7 @@
     </property>
    </widget>
   </widget>
-  <widget class="QGroupBox" name="groupBoxStatus">
+  <widget class="QGroupBox" name="groupBoxValues">
    <property name="geometry">
     <rect>
      <x>880</x>
@@ -223,7 +117,7 @@
     </rect>
    </property>
    <property name="title">
-    <string>Status</string>
+    <string>Values</string>
    </property>
    <widget class="QLabel" name="label1">
     <property name="geometry">
@@ -556,9 +450,9 @@
     <property name="geometry">
      <rect>
       <x>8</x>
-      <y>30</y>
+      <y>24</y>
       <width>251</width>
-      <height>25</height>
+      <height>31</height>
      </rect>
     </property>
     <property name="text">
@@ -570,7 +464,7 @@
    <property name="geometry">
     <rect>
      <x>430</x>
-     <y>450</y>
+     <y>460</y>
      <width>791</width>
      <height>141</height>
     </rect>
@@ -621,58 +515,6 @@
      <string>Artist - Title</string>
     </property>
    </widget>
-  </widget>
-  <widget class="QLabel" name="toolStripStatusLabel1">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>760</y>
-     <width>221</width>
-     <height>17</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>DAB Tuner</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="toolStripStatusLabel2">
-   <property name="geometry">
-    <rect>
-     <x>270</x>
-     <y>760</y>
-     <width>201</width>
-     <height>17</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>PIC18LF25K50 / Si4684</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="toolStripStatusLabel3">
-   <property name="geometry">
-    <rect>
-     <x>510</x>
-     <y>760</y>
-     <width>181</width>
-     <height>17</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>DAB is inative</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="toolStripStatusLabel4">
-   <property name="geometry">
-    <rect>
-     <x>760</x>
-     <y>760</y>
-     <width>411</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>PIC Firmware : 1.0.3 / Si Firmware revision : 6.0.10</string>
-   </property>
   </widget>
   <widget class="QGroupBox" name="groupBoxOnOff">
    <property name="geometry">
@@ -728,7 +570,7 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>590</y>
+     <y>610</y>
      <width>1201</width>
      <height>151</height>
     </rect>
@@ -971,9 +813,9 @@
    <property name="geometry">
     <rect>
      <x>1230</x>
-     <y>10</y>
+     <y>90</y>
      <width>231</width>
-     <height>731</height>
+     <height>671</height>
     </rect>
    </property>
    <property name="title">
@@ -1139,13 +981,240 @@
     <property name="geometry">
      <rect>
       <x>70</x>
-      <y>650</y>
+      <y>630</y>
       <width>78</width>
       <height>20</height>
      </rect>
     </property>
     <property name="text">
      <string>Memory</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QGroupBox" name="groupBoxStatus">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>770</y>
+     <width>1441</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>Status</string>
+   </property>
+   <widget class="QLabel" name="toolStripStatusLabel1">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>20</y>
+      <width>221</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>DAB Tuner</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="toolStripStatusLabel2">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>20</y>
+      <width>201</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>PIC18LF25K50 / Si4684</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="toolStripStatusLabel3">
+    <property name="geometry">
+     <rect>
+      <x>590</x>
+      <y>26</y>
+      <width>231</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>DAB is inative</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="toolStripStatusLabel4">
+    <property name="geometry">
+     <rect>
+      <x>860</x>
+      <y>20</y>
+      <width>411</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>PIC Firmware : 1.0.3 / Si Firmware revision : 6.0.10</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QGroupBox" name="groupBoxServicesList">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>180</y>
+     <width>401</width>
+     <height>421</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>Services List</string>
+   </property>
+   <widget class="QScrollArea" name="scrollArea">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>30</y>
+      <width>381</width>
+      <height>351</height>
+     </rect>
+    </property>
+    <property name="widgetResizable">
+     <bool>true</bool>
+    </property>
+    <widget class="QWidget" name="scrollAreaWidgetContents">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>379</width>
+       <height>349</height>
+      </rect>
+     </property>
+     <widget class="QTableWidget" name="tableWidgetViewServices">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>361</width>
+        <height>331</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>8</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="rowCount">
+       <number>60</number>
+      </property>
+      <property name="columnCount">
+       <number>8</number>
+      </property>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <column/>
+      <column/>
+      <column/>
+      <column/>
+      <column/>
+      <column/>
+      <column/>
+      <column/>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QPushButton" name="pushButtonSaveList">
+    <property name="geometry">
+     <rect>
+      <x>244</x>
+      <y>383</y>
+      <width>141</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Save this services list</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QGroupBox" name="groupBoxArea">
+   <property name="geometry">
+    <rect>
+     <x>1230</x>
+     <y>9</y>
+     <width>231</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>Areas</string>
+   </property>
+   <widget class="QComboBox" name="comboBoxAreas">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>30</y>
+      <width>211</width>
+      <height>31</height>
+     </rect>
     </property>
    </widget>
   </widget>

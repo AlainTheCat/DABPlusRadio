@@ -7,17 +7,20 @@
  This is a control panel of DAB radio receiver.
  This program is build with Python 3, PySide6 and QtDesigner.
  The device is plugged on USB HID.
+ The style is combinear.qss
+
  For installation read readme.txt file and requirements.txt.
 
  Author: Alain the Cat
  Local Website: mao2.fr
 """
-
+import os
+import platform
 import sys
 import hid
 import json
 from MainWindow import Ui_Form
-from PySide6.QtWidgets import QMainWindow, QMessageBox, QApplication, QTableWidgetItem, QFileDialog
+from PySide6.QtWidgets import QMainWindow, QMessageBox, QApplication, QTableWidgetItem, QFileDialog, QInputDialog
 from PySide6.QtCore import QTimer, QObject, Signal, QDate, QTime, QByteArray, QFile
 from PySide6.QtGui import QIcon, QPixmap, QImage
 from qled import QLed
@@ -36,7 +39,7 @@ class Preset:
 
     """
 
-    def __init__(self, serviceName, serviceID, componentID, tuneIndex, tuneFrequency, EID, componentLabel, enable):
+    def __init__(self, serviceName, serviceID, componentID, tuneIndex, tuneFrequency, EID, componentLabel, position):
         """ initializes Service class """
         self.serviceName = serviceName
         self.serviceID = serviceID
@@ -45,7 +48,7 @@ class Preset:
         self.tuneFrequency = tuneFrequency
         self.EID = EID
         self.componentLabel = componentLabel
-        self.enable = enable
+        self.position = position
 
 class Service:
     """
@@ -56,7 +59,7 @@ class Service:
 
     """
 
-    def __init__(self, serviceName, serviceID, componentID, tuneIndex, tuneFrequency, EID, componentLabel):
+    def __init__(self, serviceName, serviceID, componentID, tuneIndex, tuneFrequency, EID, componentLabel, preset):
         """ initializes Service class """
         self.serviceName = serviceName
         self.serviceID = serviceID
@@ -65,54 +68,8 @@ class Service:
         self.tuneFrequency = tuneFrequency
         self.EID = EID
         self.componentLabel = componentLabel
+        self.preset = preset
 
-
-# Creating list of services
-services = []
-
-# List all services (services1.json)
-with open("service.json") as f:
-    data1 = json.load(f)
-
-nbServices = sum([1 for i in data1])
-
-print("Number of Services: ", nbServices)
-
-# Appending instances to list
-for i in range(1, nbServices + 1):
-    services.append(
-        Service(
-            data1["service" + str(i)]["serviceName"],
-            data1["service" + str(i)]["serviceID"],
-            data1["service" + str(i)]["componentID"],
-            data1["service" + str(i)]["tuneIndex"],
-            data1["service" + str(i)]["tuneFrequency"],
-            data1["service" + str(i)]["EID"],
-            data1["service" + str(i)]["componentLabel"]
-        )
-    )
-
-#  Creating list of presets
-presets = []
-
-# loading these presets from presets.json
-with open("presets.json") as f:
-    data2 = json.load(f)
-
-# Appending instances to list
-for i in range(12):
-    presets.append(
-        Preset(
-            data2["preset" + str(i)]["serviceName"],
-            data2["preset" + str(i)]["serviceID"],
-            data2["preset" + str(i)]["componentID"],
-            data2["preset" + str(i)]["tuneIndex"],
-            data2["preset" + str(i)]["tuneFrequency"],
-            data2["preset" + str(i)]["EID"],
-            data2["preset" + str(i)]["componentLabel"],
-            data2["preset" + str(i)]["enable"]
-        )
-    )
 
 DLS_Ascii = [32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32,
              32, 32, 32, 32, 32, 32, 32, 32, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47,
@@ -127,46 +84,16 @@ DLS_Ascii = [32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32,
              32, 32, 32, 158, 32, 32, 32, 197, 198, 140, 32, 253, 213, 216, 254, 32, 32, 32, 32, 32, 32, 32,
              227, 229, 230, 156, 32, 253, 245, 248, 32, 32, 32, 32, 32, 32, 32, 32]
 
-def savePresets():
-    """
-    Save all presets on json file "presets.json"
-    """
-    settings = {}
-    it = 0
-    for preset in presets:
-        serviceName = preset.serviceName
-        serviceId = preset.serviceID
-        componentID = preset.componentID
-        tuneIndex = preset.tuneIndex
-        tuneFrequency = preset.tuneFrequency
-        EID = preset.EID
-        componentLabel = preset.componentLabel
-        enable = preset.enable
-        presetIndex = "preset" + str(it)
-        presetDict = {
-            "serviceName": serviceName,
-            "serviceID": serviceId,
-            "componentID": componentID,
-            "tuneIndex": tuneIndex,
-            "tuneFrequency": tuneFrequency,
-            "EID": EID,
-            "componentLabel": componentLabel,
-            "enable": enable
-        }
-        settings[presetIndex] = presetDict
-        it += 1
-    # Serializing Json
-    json_object = json.dumps(settings, indent = 7)
-    with open("presets.json", "w") as outfile:
-        outfile.write(json_object)
 
+VENDOR_ID = 0x1234
+PRODUCT_ID = 0x4684
 
 def checkDevice():
     """
-    Check the device.
+    Check the device on Linux  or Windows platform
+    :return:
     """
-    VENDOR_ID = 0x1234
-    PRODUCT_ID = 0x4684
+    print("Platform System: ", platform.system())
     try:
         device = hid.Device(vid=VENDOR_ID, pid=PRODUCT_ID)
         return device
@@ -175,20 +102,29 @@ def checkDevice():
             res = hid.enumerate(vid=VENDOR_ID, pid=PRODUCT_ID)
             dict1 = res[0]
             hidPath = dict1["path"].decode()
-            print("sudo chmod 0666 " + hidPath)
             msgBox1 = QMessageBox()
             msgBox1.setWindowTitle("DEVICE ERROR")
             msgBox1.setText("Device can't open")
-            msgBox1.setInformativeText("sudo chmod 0666 " + hidPath)
+            if platform.system() == "Linux":
+                print("Operating System: Linux")
+                print("sudo chmod 0666 " + hidPath)
+                msgBox1.setInformativeText("sudo chmod 0666 " + hidPath)
+            elif platform.system() == "Windows":
+                print("Operating System: Windows")
+                print("HID Path:" + hidPath)
+                msgBox1.setInformativeText("HID Path:" + hidPath)
+            else:
+                print("Operating System not supported")
+                msgBox1.setInformativeText("Plug your device on Windows or Linux platform")
             msgBox1.setStandardButtons(QMessageBox.StandardButton.Ok)
             if msgBox1.exec() == QMessageBox.StandardButton.Ok:
                 exit()
             else:
                 pass
-
         except Exception:
             msgBox2 = QMessageBox()
             msgBox2.setWindowTitle("DEVICE ERROR")
+            print("DEVICE ERROR: Device no found")
             msgBox2.setText("Device no found")
             msgBox2.setInformativeText("Plug your device !")
             msgBox2.setStandardButtons(QMessageBox.StandardButton.Ok)
@@ -208,7 +144,7 @@ class Dab(QMainWindow, Ui_Form):
         super().__init__()
 
         # ---INIT PANEL ---
-
+        # Creating main window from dab.ui / dab.py
         self.setupUi(self)
         self.setWindowIcon(QIcon("radio.png"))
         self.setWindowTitle("RADIO DAB")
@@ -228,14 +164,25 @@ class Dab(QMainWindow, Ui_Form):
         self.bufferOut = [0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
                           0x00]
 
-        self.hidToSend = False
-
+        #  Creating list of services
+        self.nbServices = 0
+        self.services = []
         self.currentIndex = 0
         self.totalServices = 0
+        self.tuneIndex = 0
 
+        #  Creating list of presets
+        self.nbPresets = 0
+        self.presets = []
+
+        self.hidToSend = False
+
+        # Init Status Bar
         self.dynamicLabel = "Alain is - the best"
         self.artist = ""
         self.title = ""
+
+
         self.packetIndex = 0
         self.PADDataType = 0
         self.DLSType = 0
@@ -247,6 +194,7 @@ class Dab(QMainWindow, Ui_Form):
         self.jackStatus = 0x00  # Analog or Optical output
         self.labelVolume = "0"
 
+        # Init Picture
         self.imageStart = False  # Beginning for load the picture
         self.pathPicture = ""  # Path of the picture
         self.pictureHex = ""  # Content of the picture in hexa
@@ -269,6 +217,7 @@ class Dab(QMainWindow, Ui_Form):
         self.checkBoxMono.setEnabled(False)
         self.checkBoxArtistTitle.setEnabled(False)
         self.tableWidgetViewServices.setEnabled(False)
+        self.pushButtonSaveList.setEnabled((False))
         self.horizontalScrollBarVolume.setEnabled(False)
         self.presetsButtonDisabled()
 
@@ -296,7 +245,7 @@ class Dab(QMainWindow, Ui_Form):
         self.my_array = [[0 for col in range(5)] for row in range(40)]
 
         headerH = ['Service Name', 'Service ID', 'Component ID', 'Tune Index', 'Tune Frequency kHz', 'EID',
-                   'Component Label']
+                   'Component Label', 'Preset']
         self.tableWidgetViewServices.setHorizontalHeaderLabels(headerH)
 
         # --- INIT CONNECTIONS ---
@@ -304,12 +253,22 @@ class Dab(QMainWindow, Ui_Form):
         self.pushButtonOff.clicked.connect(self.off)
         self.pushButtonScan.clicked.connect(self.buttonScanClick)
 
+
         self.horizontalScrollBarVolume.valueChanged.connect(self.hScrollBarVolumeValueChanged)
 
         self.tableWidgetViewServices.clicked.connect(self.dataGridViewServicesCellClick)
 
         self.checkBoxMono.clicked.connect(self.checkBoxMonoClick)
         self.checkBoxMute.clicked.connect(self.checkBoxMuteClick)
+
+        self.comboBoxAreas.addItems(["Default Area"])
+        self.comboBoxAreas.setCurrentText("Default Area")
+
+        # Find the different Services list (json files in json directory)
+        # and add this services list in Areas comboBx
+        self.getServicesFile()
+
+        self.pushButtonSaveList.clicked.connect(self.saveServicesList)
 
         # --- PUSH BUTTON PRESETS ---
 
@@ -355,7 +314,7 @@ class Dab(QMainWindow, Ui_Form):
 
         # New Ensemble -> delay one shot 300 mSec
         self.timerNewEnsemble = QTimer()
-        self.timerNewEnsemble.timeout.connect(self.timerNewEnsembleTick())
+        # self.timerNewEnsemble.timeout.connect(self.timerNewEnsembleTick())
 
         # Read device -> periodic delay 50 mSec
         self.timerReadDevice = QTimer()
@@ -370,12 +329,14 @@ class Dab(QMainWindow, Ui_Form):
         """
         Power Off
         """
+        print("Power Off")
         self.toolStripStatusLabel1.setText("DAB Tuner Disconnected")
         self.toolStripStatusLabel2.setText("")
         self.toolStripStatusLabel3.setText("")
         self.toolStripStatusLabel4.setText("")
         self.pushButtonOn.setEnabled(True)
         self.pushButtonOff.setEnabled(False)
+        self.comboBoxAreas.setEnabled(True)
         self.presetsButtonDisabled()
         self.clearPanel()
         self.clearTextBox()
@@ -385,6 +346,7 @@ class Dab(QMainWindow, Ui_Form):
         """
         Stand by the device.
         """
+        print("Close")
         self.timerPowerDown.stop()
         self.horizontalScrollBarVolume.setValue(0)
         self.bufferOut[0] = 0x00
@@ -429,25 +391,38 @@ class Dab(QMainWindow, Ui_Form):
         """
         Power On
         """
-        self.loadPresets()
-        self.loadServices()
+        print("Power On")
+        # Load Services list from selected json file in Area SpinBox
+        # and prohibit changing the services list
+        self.loadServiceList()
+        self.comboBoxAreas.setEnabled(False)
 
+        # Load Presets list from Services list with position mark ("1" to "12")
+        self.loadPresets()
+
+        # Update Status Bar
         self.toolStripStatusLabel1.setText("DAB Tuner connected")
         self.toolStripStatusLabel2.setText("")
         self.toolStripStatusLabel3.setText("")
         self.toolStripStatusLabel4.setText("")
+
+        # Swap buttons On/Off
         self.pushButtonOn.setEnabled(False)
         self.pushButtonOff.setEnabled(True)
+
+        # Some Buttons are now enabled
         self.horizontalScrollBarVolume.setEnabled(True)
         self.checkBoxMono.setEnabled(True)
         self.checkBoxMute.setEnabled(True)
         self.checkBoxArtistTitle.setEnabled(True)
         self.pushButtonScan.setEnabled(True)
+        self.pushButtonSaveList.setEnabled(True)
 
         self.timerPowerUp.start(100)
 
     def open(self):
         """a HID device has been plugged in..."""
+        print("Open")
         self.timerPowerUp.stop()
         self.bufferOut[0] = 0x00
         self.bufferOut[1] = 0x01
@@ -476,6 +451,263 @@ class Dab(QMainWindow, Ui_Form):
         """
         self.timerReadDevice.start(50)
 
+    def getServicesFile(self):
+        """
+        Get number of file services json and name of this file
+        Update the Areas comboBox
+        :return:
+        """
+        print("Get Services File")
+        directory = "json"
+        files = [f for f in os.listdir(directory) if os.path.isfile(os.path.join(directory, f))]
+        # print("Nb json files:", len(files))
+        for row in range(1,len(files)):
+            item = files[row].replace("services-", "").replace(".json", "")
+            self.comboBoxAreas.addItems([item])
+
+    def loadServiceList(self):
+        """
+        Load Services List
+
+        """
+        print("Load Services List")
+        nbAreas = self.comboBoxAreas.count()
+        # print("Nb Areas:", nbAreas)
+        index = self.comboBoxAreas.currentIndex()
+        if index == 0 :
+            serviceList = "json/services-Default.json"
+            # print("Area:", serviceList)
+        else:
+            serviceList = "json/services-"+ self.comboBoxAreas.currentText() + ".json"
+            # print("Area:", serviceList)
+
+        # List all services from json file
+        with open(serviceList, "r", encoding="utf-8") as f:
+            data1 = json.load(f)
+
+        self.nbServices = sum([1 for i in data1])
+
+        # print("Number of Services: ", self.nbServices)
+        self.services.clear()
+        # Appending instances to list
+        for i in range(1, self.nbServices + 1):
+            self.services.append(
+                Service(
+                    data1["service" + str(i)]["Service Name"],
+                    data1["service" + str(i)]["Service ID"],
+                    data1["service" + str(i)]["Component ID"],
+                    data1["service" + str(i)]["Tune Index"],
+                    data1["service" + str(i)]["Tune Frequency kHz"],
+                    data1["service" + str(i)]["EID"],
+                    data1["service" + str(i)]["Component Label"],
+                    data1["service" + str(i)]["Preset"]
+                )
+            )
+        self.tableWidgetViewServices.clearContents() # Clear the table of services
+        if self.nbServices != 0 :
+            for row in range(0, self.nbServices):
+                self.tableWidgetViewServices.setItem(row, 0, QTableWidgetItem(self.services[row].serviceName))
+                self.tableWidgetViewServices.setItem(row, 1, QTableWidgetItem(self.services[row].serviceID))
+                self.tableWidgetViewServices.setItem(row, 2, QTableWidgetItem(self.services[row].componentID))
+                self.tableWidgetViewServices.setItem(row, 3, QTableWidgetItem(self.services[row].tuneIndex))
+                self.tableWidgetViewServices.setItem(row, 4, QTableWidgetItem(self.services[row].tuneFrequency))
+                self.tableWidgetViewServices.setItem(row, 5, QTableWidgetItem(self.services[row].EID))
+                self.tableWidgetViewServices.setItem(row, 6, QTableWidgetItem(self.services[row].componentLabel))
+                self.tableWidgetViewServices.setItem(row, 7, QTableWidgetItem(self.services[row].preset))
+            self.lineEditArtistDLS.setText("Select a Service from the list")
+
+            # Load all presets
+            self.nbPresets = 0
+            self.presets.clear()
+            for row in range(0, self.nbServices):
+                # print("Row value", self.services[row].preset)
+                match self.services[row].preset:
+                    case "0":
+                        pass
+                    case "1":
+                        self.nbPresets =+ 1
+                        self.presets.append(
+                            Preset(
+                                self.services[row].serviceName,
+                                self.services[row].serviceID,
+                                self.services[row].componentID,
+                                self.services[row].tuneIndex,
+                                self.services[row].tuneFrequency,
+                                self.services[row].EID,
+                                self.services[row].componentLabel,
+                                "1"
+                            )
+                        )
+                    case "2":
+                        self.nbPresets += 1
+                        self.presets.append(
+                            Preset(
+                                self.services[row].serviceName,
+                                self.services[row].serviceID,
+                                self.services[row].componentID,
+                                self.services[row].tuneIndex,
+                                self.services[row].tuneFrequency,
+                                self.services[row].EID,
+                                self.services[row].componentLabel,
+                                "2"
+                            )
+                        )
+                    case "3":
+                        self.nbPresets += 1
+                        self.presets.append(
+                            Preset(
+                                self.services[row].serviceName,
+                                self.services[row].serviceID,
+                                self.services[row].componentID,
+                                self.services[row].tuneIndex,
+                                self.services[row].tuneFrequency,
+                                self.services[row].EID,
+                                self.services[row].componentLabel,
+                                "3"
+                            )
+                        )
+                    case "4":
+                        self.nbPresets += 1
+                        self.presets.append(
+                            Preset(
+                                self.services[row].serviceName,
+                                self.services[row].serviceID,
+                                self.services[row].componentID,
+                                self.services[row].tuneIndex,
+                                self.services[row].tuneFrequency,
+                                self.services[row].EID,
+                                self.services[row].componentLabel,
+                                "4"
+                            )
+                        )
+                    case "5":
+                        self.nbPresets += 1
+                        self.presets.append(
+                            Preset(
+                                self.services[row].serviceName,
+                                self.services[row].serviceID,
+                                self.services[row].componentID,
+                                self.services[row].tuneIndex,
+                                self.services[row].tuneFrequency,
+                                self.services[row].EID,
+                                self.services[row].componentLabel,
+                                "5"
+                            )
+                        )
+                    case "6":
+                        self.nbPresets += 1
+                        self.presets.append(
+                            Preset(
+                                self.services[row].serviceName,
+                                self.services[row].serviceID,
+                                self.services[row].componentID,
+                                self.services[row].tuneIndex,
+                                self.services[row].tuneFrequency,
+                                self.services[row].EID,
+                                self.services[row].componentLabel,
+                                "6"
+                            )
+                        )
+                    case "7":
+                        self.nbPresets += 1
+                        self.presets.append(
+                            Preset(
+                                self.services[row].serviceName,
+                                self.services[row].serviceID,
+                                self.services[row].componentID,
+                                self.services[row].tuneIndex,
+                                self.services[row].tuneFrequency,
+                                self.services[row].EID,
+                                self.services[row].componentLabel,
+                                "7"
+                            )
+                        )
+                    case "8":
+                        self.nbPresets += 1
+                        self.presets.append(
+                            Preset(
+                                self.services[row].serviceName,
+                                self.services[row].serviceID,
+                                self.services[row].componentID,
+                                self.services[row].tuneIndex,
+                                self.services[row].tuneFrequency,
+                                self.services[row].EID,
+                                self.services[row].componentLabel,
+                                "8"
+                            )
+                        )
+                    case "9":
+                        self.nbPresets += 1
+                        self.presets.append(
+                            Preset(
+                                self.services[row].serviceName,
+                                self.services[row].serviceID,
+                                self.services[row].componentID,
+                                self.services[row].tuneIndex,
+                                self.services[row].tuneFrequency,
+                                self.services[row].EID,
+                                self.services[row].componentLabel,
+                                "9"
+                            )
+                        )
+                    case "10":
+                        self.nbPresets += 1
+                        self.presets.append(
+                            Preset(
+                                self.services[row].serviceName,
+                                self.services[row].serviceID,
+                                self.services[row].componentID,
+                                self.services[row].tuneIndex,
+                                self.services[row].tuneFrequency,
+                                self.services[row].EID,
+                                self.services[row].componentLabel,
+                                "10"
+                            )
+                        )
+                    case "11":
+                        self.nbPresets += 1
+                        self.presets.append(
+                            Preset(
+                                self.services[row].serviceName,
+                                self.services[row].serviceID,
+                                self.services[row].componentID,
+                                self.services[row].tuneIndex,
+                                self.services[row].tuneFrequency,
+                                self.services[row].EID,
+                                self.services[row].componentLabel,
+                                "11"
+                            )
+                        )
+                    case "12":
+                        self.nbPresets += 1
+                        self.presets.append(
+                            Preset(
+                                self.services[row].serviceName,
+                                self.services[row].serviceID,
+                                self.services[row].componentID,
+                                self.services[row].tuneIndex,
+                                self.services[row].tuneFrequency,
+                                self.services[row].EID,
+                                self.services[row].componentLabel,
+                                "12"
+                            )
+                        )
+                    case _:
+                        pass
+            # print("Nb Presets:", self.nbPresets)
+            # print("presets1", self.presets[0].serviceName)
+
+            self.loadPresets()
+        else :
+            msgBox3 = QMessageBox()
+            msgBox3.setWindowTitle("DAB WARNING")
+            msgBox3.setText("Services list is empty : scan for services")
+            msgBox3.setStandardButtons(QMessageBox.StandardButton.Ok)
+            if msgBox3.exec() == QMessageBox.StandardButton.Ok:
+                pass
+            else:
+                pass
+
     def readDevice(self):
         """Reads the device"""
         # print("Device reading ...")
@@ -485,7 +717,7 @@ class Dab(QMainWindow, Ui_Form):
             if self.bufferIn:
                 dataInHex = ' '.join('{:02X}'.format(a) for a in self.bufferIn)
                 self.lineEditBufferIn.setText(dataInHex)
-                print(dataInHex)
+                # print(dataInHex)
                 # print('{:02X}'.format(self.dataAddress))
                 self.onRead()
         except Exception:
@@ -637,46 +869,89 @@ class Dab(QMainWindow, Ui_Form):
         Digital Service List
 
         """
-        countServices = 0
-        totalServices = 0
-        # print("Digital Service List")
+        print("Digital Service List")
         serviceID = str(self.bufferIn[15]) + " " + str(self.bufferIn[14]) + \
                     " " + str(self.bufferIn[13]) + " " + str(self.bufferIn[12])
-        print(serviceID)
+        print("Service ID: ", serviceID)
         serviceName = str(self.bufferIn[20]) + str(self.bufferIn[21]) + str(self.bufferIn[22]) \
                       + str(self.bufferIn[23]) + str(self.bufferIn[25]) + str(self.bufferIn[26]) \
                       + str(self.bufferIn[27]) + str(self.bufferIn[28]) + str(self.bufferIn[29]) \
                       + str(self.bufferIn[30]) + str(self.bufferIn[31]) + str(self.bufferIn[32]) \
                       + str(self.bufferIn[33]) + str(self.bufferIn[34]) + str(self.bufferIn[35])
-        print(serviceName)
+        print("Service name: ", serviceName)
         componentID = str(self.bufferIn[39]) + " " + str(self.bufferIn[38]) + \
                     " " + str(self.bufferIn[37]) + " " + str(self.bufferIn[36])
-        print(componentID)
+        print("Component ID: ",componentID)
+        print("Command: ", self.bufferOut[1])
         if self.bufferOut[1] == 0x40:
-            countServices += 1
-            totalServices += 1
-        # print(countServices)
-        # print(totalServices)
+            self.nbServices += 1
+            self.totalServices += 1
+            print("Count Services: ", self.nbServices)
+            print("total Services: ", self.totalServices)
+            self.my_array[self.tuneIndex][4] = self.nbServices
+            self.service.totalServices.setText(str( self.totalServices))
+        print("------------")
         rowPosition = self.tableWidgetViewServices.rowCount()
         self.tableWidgetViewServices.insertRow(rowPosition)
         self.tableWidgetViewServices.setItem(rowPosition, 0, QTableWidgetItem(serviceName))
         self.tableWidgetViewServices.setItem(rowPosition, 1, QTableWidgetItem(serviceID))
         self.tableWidgetViewServices.setItem(rowPosition, 2, QTableWidgetItem(componentID))
+        # self.tableWidgetViewServices.setItem(rowPosition, 3, QTableWidgetItem(componentID))
 
+        # content = self.readRowTable(self.tableWidgetViewServices, rowPosition)
+
+        # with open("services-New.json", "a", encoding='utf-8') as file:
+            # file.write(json.dumps(content, indent=4))
+
+    def readTableService(self, table):
+        """
+        Read QTableWidget and return a dictionary of contents
+        :param table:
+        :return: content
+        """
+        content = {}
+        for row in range(self.nbServices):
+            key = "service" + str(row + 1)
+            print("Key: ", key)
+            service = {}
+
+            for column in range(table.columnCount()):
+                header = table.horizontalHeaderItem(column).text()
+                item = table.item(row, column).text() if table.item(row, column) else ""
+                # content[key][header] = item
+                service[header] = item
+            content[key] = service
+        return content
+
+    def saveServicesList(self):
+        """
+        Save the services list into a new area json file
+        :return:
+        """
+        print("Creating json file of services")
+        fileName = ""
+        area, ok = QInputDialog.getText(self , "Services List Save", "Enter the name of this area: ")
+        if ok and area:
+            fileName = "json/services-" + area.capitalize() + ".json"
+            content = self.readTableService(self.tableWidgetViewServices)
+            with open(fileName, "w", encoding='utf-8') as file:
+                file.write(json.dumps(content, indent=4))
+        else:
+            pass
 
     def dabDigradStatus(self):
         """
         DAB Digrad Status
 
         """
-        # print("DAB Digrad Status")
+        print("DAB Digrad Status")
         # Tune frequency and index
         tuneFrequency = (self.bufferIn[19] * 0x1000000) + (self.bufferIn[18] * 0x10000) + (self.bufferIn[17] * 0x100) + self.bufferIn[16]
-        # print(tuneFrequency)
-        tuneIndex = self.bufferIn[20]
-        # print(tuneIndex)
-        self.my_array[tuneIndex][0] = tuneIndex
-        self.my_array[tuneIndex][1] = tuneFrequency
+        print(tuneFrequency)
+        self.tuneIndex = self.bufferIn[20]
+        print(self.tuneIndex)
+        self.my_array[self.tuneIndex][0] = self.tuneIndex
+        self.my_array[self.tuneIndex][1] = tuneFrequency
         # Analog or optical output
         if self.bufferIn[27] != self.jackStatus:
             self. jackStatus = self.bufferIn[27]
@@ -704,13 +979,13 @@ class Dab(QMainWindow, Ui_Form):
             RSSI = self.bufferIn[10] & 0x3F
         else:
             RSSI = self.bufferIn[10] - 256
-        self.my_array[tuneIndex][2] = RSSI
+        self.my_array[self.tuneIndex][2] = RSSI
         valid = self.bufferIn[9] & 0x01
-        self.my_array[tuneIndex][3] = valid
+        self.my_array[self.tuneIndex][3] = valid
         SNR = self.bufferIn[11]
         CNR = self.bufferIn[13]
         FICQuality = self.bufferIn[12]
-        # nbServices = 0
+        self.nbServices = 0
         if self.bufferOut[1] != 0x40:
             self.labelRSSI.setText(str(RSSI) + " dB V")
             self.progressBarRSSI.setValue(RSSI)
@@ -734,20 +1009,22 @@ class Dab(QMainWindow, Ui_Form):
 
         if self.bufferOut[1] == 0x40:
             # print("scanning " + str(tuneFrequency) + " Mhz")
-            self.service.progressBar.setValue(tuneIndex)
+            self.service.progressBar.setValue(self.tuneIndex)
             self.service.labelScanning.setText("Scanning: " + str(tuneFrequency) + " Mhz")
-            if tuneIndex == 39:
+            if self.tuneIndex == 39:
                 self.service.labelScanning.setText("Scanning complete")
                 self.service.pushButtonClose.setEnabled(True)
                 if self.totalServices != 0:
-                    self.lineEditArtistDLS = "Select a Service from the list"
+                    self.lineEditArtistDLS.setText("Select a Service from the list")
+                else:
+                    self.lineEditArtistDLS.setText("No available service")
 
 
     def ensembleInfo(self):
         """
         Ensemble Information
         """
-        # print("Ensemble Information")
+        print("Ensemble Information")
 
         EID = str(self.bufferOut[8]) + str(self.bufferIn[9])
         # print(EID)
@@ -759,12 +1036,19 @@ class Dab(QMainWindow, Ui_Form):
                          + chr(self.bufferIn[125])
         # print(componentLabel)
 
+        rowPosition = self.tableWidgetViewServices.rowCount()
+        self.tableWidgetViewServices.insertRow(rowPosition)
+        self.tableWidgetViewServices.setItem(rowPosition, 5, QTableWidgetItem(EID))
+        self.tableWidgetViewServices.setItem(rowPosition, 6, QTableWidgetItem(componentLabel))
+        self.tableWidgetViewServices.setItem(rowPosition, 7, QTableWidgetItem("0"))
+
+
     def getDigitalServiceData(self):
         """
         Get Digital Service Data
 
         """
-        # print("Get Digital Service Data")
+        print("Get Digital Service Data")
         pictureName = ""
         self.packetIndex = self.bufferIn[6]
         # print("packetIndex: ", '{:02X}'.format(self.packetIndex))
@@ -967,7 +1251,7 @@ class Dab(QMainWindow, Ui_Form):
         b'\x01\x03\x02\x00\x00\x10\x04\x00\x00\xfa\x04'
 
         """
-        print("Load Picture ...")
+        # print("Load Picture ...")
         if self.pictureHex != "":
             self.imageStart = False
             fileName = self.pictureFile
@@ -1028,7 +1312,9 @@ class Dab(QMainWindow, Ui_Form):
         DAB Get Service Info
         If response  0xC0
         """
+        print("DAB Get Service Info")
         # currentService = radio name
+        # currentService = ""
         currentService = chr(self.bufferIn[12]) + chr(self.bufferIn[13]) + chr(self.bufferIn[14]) \
                          + chr(self.bufferIn[15]) + chr(self.bufferIn[16]) + chr(self.bufferIn[17]) \
                          + chr(self.bufferIn[18]) + chr(self.bufferIn[19]) + chr(self.bufferIn[20]) \
@@ -1056,7 +1342,7 @@ class Dab(QMainWindow, Ui_Form):
         """
         tuning For New Ensemble
         """
-        # print("Tuning a new ensemble")
+        print("Tuning a new ensemble")
         self.progressBarRSSI.setValue(0)
         self.progressBarSNR.setValue(0)
         self.progressBarCNR.setValue(0)
@@ -1080,20 +1366,26 @@ class Dab(QMainWindow, Ui_Form):
         if self.ensemble.getProgressBarValue() == 100:
             self.timerNewEnsemble.stop()
             self.ensemble.close()
+        else:
+            newValue = self.ensemble.getProgressBarValue() + 10
+            self.ensemble.setProgressBarValue(newValue)
+
 
     def loadServices(self):
         """
         Load Services
         """
-        if nbServices != 0 :
-            for row in range(0, nbServices):
-                self.tableWidgetViewServices.setItem(row, 0, QTableWidgetItem(services[row].serviceName))
-                self.tableWidgetViewServices.setItem(row, 1, QTableWidgetItem(services[row].serviceID))
-                self.tableWidgetViewServices.setItem(row, 2, QTableWidgetItem(services[row].componentID))
-                self.tableWidgetViewServices.setItem(row, 3, QTableWidgetItem(services[row].tuneIndex))
-                self.tableWidgetViewServices.setItem(row, 4, QTableWidgetItem(services[row].tuneFrequency))
-                self.tableWidgetViewServices.setItem(row, 5, QTableWidgetItem(services[row].EID))
-                self.tableWidgetViewServices.setItem(row, 6, QTableWidgetItem(services[row].componentLabel))
+        print("Load Services")
+        if self.nbServices != 0 :
+            for row in range(0, self.nbServices):
+                self.tableWidgetViewServices.setItem(row, 0, QTableWidgetItem(self.services[row].serviceName))
+                self.tableWidgetViewServices.setItem(row, 1, QTableWidgetItem(self.services[row].serviceID))
+                self.tableWidgetViewServices.setItem(row, 2, QTableWidgetItem(self.services[row].componentID))
+                self.tableWidgetViewServices.setItem(row, 3, QTableWidgetItem(self.services[row].tuneIndex))
+                self.tableWidgetViewServices.setItem(row, 4, QTableWidgetItem(self.services[row].tuneFrequency))
+                self.tableWidgetViewServices.setItem(row, 5, QTableWidgetItem(self.services[row].EID))
+                self.tableWidgetViewServices.setItem(row, 6, QTableWidgetItem(self.services[row].componentLabel))
+                self.tableWidgetViewServices.setItem(row, 7, QTableWidgetItem(self.services[row].preset))
             self.lineEditArtistDLS.setText("Select a Service from the list")
         else :
             msgBox3 = QMessageBox()
@@ -1113,7 +1405,7 @@ class Dab(QMainWindow, Ui_Form):
         ***** WORK IN PROGRESS *****
         return: row
         """
-        # print("Set Data Services")
+        print("Data Grid Services Cell Click")
         # print("\n")
         row = self.tableWidgetViewServices.currentRow()
         # print(row)
@@ -1125,21 +1417,22 @@ class Dab(QMainWindow, Ui_Form):
         Start the selected service on data grid panel or presets panel
 
         """
+        print("Start Service")
         row = self.currentIndex
         self.bufferOut[1] = 0x81
         self.bufferOut[2] = 0x00
-        tuneIndex = int(services[row].tuneIndex, 16)
+        tuneIndex = int(self.services[row].tuneIndex, 16)
         self.bufferOut[3] = tuneIndex
         # print(tuneIndex)
         self.bufferOut[4] = 0x00
 
-        serviceID = int(services[row].serviceID, 16)
+        serviceID = int(self.services[row].serviceID, 16)
         self.bufferOut[8] = int((serviceID & 4278190080) / 16777216)
         self.bufferOut[7] = int((serviceID & 16711680) / 65536)
         self.bufferOut[6] = int((serviceID & 65280) / 256)
         self.bufferOut[5] = serviceID & 255
 
-        componentID = int(services[row].componentID, 16)
+        componentID = int(self.services[row].componentID, 16)
         self.bufferOut[12] = int((componentID & 4278190080) / 16777216)
         self.bufferOut[11] = int((componentID & 16711680) / 65536)
         self.bufferOut[10] = int((componentID & 65280) / 256)
@@ -1161,7 +1454,9 @@ class Dab(QMainWindow, Ui_Form):
         Scan
         **** WORK IN PROGRESS *****
         """
-        # print("Button Scan is clicked")
+        print("Button Scan is clicked")
+
+        self.tableWidgetViewServices.clear()
 
         self.nbServices = 0
         self.totalServices = 0
@@ -1276,87 +1571,173 @@ class Dab(QMainWindow, Ui_Form):
         Load all presets
         :return:
         """
-        self.pushButtonPreset1.setText(presets[0].serviceName.strip())
-        self.pushButtonPreset1.setEnabled(presets[0].enable)
-        print(presets[0].enable)
-        self.pushButtonPreset2.setText(presets[1].serviceName.strip())
-        self.pushButtonPreset2.setEnabled(presets[1].enable)
-        print(presets[1].enable)
-        self.pushButtonPreset3.setText(presets[2].serviceName.strip())
-        self.pushButtonPreset3.setEnabled(presets[2].enable)
-        self.pushButtonPreset4.setText(presets[3].serviceName.strip())
-        self.pushButtonPreset4.setEnabled(presets[3].enable)
-        self.pushButtonPreset5.setText(presets[4].serviceName.strip())
-        self.pushButtonPreset5.setEnabled(presets[4].enable)
-        self.pushButtonPreset6.setText(presets[5].serviceName.strip())
-        self.pushButtonPreset6.setEnabled(presets[5].enable)
-        self.pushButtonPreset7.setText(presets[6].serviceName.strip())
-        self.pushButtonPreset7.setEnabled(presets[6].enable)
-        self.pushButtonPreset8.setText(presets[7].serviceName.strip())
-        self.pushButtonPreset8.setEnabled(presets[7].enable)
-        self.pushButtonPreset9.setText(presets[8].serviceName.strip())
-        self.pushButtonPreset9.setEnabled(presets[8].enable)
-        self.pushButtonPreset10.setText(presets[9].serviceName.strip())
-        self.pushButtonPreset10.setEnabled(presets[9].enable)
-        self.pushButtonPreset11.setText(presets[10].serviceName.strip())
-        self.pushButtonPreset11.setEnabled(presets[10].enable)
-        self.pushButtonPreset12.setText(presets[11].serviceName.strip())
-        self.pushButtonPreset12.setEnabled(presets[11].enable)
+        print("Load all presets")
+        for row in range(self.nbPresets):
+            position = self.presets[row].position
+            match position:
+                case "0":
+                    pass
+                case "1":
+                    self.pushButtonPreset1.setText(self.presets[row].serviceName.strip())
+                    self.pushButtonPreset1.setEnabled(True)
+                case "2":
+                    self.pushButtonPreset2.setText(self.presets[row].serviceName.strip())
+                    self.pushButtonPreset2.setEnabled(True)
+                case "3":
+                    self.pushButtonPreset3.setText(self.presets[row].serviceName.strip())
+                    self.pushButtonPreset3.setEnabled(True)
+                case "4":
+                    self.pushButtonPreset4.setText(self.presets[row].serviceName.strip())
+                    self.pushButtonPreset4.setEnabled(True)
+                case "5":
+                    self.pushButtonPreset5.setText(self.presets[row].serviceName.strip())
+                    self.pushButtonPreset5.setEnabled(True)
+                case "6":
+                    self.pushButtonPreset6.setText(self.presets[row].serviceName.strip())
+                    self.pushButtonPreset6.setEnabled(True)
+                case "7":
+                    self.pushButtonPreset7.setText(self.presets[row].serviceName.strip())
+                    self.pushButtonPreset7.setEnabled(True)
+                case "8":
+                    self.pushButtonPreset8.setText(self.presets[row].serviceName.strip())
+                    self.pushButtonPreset8.setEnabled(True)
+                case "9":
+                    self.pushButtonPreset9.setText(self.presets[row].serviceName.strip())
+                    self.pushButtonPreset9.setEnabled(True)
+                case "10":
+                    self.pushButtonPreset10.setText(self.presets[row].serviceName.strip())
+                    self.pushButtonPreset10.setEnabled(True)
+                case "11":
+                    self.pushButtonPreset11.setText(self.presets[row].serviceName.strip())
+                    self.pushButtonPreset11.setEnabled(True)
+                case "12":
+                    self.pushButtonPreset12.setText(self.presets[row].serviceName.strip())
+                    self.pushButtonPreset12.setEnabled(True)
+                case _:
+                    pass
 
+    def savePresetsMark(self):
+        """
+        Save Presets marks into json Services File
+        :return:
+        """
+        print("Save Presets Mark")
+        # Creating the json object
+        settings = {}
+        self.nbServices = 3
+        print("nb Services to save: ", self.nbServices)
+        for row in range(0, self.nbServices):
+            serviceName = self.services[row].serviceName
+            serviceId = self.services[row].serviceID
+            componentID = self.services[row].componentID
+            tuneIndex = self.services[row].tuneIndex
+            tuneFrequency = self.services[row].tuneFrequency
+            EID = self.services[row].EID
+            componentLabel = self.services[row].componentLabel
+            preset = self.services[row].preset
+            serviceIndex = "service" + str(row + 1)
+            # print("Service name: ", serviceName)
+            serviceDict = {
+                "serviceName": serviceName,
+                "serviceID": serviceId,
+                "componentID": componentID,
+                "tuneIndex": tuneIndex,
+                "tuneFrequency": tuneFrequency,
+                "EID": EID,
+                "componentLabel": componentLabel,
+                "preset": preset
+            }
+            settings[serviceIndex] = serviceDict
+        # Serializing Json
+        json_object = json.dumps(settings, indent=7)
+        # print("json: ", json_object)
+
+        # Updating or creating the json file
+        file_name, _ = QFileDialog.getSaveFileName(self, "Save Services json File", "", "Json Files (*.json)")
+        if file_name:
+            # print(f"File to save: {file_name}")
+            try:
+                with open(file_name, 'w') as file:
+                    file.write(json_object)  # json file
+                print(f"File saved to: {file_name}")
+            except Exception as e:
+                print(f"Error saving file: {e}")
+
+    def buttonPrestNoClicked(self):
+        """
+        For all presets button:
+            background-color: white
+            color: black
+
+        """
+        self.pushButtonPreset1.setStyleSheet('QPushButton {background-color: transparent; color: grey;}')
+        self.pushButtonPreset2.setStyleSheet('QPushButton {background-color: transparent; color: grey;}')
+        self.pushButtonPreset3.setStyleSheet('QPushButton {background-color: transparent; color: grey;}')
+        self.pushButtonPreset4.setStyleSheet('QPushButton {background-color: transparent; color: grey;}')
+        self.pushButtonPreset5.setStyleSheet('QPushButton {background-color: transparent; color: grey;}')
+        self.pushButtonPreset6.setStyleSheet('QPushButton {background-color: transparent; color: grey;}')
+        self.pushButtonPreset7.setStyleSheet('QPushButton {background-color: transparent; color: grey;}')
+        self.pushButtonPreset8.setStyleSheet('QPushButton {background-color: transparent; color: grey;}')
+        self.pushButtonPreset9.setStyleSheet('QPushButton {background-color: transparent; color: grey;}')
+        self.pushButtonPreset10.setStyleSheet('QPushButton {background-color: transparent; color: grey;}')
+        self.pushButtonPreset11.setStyleSheet('QPushButton {background-color: transparent; color: grey;}')
+        self.pushButtonPreset12.setStyleSheet('QPushButton {background-color: transparent; color: grey;}')
 
     def buttonPresetClick(self, index):
         """
         Button Preset Clicked
         :param index: of preset
         """
+        print(f"button {index} clicked")
+        self.buttonPrestNoClicked()
         match index:
             case 0:
                 self.pushButtonPreset1.setStyleSheet('QPushButton {background-color: #A3C1DA; color: red;}')
-                serviceID = presets[index].serviceID
+                serviceID = self.presets[index].serviceID
                 self.favorite(serviceID)
             case 1:
                 self.pushButtonPreset2.setStyleSheet('QPushButton {background-color: #A3C1DA; color: red;}')
-                serviceID = presets[index].serviceID
+                serviceID = self.presets[index].serviceID
                 self.favorite(serviceID)
             case 2:
                 self.pushButtonPreset3.setStyleSheet('QPushButton {background-color: #A3C1DA; color: red;}')
-                serviceID = presets[index].serviceID
+                serviceID = self.presets[index].serviceID
                 self.favorite(serviceID)
             case 3:
                 self.pushButtonPreset4.setStyleSheet('QPushButton {background-color: #A3C1DA; color: red;}')
-                serviceID = presets[index].serviceID
+                serviceID = self.presets[index].serviceID
                 self.favorite(serviceID)
             case 4:
                 self.pushButtonPreset5.setStyleSheet('QPushButton {background-color: #A3C1DA; color: red;}')
-                serviceID = presets[index].serviceID
+                serviceID = self.presets[index].serviceID
                 self.favorite(serviceID)
             case 5:
                 self.pushButtonPreset6.setStyleSheet('QPushButton {background-color: #A3C1DA; color: red;}')
-                serviceID = presets[index].serviceID
+                serviceID = self.presets[index].serviceID
                 self.favorite(serviceID)
             case 6:
                 self.pushButtonPreset7.setStyleSheet('QPushButton {background-color: #A3C1DA; color: red;}')
-                serviceID = presets[index].serviceID
+                serviceID = self.presets[index].serviceID
                 self.favorite(serviceID)
             case 7:
                 self.pushButtonPreset8.setStyleSheet('QPushButton {background-color: #A3C1DA; color: red;}')
-                serviceID = presets[index].serviceID
+                serviceID = self.presets[index].serviceID
                 self.favorite(serviceID)
             case 8:
                 self.pushButtonPreset9.setStyleSheet('QPushButton {background-color: #A3C1DA; color: red;}')
-                serviceID = presets[index].serviceID
+                serviceID = self.presets[index].serviceID
                 self.favorite(serviceID)
             case 9:
                 self.pushButtonPreset10.setStyleSheet('QPushButton {background-color: #A3C1DA; color: red;}')
-                serviceID = presets[index].serviceID
+                serviceID = self.presets[index].serviceID
                 self.favorite(serviceID)
             case 10:
                 self.pushButtonPreset11.setStyleSheet('QPushButton {background-color: #A3C1DA; color: red;}')
-                serviceID = presets[index].serviceID
+                serviceID = self.presets[index].serviceID
                 self.favorite(serviceID)
             case 11:
                 self.pushButtonPreset12.setStyleSheet('QPushButton {background-color: #A3C1DA; color: red;}')
-                serviceID = presets[index].serviceID
+                serviceID = self.presets[index].serviceID
                 self.favorite(serviceID)
         if self.checkBoxMemory.isChecked():
             print("Memory checked")
@@ -1369,14 +1750,14 @@ class Dab(QMainWindow, Ui_Form):
             if answer == QMessageBox.StandardButton.Yes:
                 print("Yes")
                 # currentIndex = self.tableWidgetViewServices.currentRow()
-                presets[index].serviceName = services[self.currentIndex].serviceName
-                presets[index].serviceID = services[self.currentIndex].serviceID
-                presets[index].tuneIndex = services[self.currentIndex].tuneIndex
-                presets[index].tuneFrequency = services[self.currentIndex].tuneFrequency
-                presets[index].componentID = services[self.currentIndex].componentID
-                presets[index].EID = services[self.currentIndex].EID
-                presets[index].componentLabel = services[self.currentIndex].componentLabel
-                presets[index].enable = True
+                self.presets[index].serviceName = self.services[self.currentIndex].serviceName
+                self.presets[index].serviceID = self.services[self.currentIndex].serviceID
+                self.presets[index].tuneIndex = self.services[self.currentIndex].tuneIndex
+                self.presets[index].tuneFrequency = self.services[self.currentIndex].tuneFrequency
+                self.presets[index].componentID = self.services[self.currentIndex].componentID
+                self.presets[index].EID = self.services[self.currentIndex].EID
+                self.presets[index].componentLabel = self.services[self.currentIndex].componentLabel
+                self.presets[index].position = str(index)
                 """
                 presets[index].serviceName = "NEW SERVICE"
                 presets[index].serviceID = ""
@@ -1386,7 +1767,7 @@ class Dab(QMainWindow, Ui_Form):
                 presets[index].EID = ""
                 presets[index].componentLabel = ""
                 """
-                savePresets()
+                self.savePresetsMark()
             if answer == QMessageBox.StandardButton.No:
                 print("No")
                 pass
@@ -1398,9 +1779,9 @@ class Dab(QMainWindow, Ui_Form):
         """
         self.currentIndex = 0
         #
-        if nbServices != 0 :
-            for row in range(0, nbServices):
-                if services[row].serviceID == serviceID :
+        if self.nbServices != 0 :
+            for row in range(0, self.nbServices):
+                if self.services[row].serviceID == serviceID :
                     self.currentIndex = row
             print("Current Index: ", self.currentIndex)
             self.startService()
@@ -1753,11 +2134,23 @@ class Dab(QMainWindow, Ui_Form):
 
     def test10(self):
         print("Test10")
-        # test
+        self.saveServicesList()
+
+
+def loadStyleSheet(app, qssFile):
+    file = QFile(qssFile)
+    if file.open(QFile.ReadOnly | QFile.Text):
+        styleSheet = file.readAll().data().decode("utf-8")
+        app.setStyleSheet(styleSheet)
+
 
 def main():
     """Main program"""
     app = QApplication(sys.argv)
+
+    # Load the Combinear.qss style sheet
+    loadStyleSheet(app, "qss/Combinear.qss")
+
     window = Dab()
     window.show()
     sys.exit(app.exec())

@@ -1,0 +1,522 @@
+{
+       "service1": {
+              "Service Name": "ADO dab+        ",
+              "Service ID": "0x0000F21B",
+              "Component ID": "0x01FE000B",
+              "Tune Index": "3",
+              "Tune Frequency kHz": "180064",
+              "EID": "0x49F0",
+              "Component Label": "Grenoble-Etendu ,",
+              "Preset": "0"
+       },
+       "service2": {
+              "Service Name": "AIRZEN RADIO    ",
+              "Service ID": "0x0000F2FE",
+              "Component ID": "0x01FE000A",
+              "Tune Index": "8",
+              "Tune Frequency kHz": "188928",
+              "EID": "0x43F0",
+              "Component Label": "Métropolitain 1 ,",
+              "Preset": "0"
+       },
+       "service3": {
+              "Service Name": "ALPES 1 GRENOBLE",
+              "Service ID": "0x0000F431",
+              "Component ID": "0x01FE000D",
+              "Tune Index": "18",
+              "Tune Frequency kHz": "206352",
+              "EID": "0x4AF0",
+              "Component Label": "Grenoble-Local  ,",
+              "Preset": "0"
+       },
+       "service4": {
+              "Service Name": "BEUR FM         ",
+              "Service ID": "0x0000F229",
+              "Component ID": "0x01FE0001",
+              "Tune Index": "18",
+              "Tune Frequency kHz": "206352",
+              "EID": "0x4AF0",
+              "Component Label": "Grenoble-Local  ,",
+              "Preset": "0"
+       },
+       "service5": {
+              "Service Name": "BFM BUSINESS    ",
+              "Service ID": "0x0000F227",
+              "Component ID": "0x01FE0002",
+              "Tune Index": "9",
+              "Tune Frequency kHz": "190640",
+              "EID": "0x44F0",
+              "Component Label": "Métropolitain 2 ,",
+              "Preset": "0"
+       },
+       "service6": {
+              "Service Name": "BFM RADIO       ",
+              "Service ID": "0x0000F2FD",
+              "Component ID": "0x01FE0003",
+              "Tune Index": "9",
+              "Tune Frequency kHz": "190640",
+              "EID": "0x44F0",
+              "Component Label": "Métropolitain 2 ,",
+              "Preset": "0"
+       },
+       "service7": {
+              "Service Name": "Campus Grenoble ",
+              "Service ID": "0x0000F891",
+              "Component ID": "0x01FE0009",
+              "Tune Index": "18",
+              "Tune Frequency kHz": "206352",
+              "EID": "0x4AF0",
+              "Component Label": "Grenoble-Local  ,",
+              "Preset": "0"
+       },
+       "service8": {
+              "Service Name": "CAPSAO          ",
+              "Service ID": "0x0000F9F1",
+              "Component ID": "0x01FE0003",
+              "Tune Index": "3",
+              "Tune Frequency kHz": "180064",
+              "EID": "0x49F0",
+              "Component Label": "Grenoble-Etendu ,",
+              "Preset": "0"
+       },
+       "service9": {
+              "Service Name": "CHERIE FM       ",
+              "Service ID": "0x0000F2F9",
+              "Component ID": "0x01FE0005",
+              "Tune Index": "8",
+              "Tune Frequency kHz": "188928",
+              "EID": "0x43F0",
+              "Component Label": "Métropolitain 1 ,",
+              "Preset": "0"
+       },
+       "service10": {
+              "Service Name": "CHERIEFMGRENOBLE",
+              "Service ID": "0x0000F224",
+              "Component ID": "0x01FE0006",
+              "Tune Index": "18",
+              "Tune Frequency kHz": "206352",
+              "EID": "0x4AF0",
+              "Component Label": "Grenoble-Local  ,",
+              "Preset": "0"
+       },
+       "service11": {
+              "Service Name": "EUROPE 1        ",
+              "Service ID": "0x0000F213",
+              "Component ID": "0x01FE0004",
+              "Tune Index": "9",
+              "Tune Frequency kHz": "190640",
+              "EID": "0x44F0",
+              "Component Label": "Métropolitain 2 ,",
+              "Preset": "1"
+       },
+       "service12": {
+              "Service Name": "EUROPE 2        ",
+              "Service ID": "0x0000F20E",
+              "Component ID": "0x01FE0006",
+              "Tune Index": "9",
+              "Tune Frequency kHz": "190640",
+              "EID": "0x44F0",
+              "Component Label": "Métropolitain 2 ,",
+              "Preset": "2"
+       },
+       "service13": {
+              "Service Name": "FG. DJ RADIO    ",
+              "Service ID": "0x0000F22C",
+              "Component ID": "0x01FE0002",
+              "Tune Index": "18",
+              "Tune Frequency kHz": "206352",
+              "EID": "0x4AF0",
+              "Component Label": "Grenoble-Local  ,",
+              "Preset": "0"
+       },
+       "service14": {
+              "Service Name": "FIP             ",
+              "Service ID": "0x0000F204",
+              "Component ID": "0x01FE0009",
+              "Tune Index": "9",
+              "Tune Frequency kHz": "190640",
+              "EID": "0x44F0",
+              "Component Label": "Métropolitain 2 ,",
+              "Preset": "0"
+       },
+       "service15": {
+              "Service Name": "FRANCE CULTURE  ",
+              "Service ID": "0x0000F202",
+              "Component ID": "0x01FE000A",
+              "Tune Index": "9",
+              "Tune Frequency kHz": "190640",
+              "EID": "0x44F0",
+              "Component Label": "Métropolitain 2 ,",
+              "Preset": "3"
+       },
+       "service16": {
+              "Service Name": "FRANCE INFO     ",
+              "Service ID": "0x0000F206",
+              "Component ID": "0x01FE0007",
+              "Tune Index": "9",
+              "Tune Frequency kHz": "190640",
+              "EID": "0x44F0",
+              "Component Label": "Métropolitain 2 ,",
+              "Preset": "4"
+       },
+       "service17": {
+              "Service Name": "FRANCE INTER    ",
+              "Service ID": "0x0000F201",
+              "Component ID": "0x01FE0008",
+              "Tune Index": "9",
+              "Tune Frequency kHz": "190640",
+              "EID": "0x44F0",
+              "Component Label": "Métropolitain 2 ,",
+              "Preset": "5"
+       },
+       "service18": {
+              "Service Name": "FRANCE MUSIQUE  ",
+              "Service ID": "0x0000F203",
+              "Component ID": "0x01FE000B",
+              "Tune Index": "9",
+              "Tune Frequency kHz": "190640",
+              "EID": "0x44F0",
+              "Component Label": "Métropolitain 2 ,",
+              "Preset": "6"
+       },
+       "service19": {
+              "Service Name": "FUN RADIO DAB+  ",
+              "Service ID": "0x0000F2F7",
+              "Component ID": "0x01FE0003",
+              "Tune Index": "8",
+              "Tune Frequency kHz": "188928",
+              "EID": "0x43F0",
+              "Component Label": "Métropolitain 1 ,",
+              "Preset": "0"
+       },
+       "service20": {
+              "Service Name": "HOT RADIO       ",
+              "Service ID": "0x0000F880",
+              "Component ID": "0x01FE000C",
+              "Tune Index": "18",
+              "Tune Frequency kHz": "206352",
+              "EID": "0x4AF0",
+              "Component Label": "Grenoble-Local  ,",
+              "Preset": "0"
+       },
+       "service21": {
+              "Service Name": "I S A           ",
+              "Service ID": "0x0000F882",
+              "Component ID": "0x01FE0007",
+              "Tune Index": "18",
+              "Tune Frequency kHz": "206352",
+              "EID": "0x4AF0",
+              "Component Label": "Grenoble-Local  ,",
+              "Preset": "0"
+       },
+       "service22": {
+              "Service Name": "ICI ISERE       ",
+              "Service ID": "0x0000F209",
+              "Component ID": "0x01FE0001",
+              "Tune Index": "3",
+              "Tune Frequency kHz": "180064",
+              "EID": "0x49F0",
+              "Component Label": "Grenoble-Etendu ,",
+              "Preset": "7"
+       },
+       "service23": {
+              "Service Name": "JAZZ RADIO      ",
+              "Service ID": "0x0000F22F",
+              "Component ID": "0x01FE0008",
+              "Tune Index": "3",
+              "Tune Frequency kHz": "180064",
+              "EID": "0x49F0",
+              "Component Label": "Grenoble-Etendu ,",
+              "Preset": "8"
+       },
+       "service24": {
+              "Service Name": "KTO Radio       ",
+              "Service ID": "0x0000F20F",
+              "Component ID": "0x01FE000D",
+              "Tune Index": "9",
+              "Tune Frequency kHz": "190640",
+              "EID": "0x44F0",
+              "Component Label": "Métropolitain 2 ,",
+              "Preset": "0"
+       },
+       "service25": {
+              "Service Name": "LATINA dab+     ",
+              "Service ID": "0x0000F21C",
+              "Component ID": "0x01FE000C",
+              "Tune Index": "8",
+              "Tune Frequency kHz": "188928",
+              "EID": "0x43F0",
+              "Component Label": "Métropolitain 1 ,",
+              "Preset": "0"
+       },
+       "service26": {
+              "Service Name": "M RADIO         ",
+              "Service ID": "0x0000F225",
+              "Component ID": "0x01FE000D",
+              "Tune Index": "8",
+              "Tune Frequency kHz": "188928",
+              "EID": "0x43F0",
+              "Component Label": "Métropolitain 1 ,",
+              "Preset": "0"
+       },
+       "service27": {
+              "Service Name": "MAX RADIO       ",
+              "Service ID": "0x0000F8A1",
+              "Component ID": "0x01FE000A",
+              "Tune Index": "18",
+              "Tune Frequency kHz": "206352",
+              "EID": "0x4AF0",
+              "Component Label": "Grenoble-Local  ,",
+              "Preset": "0"
+       },
+       "service28": {
+              "Service Name": "MELODY          ",
+              "Service ID": "0x0000F9F5",
+              "Component ID": "0x01FE0005",
+              "Tune Index": "3",
+              "Tune Frequency kHz": "180064",
+              "EID": "0x49F0",
+              "Component Label": "Grenoble-Etendu ,",
+              "Preset": "0"
+       },
+       "service29": {
+              "Service Name": "MOUV'           ",
+              "Service ID": "0x0000F208",
+              "Component ID": "0x01FE000C",
+              "Tune Index": "9",
+              "Tune Frequency kHz": "190640",
+              "EID": "0x44F0",
+              "Component Label": "Métropolitain 2 ,",
+              "Preset": "0"
+       },
+       "service30": {
+              "Service Name": "New's FM        ",
+              "Service ID": "0x0000F895",
+              "Component ID": "0x01FE000B",
+              "Tune Index": "18",
+              "Tune Frequency kHz": "206352",
+              "EID": "0x4AF0",
+              "Component Label": "Grenoble-Local  ,",
+              "Preset": "0"
+       },
+       "service31": {
+              "Service Name": "NOSTALGIE       ",
+              "Service ID": "0x0000F2FA",
+              "Component ID": "0x01FE0007",
+              "Tune Index": "8",
+              "Tune Frequency kHz": "188928",
+              "EID": "0x43F0",
+              "Component Label": "Métropolitain 1 ,",
+              "Preset": "9"
+       },
+       "service32": {
+              "Service Name": "NOSTALGIGRENOBLE",
+              "Service ID": "0x0000F218",
+              "Component ID": "0x01FE0005",
+              "Tune Index": "18",
+              "Tune Frequency kHz": "206352",
+              "EID": "0x4AF0",
+              "Component Label": "Grenoble-Local  ,",
+              "Preset": "0"
+       },
+       "service33": {
+              "Service Name": "NRJ             ",
+              "Service ID": "0x0000F2F8",
+              "Component ID": "0x01FE0004",
+              "Tune Index": "8",
+              "Tune Frequency kHz": "188928",
+              "EID": "0x43F0",
+              "Component Label": "Métropolitain 1 ,",
+              "Preset": "10"
+       },
+       "service34": {
+              "Service Name": "NRJ GRENOBLE    ",
+              "Service ID": "0x0000F220",
+              "Component ID": "0x01FE0004",
+              "Tune Index": "18",
+              "Tune Frequency kHz": "206352",
+              "EID": "0x4AF0",
+              "Component Label": "Grenoble-Local  ,",
+              "Preset": "0"
+       },
+       "service35": {
+              "Service Name": "OUI FM dab+     ",
+              "Service ID": "0x0000F21D",
+              "Component ID": "0x01FE000A",
+              "Tune Index": "3",
+              "Tune Frequency kHz": "180064",
+              "EID": "0x49F0",
+              "Component Label": "Grenoble-Etendu ,",
+              "Preset": "0"
+       },
+       "service36": {
+              "Service Name": "R K S           ",
+              "Service ID": "0x0000F8A7",
+              "Component ID": "0x01FE0008",
+              "Tune Index": "18",
+              "Tune Frequency kHz": "206352",
+              "EID": "0x4AF0",
+              "Component Label": "Grenoble-Local  ,",
+              "Preset": "0"
+       },
+       "service37": {
+              "Service Name": "RADIO CLASSIQUE ",
+              "Service ID": "0x0000F221",
+              "Component ID": "0x01FE000B",
+              "Tune Index": "8",
+              "Tune Frequency kHz": "188928",
+              "EID": "0x43F0",
+              "Component Label": "Métropolitain 1 ,",
+              "Preset": "0"
+       },
+       "service38": {
+              "Service Name": "Radio ORIENT    ",
+              "Service ID": "0x0000F22B",
+              "Component ID": "0x01FE0006",
+              "Tune Index": "3",
+              "Tune Frequency kHz": "180064",
+              "EID": "0x49F0",
+              "Component Label": "Grenoble-Etendu ,",
+              "Preset": "0"
+       },
+       "service39": {
+              "Service Name": "RADIO PITCHOUN  ",
+              "Service ID": "0x0000F8FE",
+              "Component ID": "0x01FE0003",
+              "Tune Index": "18",
+              "Tune Frequency kHz": "206352",
+              "EID": "0x4AF0",
+              "Component Label": "Grenoble-Local  ,",
+              "Preset": "0"
+       },
+       "service40": {
+              "Service Name": "RCF ISERE       ",
+              "Service ID": "0x0000F20C",
+              "Component ID": "0x01FE000C",
+              "Tune Index": "3",
+              "Tune Frequency kHz": "180064",
+              "EID": "0x49F0",
+              "Component Label": "Grenoble-Etendu ,",
+              "Preset": "0"
+       },
+       "service41": {
+              "Service Name": "RFM             ",
+              "Service ID": "0x0000F20D",
+              "Component ID": "0x01FE0005",
+              "Tune Index": "9",
+              "Tune Frequency kHz": "190640",
+              "EID": "0x44F0",
+              "Component Label": "Métropolitain 2 ,",
+              "Preset": "0"
+       },
+       "service42": {
+              "Service Name": "RIRE ET CHANSONS",
+              "Service ID": "0x0000F226",
+              "Component ID": "0x01FE0006",
+              "Tune Index": "8",
+              "Tune Frequency kHz": "188928",
+              "EID": "0x43F0",
+              "Component Label": "Métropolitain 1 ,",
+              "Preset": "11"
+       },
+       "service43": {
+              "Service Name": "RMC             ",
+              "Service ID": "0x0000F216",
+              "Component ID": "0x01FE0001",
+              "Tune Index": "9",
+              "Tune Frequency kHz": "190640",
+              "EID": "0x44F0",
+              "Component Label": "Métropolitain 2 ,",
+              "Preset": "0"
+       },
+       "service44": {
+              "Service Name": "RTL DAB+        ",
+              "Service ID": "0x0000F211",
+              "Component ID": "0x01FE0001",
+              "Tune Index": "8",
+              "Tune Frequency kHz": "188928",
+              "EID": "0x43F0",
+              "Component Label": "Métropolitain 1 ,",
+              "Preset": "12"
+       },
+       "service45": {
+              "Service Name": "RTL2 DAB+       ",
+              "Service ID": "0x0000F2F6",
+              "Component ID": "0x01FE0002",
+              "Tune Index": "8",
+              "Tune Frequency kHz": "188928",
+              "EID": "0x43F0",
+              "Component Label": "Métropolitain 1 ,",
+              "Preset": "0"
+       },
+       "service46": {
+              "Service Name": "SCOOP Isère     ",
+              "Service ID": "0x0000F865",
+              "Component ID": "0x01FE0002",
+              "Tune Index": "3",
+              "Tune Frequency kHz": "180064",
+              "EID": "0x49F0",
+              "Component Label": "Grenoble-Etendu ,",
+              "Preset": "0"
+       },
+       "service47": {
+              "Service Name": "SKYROCK         ",
+              "Service ID": "0x0000F214",
+              "Component ID": "0x01FE0008",
+              "Tune Index": "8",
+              "Tune Frequency kHz": "188928",
+              "EID": "0x43F0",
+              "Component Label": "Métropolitain 1 ,",
+              "Preset": "0"
+       },
+       "service48": {
+              "Service Name": "SKYROCK KLASSIKS",
+              "Service ID": "0x0000F2FC",
+              "Component ID": "0x01FE0009",
+              "Tune Index": "8",
+              "Tune Frequency kHz": "188928",
+              "EID": "0x43F0",
+              "Component Label": "Métropolitain 1 ,",
+              "Preset": "0"
+       },
+       "service49": {
+              "Service Name": "SUD RADIO       ",
+              "Service ID": "0x0000F650",
+              "Component ID": "0x01FE0007",
+              "Tune Index": "3",
+              "Tune Frequency kHz": "180064",
+              "EID": "0x49F0",
+              "Component Label": "Grenoble-Etendu ,",
+              "Preset": "0"
+       },
+       "service50": {
+              "Service Name": "TONIC RADIO     ",
+              "Service ID": "0x0000F887",
+              "Component ID": "0x01FE000D",
+              "Tune Index": "3",
+              "Tune Frequency kHz": "180064",
+              "EID": "0x49F0",
+              "Component Label": "Grenoble-Etendu ,",
+              "Preset": "0"
+       },
+       "service51": {
+              "Service Name": "TSF JAZZ        ",
+              "Service ID": "0x0000F223",
+              "Component ID": "0x01FE0004",
+              "Tune Index": "3",
+              "Tune Frequency kHz": "180064",
+              "EID": "0x49F0",
+              "Component Label": "Grenoble-Etendu ,",
+              "Preset": "0"
+       },
+       "service52": {
+              "Service Name": "VIRGIN RADIO    ",
+              "Service ID": "0x0000F835",
+              "Component ID": "0x01FE0009",
+              "Tune Index": "3",
+              "Tune Frequency kHz": "180064",
+              "EID": "0x49F0",
+              "Component Label": "Grenoble-Etendu ,",
+              "Preset": "0"
+       }
+}

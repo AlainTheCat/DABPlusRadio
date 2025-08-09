@@ -1,0 +1,512 @@
+{
+    "service1": {
+        "serviceName": "1 RADIO ONE 1   ",
+        "serviceID": "0x0000F36A",
+        "componentID": "0x01FE000B",
+        "tuneIndex": "18",
+        "tuneFrequency": "206352",
+        "EID": "0x73F0",
+        "componentLabel": "MONTPELLIER 9C  ",
+        "preset": "0"
+    },
+    "service2": {
+        "serviceName": "100/100         ",
+        "serviceID": "0x0000F692",
+        "componentID": "0x01FE0003",
+        "tuneIndex": "28",
+        "tuneFrequency": "220352",
+        "EID": "0x72F0",
+        "componentLabel": "MONTPELLIER 11C ",
+        "preset": "0"
+    },
+    "service3": {
+        "serviceName": "ADO dab+        ",
+        "serviceID": "0x0000F21B",
+        "componentID": "0x01FE0002",
+        "tuneIndex": "28",
+        "tuneFrequency": "220352",
+        "EID": "0x72F0",
+        "componentLabel": "MONTPELLIER 11C ",
+        "preset": "0"
+    },
+    "service4": {
+        "serviceName": "AIRZEN RADIO    ",
+        "serviceID": "0x0000F2FE",
+        "componentID": "0x01FE000A",
+        "tuneIndex": "22",
+        "tuneFrequency": "211648",
+        "EID": "0x43F0",
+        "componentLabel": "M\u00c3\u00a9tropolitain 1 ",
+        "preset": "0"
+    },
+    "service5": {
+        "serviceName": "Beur FM         ",
+        "serviceID": "0x0000F229",
+        "componentID": "0x01FE0006",
+        "tuneIndex": "18",
+        "tuneFrequency": "206352",
+        "EID": "0x73F0",
+        "componentLabel": "MONTPELLIER 9C  ",
+        "preset": "0"
+    },
+    "service6": {
+        "serviceName": "BFM BUSINESS    ",
+        "serviceID": "0x0000F227",
+        "componentID": "0x01FE0002",
+        "tuneIndex": "23",
+        "tuneFrequency": "213360",
+        "EID": "0x44F0",
+        "componentLabel": "M\u00c3\u00a9tropolitain 2 ",
+        "preset": "0"
+    },
+    "service7": {
+        "serviceName": "BFM RADIO       ",
+        "serviceID": "0x0000F2FD",
+        "componentID": "0x01FE0003",
+        "tuneIndex": "23",
+        "tuneFrequency": "213360",
+        "EID": "0x44F0",
+        "componentLabel": "M\u00c3\u00a9tropolitain 2 ",
+        "preset": "0"
+    },
+    "service8": {
+        "serviceName": "CHERIE FM       ",
+        "serviceID": "0x0000F2F9",
+        "componentID": "0x01FE0005",
+        "tuneIndex": "22",
+        "tuneFrequency": "211648",
+        "EID": "0x43F0",
+        "componentLabel": "M\u00c3\u00a9tropolitain 1 ",
+        "preset": "0"
+    },
+    "service9": {
+        "serviceName": "CHERIEFM MONTPEL",
+        "serviceID": "0x0000F224",
+        "componentID": "0x01FE0008",
+        "tuneIndex": "18",
+        "tuneFrequency": "206352",
+        "EID": "0x73F0",
+        "componentLabel": "MONTPELLIER 9C  ",
+        "preset": "0"
+    },
+    "service10": {
+        "serviceName": "CROONER RADIO   ",
+        "serviceID": "0x0000FEE8",
+        "componentID": "0x01FE0007",
+        "tuneIndex": "18",
+        "tuneFrequency": "206352",
+        "EID": "0x73F0",
+        "componentLabel": "MONTPELLIER 9C  ",
+        "preset": "0"
+    },
+    "service11": {
+        "serviceName": "Divergence Fm   ",
+        "serviceID": "0x0000F652",
+        "componentID": "0x01FE0000",
+        "tuneIndex": "18",
+        "tuneFrequency": "206352",
+        "EID": "0x73F0",
+        "componentLabel": "MONTPELLIER 9C  ",
+        "preset": "0"
+    },
+    "service12": {
+        "serviceName": "EUROPE 1        ",
+        "serviceID": "0x0000F213",
+        "componentID": "0x01FE0004",
+        "tuneIndex": "23",
+        "tuneFrequency": "213360",
+        "EID": "0x44F0",
+        "componentLabel": "M\u00c3\u00a9tropolitain 2 ",
+        "preset": "1"
+    },
+    "service13": {
+        "serviceName": "EUROPE 2        ",
+        "serviceID": "0x0000F20E",
+        "componentID": "0x01FE0006",
+        "tuneIndex": "23",
+        "tuneFrequency": "213360",
+        "EID": "0x44F0",
+        "componentLabel": "M\u00c3\u00a9tropolitain 2 ",
+        "preset": "0"
+    },
+    "service14": {
+        "serviceName": "FG. DJ RADIO    ",
+        "serviceID": "0x0000F22C",
+        "componentID": "0x01FE0007",
+        "tuneIndex": "28",
+        "tuneFrequency": "220352",
+        "EID": "0x72F0",
+        "componentLabel": "MONTPELLIER 11C ",
+        "preset": "0"
+    },
+    "service15": {
+        "serviceName": "FIP             ",
+        "serviceID": "0x0000F204",
+        "componentID": "0x01FE0009",
+        "tuneIndex": "23",
+        "tuneFrequency": "213360",
+        "EID": "0x44F0",
+        "componentLabel": "M\u00c3\u00a9tropolitain 2 ",
+        "preset": "3"
+    },
+    "service16": {
+        "serviceName": "FLASH MTP       ",
+        "serviceID": "0x0000F6B7",
+        "componentID": "0x01FE0004",
+        "tuneIndex": "18",
+        "tuneFrequency": "206352",
+        "EID": "0x73F0",
+        "componentLabel": "MONTPELLIER 9C  ",
+        "preset": "0"
+    },
+    "service17": {
+        "serviceName": "FRANCE CULTURE  ",
+        "serviceID": "0x0000F202",
+        "componentID": "0x01FE000A",
+        "tuneIndex": "23",
+        "tuneFrequency": "213360",
+        "EID": "0x44F0",
+        "componentLabel": "M\u00c3\u00a9tropolitain 2 ",
+        "preset": "4"
+    },
+    "service18": {
+        "serviceName": "FRANCE INFO     ",
+        "serviceID": "0x0000F206",
+        "componentID": "0x01FE0007",
+        "tuneIndex": "23",
+        "tuneFrequency": "213360",
+        "EID": "0x44F0",
+        "componentLabel": "M\u00c3\u00a9tropolitain 2 ",
+        "preset": "5"
+    },
+    "service19": {
+        "serviceName": "FRANCE INTER    ",
+        "serviceID": "0x0000F201",
+        "componentID": "0x01FE0008",
+        "tuneIndex": "23",
+        "tuneFrequency": "213360",
+        "EID": "0x44F0",
+        "componentLabel": "M\u00c3\u00a9tropolitain 2 ",
+        "preset": "6"
+    },
+    "service20": {
+        "serviceName": "FRANCE MUSIQUE  ",
+        "serviceID": "0x0000F203",
+        "componentID": "0x01FE000B",
+        "tuneIndex": "23",
+        "tuneFrequency": "213360",
+        "EID": "0x44F0",
+        "componentLabel": "M\u00c3\u00a9tropolitain 2 ",
+        "preset": "7"
+    },
+    "service21": {
+        "serviceName": "FUEGO CAP SAO   ",
+        "serviceID": "0x0000F9F1",
+        "componentID": "0x01FE0004",
+        "tuneIndex": "28",
+        "tuneFrequency": "220352",
+        "EID": "0x72F0",
+        "componentLabel": "MONTPELLIER 11C ",
+        "preset": "0"
+    },
+    "service22": {
+        "serviceName": "FUN RADIO DAB+  ",
+        "serviceID": "0x0000F2F7",
+        "componentID": "0x01FE0003",
+        "tuneIndex": "22",
+        "tuneFrequency": "211648",
+        "EID": "0x43F0",
+        "componentLabel": "M\u00c3\u00a9tropolitain 1 ",
+        "preset": "0"
+    },
+    "service23": {
+        "serviceName": "ICI HERAULT     ",
+        "serviceID": "0x0000F20A",
+        "componentID": "0x01FE0000",
+        "tuneIndex": "28",
+        "tuneFrequency": "220352",
+        "EID": "0x72F0",
+        "componentLabel": "MONTPELLIER 11C ",
+        "preset": "8"
+    },
+    "service24": {
+        "serviceName": "JAZZ RADIO      ",
+        "serviceID": "0x0000F22F",
+        "componentID": "0x01FE0006",
+        "tuneIndex": "28",
+        "tuneFrequency": "220352",
+        "EID": "0x72F0",
+        "componentLabel": "MONTPELLIER 11C ",
+        "preset": "9"
+    },
+    "service25": {
+        "serviceName": "KTO Radio       ",
+        "serviceID": "0x0000F20F",
+        "componentID": "0x01FE000D",
+        "tuneIndex": "23",
+        "tuneFrequency": "213360",
+        "EID": "0x44F0",
+        "componentLabel": "M\u00c3\u00a9tropolitain 2 ",
+        "preset": "0"
+    },
+    "service26": {
+        "serviceName": "LATINA dab+     ",
+        "serviceID": "0x0000F21C",
+        "componentID": "0x01FE000C",
+        "tuneIndex": "22",
+        "tuneFrequency": "211648",
+        "EID": "0x43F0",
+        "componentLabel": "M\u00c3\u00a9tropolitain 1 ",
+        "preset": "0"
+    },
+    "service27": {
+        "serviceName": "M RADIO         ",
+        "serviceID": "0x0000F225",
+        "componentID": "0x01FE000D",
+        "tuneIndex": "22",
+        "tuneFrequency": "211648",
+        "EID": "0x43F0",
+        "componentLabel": "M\u00c3\u00a9tropolitain 1 ",
+        "preset": "0"
+    },
+    "service28": {
+        "serviceName": "MELODY          ",
+        "serviceID": "0x0000F9F5",
+        "componentID": "0x01FE000A",
+        "tuneIndex": "28",
+        "tuneFrequency": "220352",
+        "EID": "0x72F0",
+        "componentLabel": "MONTPELLIER 11C ",
+        "preset": "0"
+    },
+    "service29": {
+        "serviceName": "MOUV'           ",
+        "serviceID": "0x0000F208",
+        "componentID": "0x01FE000C",
+        "tuneIndex": "23",
+        "tuneFrequency": "213360",
+        "EID": "0x44F0",
+        "componentLabel": "M\u00c3\u00a9tropolitain 2 ",
+        "preset": "0"
+    },
+    "service30": {
+        "serviceName": "NOSTALGIE       ",
+        "serviceID": "0x0000F2FA",
+        "componentID": "0x01FE0007",
+        "tuneIndex": "22",
+        "tuneFrequency": "211648",
+        "EID": "0x43F0",
+        "componentLabel": "M\u00c3\u00a9tropolitain 1 ",
+        "preset": "10"
+    },
+    "service31": {
+        "serviceName": "NOVA            ",
+        "serviceID": "0x0000F22A",
+        "componentID": "0x01FE0008",
+        "tuneIndex": "28",
+        "tuneFrequency": "220352",
+        "EID": "0x72F0",
+        "componentLabel": "MONTPELLIER 11C ",
+        "preset": "0"
+    },
+    "service32": {
+        "serviceName": "NRJ             ",
+        "serviceID": "0x0000F2F8",
+        "componentID": "0x01FE0004",
+        "tuneIndex": "22",
+        "tuneFrequency": "211648",
+        "EID": "0x43F0",
+        "componentLabel": "M\u00c3\u00a9tropolitain 1 ",
+        "preset": "11"
+    },
+    "service33": {
+        "serviceName": "NRJ MONTPELLIER ",
+        "serviceID": "0x0000F220",
+        "componentID": "0x01FE0009",
+        "tuneIndex": "18",
+        "tuneFrequency": "206352",
+        "EID": "0x73F0",
+        "componentLabel": "MONTPELLIER 9C  ",
+        "preset": "0"
+    },
+    "service34": {
+        "serviceName": "OUI FM dab+     ",
+        "serviceID": "0x0000F21D",
+        "componentID": "0x01FE0005",
+        "tuneIndex": "28",
+        "tuneFrequency": "220352",
+        "EID": "0x72F0",
+        "componentLabel": "MONTPELLIER 11C ",
+        "preset": "0"
+    },
+    "service35": {
+        "serviceName": "RADIO AVIVA     ",
+        "serviceID": "0x0000F637",
+        "componentID": "0x01FE000A",
+        "tuneIndex": "18",
+        "tuneFrequency": "206352",
+        "EID": "0x73F0",
+        "componentLabel": "MONTPELLIER 9C  ",
+        "preset": "0"
+    },
+    "service36": {
+        "serviceName": "RADIO CAMPUS MTP",
+        "serviceID": "0x0000F657",
+        "componentID": "0x01FE0002",
+        "tuneIndex": "18",
+        "tuneFrequency": "206352",
+        "EID": "0x73F0",
+        "componentLabel": "MONTPELLIER 9C  ",
+        "preset": "0"
+    },
+    "service37": {
+        "serviceName": "RADIO CLAPAS    ",
+        "serviceID": "0x0000F6A0",
+        "componentID": "0x01FE0003",
+        "tuneIndex": "18",
+        "tuneFrequency": "206352",
+        "EID": "0x73F0",
+        "componentLabel": "MONTPELLIER 9C  ",
+        "preset": "0"
+    },
+    "service38": {
+        "serviceName": "RADIO CLASSIQUE ",
+        "serviceID": "0x0000F221",
+        "componentID": "0x01FE000B",
+        "tuneIndex": "22",
+        "tuneFrequency": "211648",
+        "EID": "0x43F0",
+        "componentLabel": "M\u00c3\u00a9tropolitain 1 ",
+        "preset": "0"
+    },
+    "service39": {
+        "serviceName": "RADIO FM-PLUS   ",
+        "serviceID": "0x0000F658",
+        "componentID": "0x01FE0001",
+        "tuneIndex": "18",
+        "tuneFrequency": "206352",
+        "EID": "0x73F0",
+        "componentLabel": "MONTPELLIER 9C  ",
+        "preset": "0"
+    },
+    "service40": {
+        "serviceName": "RADIO LENGA D'OC",
+        "serviceID": "0x0000F6D5",
+        "componentID": "0x01FE0009",
+        "tuneIndex": "28",
+        "tuneFrequency": "220352",
+        "EID": "0x72F0",
+        "componentLabel": "MONTPELLIER 11C ",
+        "preset": "0"
+    },
+    "service41": {
+        "serviceName": "RCF OCCITANIE   ",
+        "serviceID": "0x0000F20C",
+        "componentID": "0x01FE0001",
+        "tuneIndex": "28",
+        "tuneFrequency": "220352",
+        "EID": "0x72F0",
+        "componentLabel": "MONTPELLIER 11C ",
+        "preset": "0"
+    },
+    "service42": {
+        "serviceName": "RFM             ",
+        "serviceID": "0x0000F20D",
+        "componentID": "0x01FE0005",
+        "tuneIndex": "23",
+        "tuneFrequency": "213360",
+        "EID": "0x44F0",
+        "componentLabel": "M\u00c3\u00a9tropolitain 2 ",
+        "preset": "0"
+    },
+    "service43": {
+        "serviceName": "RIRE ET CHANSONS",
+        "serviceID": "0x0000F226",
+        "componentID": "0x01FE0006",
+        "tuneIndex": "22",
+        "tuneFrequency": "211648",
+        "EID": "0x43F0",
+        "componentLabel": "M\u00c3\u00a9tropolitain 1 ",
+        "preset": "12"
+    },
+    "service44": {
+        "serviceName": "RMC             ",
+        "serviceID": "0x0000F216",
+        "componentID": "0x01FE0001",
+        "tuneIndex": "23",
+        "tuneFrequency": "213360",
+        "EID": "0x44F0",
+        "componentLabel": "M\u00c3\u00a9tropolitain 2 ",
+        "preset": "0"
+    },
+    "service45": {
+        "serviceName": "RTL DAB+        ",
+        "serviceID": "0x0000F211",
+        "componentID": "0x01FE0001",
+        "tuneIndex": "22",
+        "tuneFrequency": "211648",
+        "EID": "0x43F0",
+        "componentLabel": "M\u00c3\u00a9tropolitain 1 ",
+        "preset": "0"
+    },
+    "service46": {
+        "serviceName": "RTL2 DAB+       ",
+        "serviceID": "0x0000F2F6",
+        "componentID": "0x01FE0002",
+        "tuneIndex": "22",
+        "tuneFrequency": "211648",
+        "EID": "0x43F0",
+        "componentLabel": "M\u00c3\u00a9tropolitain 1 ",
+        "preset": "0"
+    },
+    "service47": {
+        "serviceName": "RTS LaRADIOduSUD",
+        "serviceID": "0x0000F6FE",
+        "componentID": "0x01FE000C",
+        "tuneIndex": "18",
+        "tuneFrequency": "206352",
+        "EID": "0x73F0",
+        "componentLabel": "MONTPELLIER 9C  ",
+        "preset": "0"
+    },
+    "service48": {
+        "serviceName": "SKYROCK         ",
+        "serviceID": "0x0000F214",
+        "componentID": "0x01FE0008",
+        "tuneIndex": "22",
+        "tuneFrequency": "211648",
+        "EID": "0x43F0",
+        "componentLabel": "M\u00c3\u00a9tropolitain 1 ",
+        "preset": "0"
+    },
+    "service49": {
+        "serviceName": "SKYROCK KLASSIKS",
+        "serviceID": "0x0000F2FC",
+        "componentID": "0x01FE0009",
+        "tuneIndex": "22",
+        "tuneFrequency": "211648",
+        "EID": "0x43F0",
+        "componentLabel": "M\u00c3\u00a9tropolitain 1 ",
+        "preset": "0"
+    },
+    "service50": {
+        "serviceName": "SUD RADIO       ",
+        "serviceID": "0x0000F650",
+        "componentID": "0x01FE000B",
+        "tuneIndex": "28",
+        "tuneFrequency": "220352",
+        "EID": "0x72F0",
+        "componentLabel": "MONTPELLIER 11C ",
+        "preset": "0"
+    },
+    "service51": {
+        "serviceName": "TSF Jazz        ",
+        "serviceID": "0x0000F223",
+        "componentID": "0x01FE000C",
+        "tuneIndex": "28",
+        "tuneFrequency": "220352",
+        "EID": "0x72F0",
+        "componentLabel": "MONTPELLIER 11C ",
+        "preset": "0"
+    }
+}

@@ -1,4 +1,6 @@
+#!/usr/bin/python3
 # This Python file uses the following encoding: utf-8
+# -*- coding: utf-8 -*-
 
 from PySide6.QtWidgets import QCheckBox
 from PySide6.QtGui import QColor, QBrush, QPaintEvent, QPen, QPainter
