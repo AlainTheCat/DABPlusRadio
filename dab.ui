@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1482</width>
-    <height>847</height>
+    <width>1476</width>
+    <height>866</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -61,19 +61,6 @@
      <set>Qt::AlignmentFlag::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEditDateTime">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>410</y>
-      <width>421</width>
-      <height>25</height>
-     </rect>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignmentFlag::AlignCenter</set>
-    </property>
-   </widget>
    <widget class="QLabel" name="labelPicture">
     <property name="geometry">
      <rect>
@@ -93,17 +80,30 @@
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QLabel" name="labelTimeDate">
+   <widget class="QCheckBox" name="checkBoxSaveImage">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>390</y>
-      <width>151</width>
-      <height>17</height>
+      <y>400</y>
+      <width>141</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="text">
-     <string>Date and Time</string>
+     <string>Save the next image</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="labelSavedImage">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>400</y>
+      <width>271</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
     </property>
    </widget>
   </widget>
@@ -401,7 +401,7 @@
      <x>880</x>
      <y>280</y>
      <width>341</width>
-     <height>171</height>
+     <height>81</height>
     </rect>
    </property>
    <property name="title">
@@ -676,136 +676,19 @@
     </rect>
    </property>
    <property name="title">
-    <string>Test</string>
+    <string>Information</string>
    </property>
-   <widget class="QPushButton" name="pushButtonTest1">
+   <widget class="QLabel" name="labelInformation">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>30</y>
-      <width>41</width>
-      <height>25</height>
+      <y>20</y>
+      <width>251</width>
+      <height>61</height>
      </rect>
     </property>
     <property name="text">
-     <string>Test1</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButtonTest2">
-    <property name="geometry">
-     <rect>
-      <x>58</x>
-      <y>30</y>
-      <width>41</width>
-      <height>25</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Test2</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButtonTest3">
-    <property name="geometry">
-     <rect>
-      <x>110</x>
-      <y>30</y>
-      <width>41</width>
-      <height>25</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Test3</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButtonTest4">
-    <property name="geometry">
-     <rect>
-      <x>160</x>
-      <y>30</y>
-      <width>41</width>
-      <height>25</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Test4</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButtonTest5">
-    <property name="geometry">
-     <rect>
-      <x>210</x>
-      <y>30</y>
-      <width>51</width>
-      <height>25</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Test5</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButtonTest6">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>60</y>
-      <width>41</width>
-      <height>25</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Test6</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButtonTest7">
-    <property name="geometry">
-     <rect>
-      <x>60</x>
-      <y>60</y>
-      <width>41</width>
-      <height>25</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Test7</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButtonTest8">
-    <property name="geometry">
-     <rect>
-      <x>110</x>
-      <y>60</y>
-      <width>41</width>
-      <height>25</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Test8</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButtonTest9">
-    <property name="geometry">
-     <rect>
-      <x>160</x>
-      <y>60</y>
-      <width>41</width>
-      <height>25</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Test9</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButtonTest10">
-    <property name="geometry">
-     <rect>
-      <x>210</x>
-      <y>60</y>
-      <width>51</width>
-      <height>25</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Test10</string>
+     <string>DAB+ application with Python 3 and PySide 6</string>
     </property>
    </widget>
   </widget>
@@ -977,17 +860,17 @@
      <string>Preset #12</string>
     </property>
    </widget>
-   <widget class="QCheckBox" name="checkBoxMemory">
+   <widget class="QPushButton" name="pushButtonMemory">
     <property name="geometry">
      <rect>
-      <x>70</x>
+      <x>64</x>
       <y>630</y>
-      <width>78</width>
-      <height>20</height>
+      <width>111</width>
+      <height>24</height>
      </rect>
     </property>
     <property name="text">
-     <string>Memory</string>
+     <string>Change this list</string>
     </property>
    </widget>
   </widget>
@@ -1039,7 +922,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>DAB is inative</string>
+     <string>DAB is inactive</string>
     </property>
    </widget>
    <widget class="QLabel" name="toolStripStatusLabel4">
@@ -1215,6 +1098,32 @@
       <width>211</width>
       <height>31</height>
      </rect>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QGroupBox" name="groupBoxDateTime">
+   <property name="geometry">
+    <rect>
+     <x>880</x>
+     <y>370</y>
+     <width>341</width>
+     <height>80</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>Date and Time</string>
+   </property>
+   <widget class="QLineEdit" name="lineEditDateTime">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>30</y>
+      <width>321</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
     </property>
    </widget>
   </widget>

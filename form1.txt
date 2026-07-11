@@ -149,7 +149,7 @@ Public Class Form1
             ToolStripStatusLabel3.Text = ""
             ToolStripStatusLabel4.Text = ""
             Jack_Status = &H1
-            TimerPowerUp.Interval = 100           ' Waitting for 100mSec to power_up the device ( time to init the HID ? )
+            TimerPowerUp.Interval = 100           ' Waiting for 100mSec to power_up the device ( time to init the HID ? )
             TimerPowerUp.Enabled = True
         End If
     End Sub
@@ -224,7 +224,7 @@ Public Class Form1
             ' first byte is the report ID, e.g. BufferIn(0)
             ' the other bytes are the data from the microcontroller...
 
-            TimerHIDtoSend.Enabled = False          ' Desable HID_Send for 50 mSec
+            TimerHIDtoSend.Enabled = False          ' Disable HID_Send for 50 mSec
             TimerHIDtoSend.Interval = 50
             TimerHIDtoSend.Enabled = True
             Select Case BufferIn(1)
@@ -300,7 +300,7 @@ Public Class Form1
                 Catch ex As Exception
                     MessageBox.Show("Copy the DAB_Default.jpg file from DAB Tuner Si4684\Default_Image folder to C:\SI4684")
                 End Try
-                'Command = &H13                      ' Modify this propertie here to enable another PAD
+                'Command = &H13                      ' Modify this property here to enable another PAD
                 'Argument1 = &H0
                 'Argument2 = &H0
                 'Argument3 = &HB4
@@ -549,7 +549,7 @@ Public Class Form1
                             Dim Index_Image As Integer
                             If Image_Start = True Then
                                 Index_Image = BufferIn(32) + 1
-                                TextBoxPacket.Te xt = Index_Image.ToString
+                                TextBoxPacket.Text = Index_Image.ToString
                                 For k As Integer = 38 To 40
                                     result = result & BufferIn(k).ToString("X02")
                                 Next
@@ -1105,7 +1105,7 @@ Public Class Form1
     End Sub
 
     Private Sub TimerPowerUp_Tick(sender As Object, e As EventArgs) Handles TimerPowerUp.Tick
-        TimerPowerUp.Enabled = False  ' Waitting for 100mSec to power_up the device ( time to init the HID ? )
+        TimerPowerUp.Enabled = False  ' Waiting for 100mSec to power_up the device ( time to init the HID ? )
         Command = &H1           ' Power ON
         Argument1 = &H2         ' &H2 = DAB mode
         Argument2 = &H0

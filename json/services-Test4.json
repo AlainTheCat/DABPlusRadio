@@ -1,0 +1,602 @@
+{
+    "service1": {
+        "Preset": "3",
+        "Service Name": "FRANCE CULTURE  ",
+        "Service ID": "0xf202",
+        "Component ID": "0x1fe000a",
+        "Tune Index": "23",
+        "Tune Frequency kHz": "213360",
+        "EID": "0x44f0",
+        "Component Label": "M\u00e9tropolitain 2 "
+    },
+    "service2": {
+        "Preset": "0",
+        "Service Name": "RFM DAB+        ",
+        "Service ID": "0xf20d",
+        "Component ID": "0x1fe0005",
+        "Tune Index": "23",
+        "Tune Frequency kHz": "213360",
+        "EID": "0x44f0",
+        "Component Label": "M\u00e9tropolitain 2 "
+    },
+    "service3": {
+        "Preset": "5",
+        "Service Name": "FIP             ",
+        "Service ID": "0xf204",
+        "Component ID": "0x1fe0009",
+        "Tune Index": "23",
+        "Tune Frequency kHz": "213360",
+        "EID": "0x44f0",
+        "Component Label": "M\u00e9tropolitain 2 "
+    },
+    "service4": {
+        "Preset": "6",
+        "Service Name": "MOUV'           ",
+        "Service ID": "0xf208",
+        "Component ID": "0x1fe000c",
+        "Tune Index": "23",
+        "Tune Frequency kHz": "213360",
+        "EID": "0x44f0",
+        "Component Label": "M\u00e9tropolitain 2 "
+    },
+    "service5": {
+        "Preset": "0",
+        "Service Name": "KTO Radio       ",
+        "Service ID": "0xf20f",
+        "Component ID": "0x1fe000d",
+        "Tune Index": "23",
+        "Tune Frequency kHz": "213360",
+        "EID": "0x44f0",
+        "Component Label": "M\u00e9tropolitain 2 "
+    },
+    "service6": {
+        "Preset": "0",
+        "Service Name": "BFM RADIO       ",
+        "Service ID": "0xf2fd",
+        "Component ID": "0x1fe0003",
+        "Tune Index": "23",
+        "Tune Frequency kHz": "213360",
+        "EID": "0x44f0",
+        "Component Label": "M\u00e9tropolitain 2 "
+    },
+    "service7": {
+        "Preset": "7",
+        "Service Name": "EUROPE 2 DAB+   ",
+        "Service ID": "0xf20e",
+        "Component ID": "0x1fe0006",
+        "Tune Index": "23",
+        "Tune Frequency kHz": "213360",
+        "EID": "0x44f0",
+        "Component Label": "M\u00e9tropolitain 2 "
+    },
+    "service8": {
+        "Preset": "9",
+        "Service Name": "BFM BUSINESS    ",
+        "Service ID": "0xf227",
+        "Component ID": "0x1fe0002",
+        "Tune Index": "23",
+        "Tune Frequency kHz": "213360",
+        "EID": "0x44f0",
+        "Component Label": "M\u00e9tropolitain 2 "
+    },
+    "service9": {
+        "Preset": "4",
+        "Service Name": "FRANCE MUSIQUE  ",
+        "Service ID": "0xf203",
+        "Component ID": "0x1fe000b",
+        "Tune Index": "23",
+        "Tune Frequency kHz": "213360",
+        "EID": "0x44f0",
+        "Component Label": "M\u00e9tropolitain 2 "
+    },
+    "service10": {
+        "Preset": "8",
+        "Service Name": "EUROPE 1 DAB+   ",
+        "Service ID": "0xf213",
+        "Component ID": "0x1fe0004",
+        "Tune Index": "23",
+        "Tune Frequency kHz": "213360",
+        "EID": "0x44f0",
+        "Component Label": "M\u00e9tropolitain 2 "
+    },
+    "service11": {
+        "Preset": "2",
+        "Service Name": "FRANCE INFO     ",
+        "Service ID": "0xf206",
+        "Component ID": "0x1fe0007",
+        "Tune Index": "23",
+        "Tune Frequency kHz": "213360",
+        "EID": "0x44f0",
+        "Component Label": "M\u00e9tropolitain 2 "
+    },
+    "service12": {
+        "Preset": "9",
+        "Service Name": "RMC             ",
+        "Service ID": "0xf216",
+        "Component ID": "0x1fe0001",
+        "Tune Index": "23",
+        "Tune Frequency kHz": "213360",
+        "EID": "0x44f0",
+        "Component Label": "M\u00e9tropolitain 2 "
+    },
+    "service13": {
+        "Preset": "1",
+        "Service Name": "FRANCE INTER    ",
+        "Service ID": "0xf201",
+        "Component ID": "0x1fe0008",
+        "Tune Index": "23",
+        "Tune Frequency kHz": "213360",
+        "EID": "0x44f0",
+        "Component Label": "M\u00e9tropolitain 2 "
+    },
+    "service14": {
+        "Preset": "",
+        "Service Name": "",
+        "Service ID": "",
+        "Component ID": "",
+        "Tune Index": "",
+        "Tune Frequency kHz": "",
+        "EID": "",
+        "Component Label": ""
+    },
+    "service15": {
+        "Preset": "",
+        "Service Name": "",
+        "Service ID": "",
+        "Component ID": "",
+        "Tune Index": "",
+        "Tune Frequency kHz": "",
+        "EID": "",
+        "Component Label": ""
+    },
+    "service16": {
+        "Preset": "",
+        "Service Name": "",
+        "Service ID": "",
+        "Component ID": "",
+        "Tune Index": "",
+        "Tune Frequency kHz": "",
+        "EID": "",
+        "Component Label": ""
+    },
+    "service17": {
+        "Preset": "",
+        "Service Name": "",
+        "Service ID": "",
+        "Component ID": "",
+        "Tune Index": "",
+        "Tune Frequency kHz": "",
+        "EID": "",
+        "Component Label": ""
+    },
+    "service18": {
+        "Preset": "",
+        "Service Name": "",
+        "Service ID": "",
+        "Component ID": "",
+        "Tune Index": "",
+        "Tune Frequency kHz": "",
+        "EID": "",
+        "Component Label": ""
+    },
+    "service19": {
+        "Preset": "",
+        "Service Name": "",
+        "Service ID": "",
+        "Component ID": "",
+        "Tune Index": "",
+        "Tune Frequency kHz": "",
+        "EID": "",
+        "Component Label": ""
+    },
+    "service20": {
+        "Preset": "",
+        "Service Name": "",
+        "Service ID": "",
+        "Component ID": "",
+        "Tune Index": "",
+        "Tune Frequency kHz": "",
+        "EID": "",
+        "Component Label": ""
+    },
+    "service21": {
+        "Preset": "",
+        "Service Name": "",
+        "Service ID": "",
+        "Component ID": "",
+        "Tune Index": "",
+        "Tune Frequency kHz": "",
+        "EID": "",
+        "Component Label": ""
+    },
+    "service22": {
+        "Preset": "",
+        "Service Name": "",
+        "Service ID": "",
+        "Component ID": "",
+        "Tune Index": "",
+        "Tune Frequency kHz": "",
+        "EID": "",
+        "Component Label": ""
+    },
+    "service23": {
+        "Preset": "",
+        "Service Name": "",
+        "Service ID": "",
+        "Component ID": "",
+        "Tune Index": "",
+        "Tune Frequency kHz": "",
+        "EID": "",
+        "Component Label": ""
+    },
+    "service24": {
+        "Preset": "",
+        "Service Name": "",
+        "Service ID": "",
+        "Component ID": "",
+        "Tune Index": "",
+        "Tune Frequency kHz": "",
+        "EID": "",
+        "Component Label": ""
+    },
+    "service25": {
+        "Preset": "",
+        "Service Name": "",
+        "Service ID": "",
+        "Component ID": "",
+        "Tune Index": "",
+        "Tune Frequency kHz": "",
+        "EID": "",
+        "Component Label": ""
+    },
+    "service26": {
+        "Preset": "",
+        "Service Name": "",
+        "Service ID": "",
+        "Component ID": "",
+        "Tune Index": "",
+        "Tune Frequency kHz": "",
+        "EID": "",
+        "Component Label": ""
+    },
+    "service27": {
+        "Preset": "",
+        "Service Name": "",
+        "Service ID": "",
+        "Component ID": "",
+        "Tune Index": "",
+        "Tune Frequency kHz": "",
+        "EID": "",
+        "Component Label": ""
+    },
+    "service28": {
+        "Preset": "",
+        "Service Name": "",
+        "Service ID": "",
+        "Component ID": "",
+        "Tune Index": "",
+        "Tune Frequency kHz": "",
+        "EID": "",
+        "Component Label": ""
+    },
+    "service29": {
+        "Preset": "",
+        "Service Name": "",
+        "Service ID": "",
+        "Component ID": "",
+        "Tune Index": "",
+        "Tune Frequency kHz": "",
+        "EID": "",
+        "Component Label": ""
+    },
+    "service30": {
+        "Preset": "",
+        "Service Name": "",
+        "Service ID": "",
+        "Component ID": "",
+        "Tune Index": "",
+        "Tune Frequency kHz": "",
+        "EID": "",
+        "Component Label": ""
+    },
+    "service31": {
+        "Preset": "",
+        "Service Name": "",
+        "Service ID": "",
+        "Component ID": "",
+        "Tune Index": "",
+        "Tune Frequency kHz": "",
+        "EID": "",
+        "Component Label": ""
+    },
+    "service32": {
+        "Preset": "",
+        "Service Name": "",
+        "Service ID": "",
+        "Component ID": "",
+        "Tune Index": "",
+        "Tune Frequency kHz": "",
+        "EID": "",
+        "Component Label": ""
+    },
+    "service33": {
+        "Preset": "",
+        "Service Name": "",
+        "Service ID": "",
+        "Component ID": "",
+        "Tune Index": "",
+        "Tune Frequency kHz": "",
+        "EID": "",
+        "Component Label": ""
+    },
+    "service34": {
+        "Preset": "",
+        "Service Name": "",
+        "Service ID": "",
+        "Component ID": "",
+        "Tune Index": "",
+        "Tune Frequency kHz": "",
+        "EID": "",
+        "Component Label": ""
+    },
+    "service35": {
+        "Preset": "",
+        "Service Name": "",
+        "Service ID": "",
+        "Component ID": "",
+        "Tune Index": "",
+        "Tune Frequency kHz": "",
+        "EID": "",
+        "Component Label": ""
+    },
+    "service36": {
+        "Preset": "",
+        "Service Name": "",
+        "Service ID": "",
+        "Component ID": "",
+        "Tune Index": "",
+        "Tune Frequency kHz": "",
+        "EID": "",
+        "Component Label": ""
+    },
+    "service37": {
+        "Preset": "",
+        "Service Name": "",
+        "Service ID": "",
+        "Component ID": "",
+        "Tune Index": "",
+        "Tune Frequency kHz": "",
+        "EID": "",
+        "Component Label": ""
+    },
+    "service38": {
+        "Preset": "",
+        "Service Name": "",
+        "Service ID": "",
+        "Component ID": "",
+        "Tune Index": "",
+        "Tune Frequency kHz": "",
+        "EID": "",
+        "Component Label": ""
+    },
+    "service39": {
+        "Preset": "",
+        "Service Name": "",
+        "Service ID": "",
+        "Component ID": "",
+        "Tune Index": "",
+        "Tune Frequency kHz": "",
+        "EID": "",
+        "Component Label": ""
+    },
+    "service40": {
+        "Preset": "",
+        "Service Name": "",
+        "Service ID": "",
+        "Component ID": "",
+        "Tune Index": "",
+        "Tune Frequency kHz": "",
+        "EID": "",
+        "Component Label": ""
+    },
+    "service41": {
+        "Preset": "",
+        "Service Name": "",
+        "Service ID": "",
+        "Component ID": "",
+        "Tune Index": "",
+        "Tune Frequency kHz": "",
+        "EID": "",
+        "Component Label": ""
+    },
+    "service42": {
+        "Preset": "",
+        "Service Name": "",
+        "Service ID": "",
+        "Component ID": "",
+        "Tune Index": "",
+        "Tune Frequency kHz": "",
+        "EID": "",
+        "Component Label": ""
+    },
+    "service43": {
+        "Preset": "",
+        "Service Name": "",
+        "Service ID": "",
+        "Component ID": "",
+        "Tune Index": "",
+        "Tune Frequency kHz": "",
+        "EID": "",
+        "Component Label": ""
+    },
+    "service44": {
+        "Preset": "",
+        "Service Name": "",
+        "Service ID": "",
+        "Component ID": "",
+        "Tune Index": "",
+        "Tune Frequency kHz": "",
+        "EID": "",
+        "Component Label": ""
+    },
+    "service45": {
+        "Preset": "",
+        "Service Name": "",
+        "Service ID": "",
+        "Component ID": "",
+        "Tune Index": "",
+        "Tune Frequency kHz": "",
+        "EID": "",
+        "Component Label": ""
+    },
+    "service46": {
+        "Preset": "",
+        "Service Name": "",
+        "Service ID": "",
+        "Component ID": "",
+        "Tune Index": "",
+        "Tune Frequency kHz": "",
+        "EID": "",
+        "Component Label": ""
+    },
+    "service47": {
+        "Preset": "",
+        "Service Name": "",
+        "Service ID": "",
+        "Component ID": "",
+        "Tune Index": "",
+        "Tune Frequency kHz": "",
+        "EID": "",
+        "Component Label": ""
+    },
+    "service48": {
+        "Preset": "",
+        "Service Name": "",
+        "Service ID": "",
+        "Component ID": "",
+        "Tune Index": "",
+        "Tune Frequency kHz": "",
+        "EID": "",
+        "Component Label": ""
+    },
+    "service49": {
+        "Preset": "",
+        "Service Name": "",
+        "Service ID": "",
+        "Component ID": "",
+        "Tune Index": "",
+        "Tune Frequency kHz": "",
+        "EID": "",
+        "Component Label": ""
+    },
+    "service50": {
+        "Preset": "",
+        "Service Name": "",
+        "Service ID": "",
+        "Component ID": "",
+        "Tune Index": "",
+        "Tune Frequency kHz": "",
+        "EID": "",
+        "Component Label": ""
+    },
+    "service51": {
+        "Preset": "",
+        "Service Name": "",
+        "Service ID": "",
+        "Component ID": "",
+        "Tune Index": "",
+        "Tune Frequency kHz": "",
+        "EID": "",
+        "Component Label": ""
+    },
+    "service52": {
+        "Preset": "",
+        "Service Name": "",
+        "Service ID": "",
+        "Component ID": "",
+        "Tune Index": "",
+        "Tune Frequency kHz": "",
+        "EID": "",
+        "Component Label": ""
+    },
+    "service53": {
+        "Preset": "",
+        "Service Name": "",
+        "Service ID": "",
+        "Component ID": "",
+        "Tune Index": "",
+        "Tune Frequency kHz": "",
+        "EID": "",
+        "Component Label": ""
+    },
+    "service54": {
+        "Preset": "",
+        "Service Name": "",
+        "Service ID": "",
+        "Component ID": "",
+        "Tune Index": "",
+        "Tune Frequency kHz": "",
+        "EID": "",
+        "Component Label": ""
+    },
+    "service55": {
+        "Preset": "",
+        "Service Name": "",
+        "Service ID": "",
+        "Component ID": "",
+        "Tune Index": "",
+        "Tune Frequency kHz": "",
+        "EID": "",
+        "Component Label": ""
+    },
+    "service56": {
+        "Preset": "",
+        "Service Name": "",
+        "Service ID": "",
+        "Component ID": "",
+        "Tune Index": "",
+        "Tune Frequency kHz": "",
+        "EID": "",
+        "Component Label": ""
+    },
+    "service57": {
+        "Preset": "",
+        "Service Name": "",
+        "Service ID": "",
+        "Component ID": "",
+        "Tune Index": "",
+        "Tune Frequency kHz": "",
+        "EID": "",
+        "Component Label": ""
+    },
+    "service58": {
+        "Preset": "",
+        "Service Name": "",
+        "Service ID": "",
+        "Component ID": "",
+        "Tune Index": "",
+        "Tune Frequency kHz": "",
+        "EID": "",
+        "Component Label": ""
+    },
+    "service59": {
+        "Preset": "",
+        "Service Name": "",
+        "Service ID": "",
+        "Component ID": "",
+        "Tune Index": "",
+        "Tune Frequency kHz": "",
+        "EID": "",
+        "Component Label": ""
+    },
+    "service60": {
+        "Preset": "",
+        "Service Name": "",
+        "Service ID": "",
+        "Component ID": "",
+        "Tune Index": "",
+        "Tune Frequency kHz": "",
+        "EID": "",
+        "Component Label": ""
+    }
+}
