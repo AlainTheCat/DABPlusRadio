@@ -42,3 +42,9 @@ To change the radio design use these commands on terminal:
 To update requirements.txt use this command on terminal:
 
     RadioDAB> pip freeze > requirements.txt
+
+** Documentation **
+
+To make or update the documention:
+
+    pdoc ./dab.py -o ./docs
